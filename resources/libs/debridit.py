@@ -86,7 +86,7 @@ DEBRIDID = {
 		'settings' : os.path.join(ADDOND, 'plugin.video.alphaSeren', 'settings.xml'),
 		'default'  : 'rd.username',
 		'data'     : [ 'rd.username', 'realdebrid.enabled', 'rd.torrents', 'rd.secret', 'rd.refresh', 'rd.hosters', 'rd.client_id', 'rd.autodelete', 'rd.auth_start', 'rd.auth'],
-		'activate' : 'RunPlugin(plugin.video.alphaSeren/?mode=auth_rd)'},
+		'activate' : 'RunPlugin(plugin://plugin.video.alphaSeren/?action=authRealDebrid)'},
 	'serenpm': {
 		'name'     : 'Seren PM',
 		'plugin'   : 'plugin.video.alphaSeren',
@@ -98,7 +98,7 @@ DEBRIDID = {
 		'settings' : os.path.join(ADDOND, 'plugin.video.alphaSeren', 'settings.xml'),
 		'default'  : 'premiumize.id',
 		'data'     : [ 'premiumize.id', 'premiumize.pin', 'premiumize.torrents', 'premiumize.hosters', 'premiumize.enabled', 'premiumize.cacheassist', 'premiumize.autodelete'],
-		'activate' : 'RunPlugin(plugin.video.alphaSeren/?mode=auth_pm)'},
+		'activate' : 'RunPlugin(plugin.video.alphaSeren/?action=openSettings)'},
 	'url': {
 		'name'     : 'URLResolver RD',
 		'plugin'   : 'script.module.urlresolver',
