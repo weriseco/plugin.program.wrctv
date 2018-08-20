@@ -48,7 +48,7 @@ KEEPTRAKT      = wiz.getS('keepdebrid')
 REALSAVE       = wiz.getS('debridlastsave')
 COLOR1         = uservar.COLOR1
 COLOR2         = uservar.COLOR2
-ORDER          = ['gaia', 'gaiapm', 'url', 'url2', 'url3', 'url4']
+ORDER          = ['gaia', 'gaiapm', 'serenrd', 'serenpm', 'url', 'url2', 'url3', 'url4']
 
 DEBRIDID = {
 	'gaia': {
@@ -75,6 +75,30 @@ DEBRIDID = {
 		'default'  : 'accounts.debrid.premiumize.user',
 		'data'     : [ 'accounts.debrid.premiumize.enabled', 'accounts.debrid.premiumize.user', 'accounts.debrid.premiumize.pin'],
 		'activate' : 'RunPlugin(plugin://plugin.video.gaia/?action=premiumizeSettings)'},
+	'serenrd': {
+		'name'     : 'Seren RD',
+		'plugin'   : 'plugin.video.alphaSeren',
+		'saved'    : 'serenrd',
+		'path'     : os.path.join(ADDONS, 'plugin.video.alphaSeren'),
+		'icon'     : os.path.join(ADDONS, 'plugin.video.alphaSeren', 'icon.png'),
+		'fanart'   : os.path.join(ADDONS, 'plugin.video.alphaSeren', 'fanart.jpg'),
+		'file'     : os.path.join(REALFOLD, 'seren_rd'),
+		'settings' : os.path.join(ADDOND, 'plugin.video.alphaSeren', 'settings.xml'),
+		'default'  : 'rd.username',
+		'data'     : [ 'rd.username', 'realdebrid.enabled', 'rd.torrents', 'rd.secret', 'rd.refresh', 'rd.hosters', 'rd.client_id', 'rd.autodelete', 'rd.auth_start', 'rd.auth'],
+		'activate' : 'RunPlugin(plugin.video.alphaSeren/?mode=auth_rd)'},
+	'serenpm': {
+		'name'     : 'Seren PM',
+		'plugin'   : 'plugin.video.alphaSeren',
+		'saved'    : 'serenpm',
+		'path'     : os.path.join(ADDONS, 'plugin.video.alphaSeren'),
+		'icon'     : os.path.join(ADDONS, 'plugin.video.alphaSeren', 'icon.png'),
+		'fanart'   : os.path.join(ADDONS, 'plugin.video.alphaSeren', 'fanart.jpg'),
+		'file'     : os.path.join(REALFOLD, 'seren_pm'),
+		'settings' : os.path.join(ADDOND, 'plugin.video.alphaSeren', 'settings.xml'),
+		'default'  : 'premiumize.id',
+		'data'     : [ 'premiumize.id', 'premiumize.pin', 'premiumize.torrents', 'premiumize.hosters', 'premiumize.enabled', 'premiumize.cacheassist', 'premiumize.autodelete'],
+		'activate' : 'RunPlugin(plugin.video.alphaSeren/?mode=auth_pm)'},
 	'url': {
 		'name'     : 'URLResolver RD',
 		'plugin'   : 'script.module.urlresolver',
@@ -110,7 +134,7 @@ DEBRIDID = {
 		'settings' : os.path.join(ADDOND, 'script.module.urlresolver', 'settings.xml'),
 		'default'  : 'PremiumizeMeResolver_username',
 		'data'     : ['PremiumizeMeResolver_enabled', 'PremiumizeMeResolver_login', 'PremiumizeMeResolver_password', 'PremiumizeMeResolver_priority', 'PremiumizeMeResolver_use_https', 'PremiumizeMeResolver_username'],
-		'activate' : ''},
+		'activate' : 'RunPlugin(plugin://script.module.urlresolver/?mode=auth_pm)'},
 	'url4': {
 		'name'     : 'ResolveURL PM',
 		'plugin'   : 'script.module.resolveurl',
@@ -122,7 +146,7 @@ DEBRIDID = {
 		'settings' : os.path.join(ADDOND, 'script.module.resolveurl', 'settings.xml'),
 		'default'  : 'PremiumizeMeResolver_username',
 		'data'     : ['PremiumizeMeResolver_enabled', 'PremiumizeMeResolver_login', 'PremiumizeMeResolver_password', 'PremiumizeMeResolver_priority', 'PremiumizeMeResolver_use_https', 'PremiumizeMeResolver_username'],
-		'activate' : ''}
+		'activate' : 'RunPlugin(plugin://script.module.resolveurl/?mode=auth_pm)'}
 }
 
 def debridUser(who):
