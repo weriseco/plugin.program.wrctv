@@ -21,7 +21,6 @@ import xbmc, xbmcaddon, xbmcgui, xbmcplugin, os, sys, xbmcvfs, glob
 import shutil
 import urllib2,urllib
 import re
-import zipfile
 import uservar
 import fnmatch
 try:    from sqlite3 import dbapi2 as database
@@ -122,7 +121,13 @@ AUTOFEQ          = int(float(AUTOFEQ)) if AUTOFEQ.isdigit() else 0
 TODAY            = date.today()
 TOMORROW         = TODAY + timedelta(days=1)
 THREEDAYS        = TODAY + timedelta(days=3)
+
 KODIV            = float(xbmc.getInfoLabel("System.BuildVersion")[:4])
+if KODIV > 17:
+	from resources.libs import zfile as zipfile
+else:
+	import zipfile
+
 MCNAME           = wiz.mediaCenter()
 EXCLUDES         = uservar.EXCLUDES
 CACHETEXT        = uservar.CACHETEXT
