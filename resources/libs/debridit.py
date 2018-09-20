@@ -62,7 +62,7 @@ DEBRIDID = {
 		'settings' : os.path.join(ADDOND, 'plugin.video.gaia', 'settings.xml'),
 		'default'  : 'accounts.debrid.realdebrid.id',
 		'data'     : ['accounts.debrid.realdebrid.auth', 'accounts.debrid.realdebrid.enabled', 'accounts.debrid.realdebrid.id', 'accounts.debrid.realdebrid.refresh', 'accounts.debrid.realdebrid.secret', 'accounts.debrid.realdebrid.token'],
-		'activate' : 'RunPlugin(plugin://plugin.video.gaia/?action=realdebridauth)'},
+		'activate' : 'RunPlugin(plugin://plugin.video.gaia/?action=realdebridAuthentication)'},
 	'gaiapm': {
 		'name'     : 'Gaia PM',
 		'plugin'   : 'plugin.video.gaia',
@@ -74,7 +74,7 @@ DEBRIDID = {
 		'settings' : os.path.join(ADDOND, 'plugin.video.gaia', 'settings.xml'),
 		'default'  : 'accounts.debrid.premiumize.user',
 		'data'     : [ 'accounts.debrid.premiumize.enabled', 'accounts.debrid.premiumize.user', 'accounts.debrid.premiumize.pin'],
-		'activate' : 'RunPlugin(plugin://plugin.video.gaia/?action=pmauth)'},
+		'activate' : 'RunPlugin(plugin://plugin.video.gaia/?action=premiumizeSettings)'},
 	'url': {
 		'name'     : 'URLResolver RD',
 		'plugin'   : 'script.module.urlresolver',
@@ -110,7 +110,7 @@ DEBRIDID = {
 		'settings' : os.path.join(ADDOND, 'script.module.urlresolver', 'settings.xml'),
 		'default'  : 'PremiumizeMeResolver_login',
 		'data'     : ['PremiumizeMeResolver_enabled', 'PremiumizeMeResolver_login', 'PremiumizeMeResolver_password', 'PremiumizeMeResolver_priority', 'PremiumizeMeResolver_use_https', 'PremiumizeMeResolver_username'],
-		'activate' : 'RunPlugin(plugin://script.module.urlresolver/?mode=auth_pm)'},
+		'activate' : ''},
 	'url4': {
 		'name'     : 'ResolveURL PM',
 		'plugin'   : 'script.module.resolveurl',
@@ -122,7 +122,7 @@ DEBRIDID = {
 		'settings' : os.path.join(ADDOND, 'script.module.resolveurl', 'settings.xml'),
 		'default'  : 'PremiumizeMeResolver_login',
 		'data'     : ['PremiumizeMeResolver_enabled', 'PremiumizeMeResolver_login', 'PremiumizeMeResolver_password', 'PremiumizeMeResolver_priority', 'PremiumizeMeResolver_use_https', 'PremiumizeMeResolver_username'],
-		'activate' : 'RunPlugin(plugin://script.module.resolveurl/?mode=auth_pm)'}
+		'activate' : ''}
 }
 
 def debridUser(who):

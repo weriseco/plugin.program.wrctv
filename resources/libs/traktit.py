@@ -135,7 +135,7 @@ TRAKTID = {
 		'settings' : os.path.join(ADDOND, 'plugin.video.gaia', 'settings.xml'),
 		'default'  : 'accounts.informants.trakt.user',
 		'data'     : ['accounts.informants.trakt.user', 'accounts.informants.trakt.refresh', 'accounts.informants.trakt.token'],
-		'activate' : 'RunPlugin(plugin://plugin.video.gaia/?action=authTrakt)'},
+		'activate' : 'RunPlugin(plugin://plugin.video.gaia/?action=traktAuthorize)'},
 	'neptune': {
 		'name'     : 'Neptune Rising',
 		'plugin'   : 'plugin.video.neptune',
@@ -171,7 +171,7 @@ TRAKTID = {
 		'settings' : os.path.join(ADDOND, 'script.extendedinfo', 'settings.xml'),
 		'default'  : 'user',
 		'data'     : ['authorization', 'user'],
-		'activate' : 'RunScript(script.extendedinfo, action=authTrakt)'},
+		'activate' : 'RunScript(script.extendedinfo, info=authTrakt)'},
 }
 
 def traktUser(who):
