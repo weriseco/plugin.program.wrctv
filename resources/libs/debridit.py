@@ -108,7 +108,7 @@ DEBRIDID = {
 		'fanart'   : os.path.join(ADDONS, 'script.module.urlresolver', 'fanart.jpg'),
 		'file'     : os.path.join(REALFOLD, 'pmurl_debrid'),
 		'settings' : os.path.join(ADDOND, 'script.module.urlresolver', 'settings.xml'),
-		'default'  : 'PremiumizeMeResolver_login',
+		'default'  : 'PremiumizeMeResolver_username',
 		'data'     : ['PremiumizeMeResolver_enabled', 'PremiumizeMeResolver_login', 'PremiumizeMeResolver_password', 'PremiumizeMeResolver_priority', 'PremiumizeMeResolver_use_https', 'PremiumizeMeResolver_username'],
 		'activate' : ''},
 	'url4': {
@@ -118,9 +118,9 @@ DEBRIDID = {
 		'path'     : os.path.join(ADDONS, 'script.module.resolveurl'),
 		'icon'     : os.path.join(ADDONS, 'script.module.resolveurl', 'icon.png'),
 		'fanart'   : os.path.join(ADDONS, 'script.module.resolveurl', 'fanart.jpg'),
-		'file'     : os.path.join(REALFOLD, 'pmurl_debrid'),
+		'file'     : os.path.join(REALFOLD, 'pmrurl_debrid'),
 		'settings' : os.path.join(ADDOND, 'script.module.resolveurl', 'settings.xml'),
-		'default'  : 'PremiumizeMeResolver_login',
+		'default'  : 'PremiumizeMeResolver_username',
 		'data'     : ['PremiumizeMeResolver_enabled', 'PremiumizeMeResolver_login', 'PremiumizeMeResolver_password', 'PremiumizeMeResolver_priority', 'PremiumizeMeResolver_use_https', 'PremiumizeMeResolver_username'],
 		'activate' : ''}
 }
