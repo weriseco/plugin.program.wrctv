@@ -90,7 +90,7 @@ TRAKTID = {
 		'activate' : 'RunPlugin(plugin://plugin.video.magicality/?action=authTrakt)'},
 		'activate' : 'RunPlugin(plugin://plugin.video.neptune/?action=authTrakt)'},
 	'seren': {
-		'name'     : 'Alpha Seren',
+		'name'     : 'Seren',
 		'plugin'   : 'plugin.video.alphaSeren',
 		'saved'    : 'seren',
 		'path'     : os.path.join(ADDONS, 'plugin.video.alphaSeren'),
@@ -99,7 +99,7 @@ TRAKTID = {
 		'file'     : os.path.join(TRAKTFOLD, 'seren_trakt'),
 		'settings' : os.path.join(ADDOND, 'plugin.video.alphaSeren', 'settings.xml'),
 		'default'  : 'trakt.username',
-		'data'     : ['trakt.refresh', 'trakt.auth', 'trakt.username'],
+		'data'     : ['trakt.username', 'trakt.secret', 'trakt.refresh', 'trakt.clientid', 'trakt.auth'],
 		'activate' : 'RunPlugin(plugin://plugin.video.alphaSeren/?action=authTrakt)'},		
 	'trakt': {
 		'name'     : 'Trakt',
