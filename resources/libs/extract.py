@@ -17,7 +17,7 @@
 #  http://www.gnu.org/copyleft/gpl.html                                        #
 ################################################################################
 
-import xbmcaddon, xbmc, uservar, sys, os, time
+import zipfile, xbmcaddon, xbmc, uservar, sys, os, time
 import wizard as wiz
 
 ADDON_ID       = uservar.ADDON_ID
@@ -35,13 +35,7 @@ KEEPADVANCED   = wiz.getS('keepadvanced')
 KEEPSUPER      = wiz.getS('keepsuper')
 KEEPREPOS      = wiz.getS('keeprepos')
 KEEPWHITELIST  = wiz.getS('keepwhitelist')
-
-KODIV            = float(xbmc.getInfoLabel("System.BuildVersion")[:4])
-if KODIV > 17:
-	from resources.libs import zfile as zipfile
-else:
-	import zipfile
-
+KODIV          = float(xbmc.getInfoLabel("System.BuildVersion")[:4])
 LOGFILES       = ['xbmc.log', 'xbmc.old.log', 'kodi.log', 'kodi.old.log', 'spmc.log', 'spmc.old.log', 'tvmc.log', 'tvmc.old.log', 'Thumbs.db', '.gitignore', '.DS_Store']
 bad_files      = ['onechannelcache.db', 'saltscache.db', 'saltscache.db-shm', 'saltscache.db-wal', 'saltshd.lite.db', 'saltshd.lite.db-shm', 'saltshd.lite.db-wal', 'queue.db', 'commoncache.db', 'access.log', 'trakt.db', 'video_cache.db']
 
@@ -66,7 +60,7 @@ def allWithProgress(_in, _out, dp, ignore, title):
 		errors += 1; error += '%s\n' % e
 		wiz.log('Error Checking Zip: %s' % str(e), xbmc.LOGERROR)
 		return update, errors, error
-
+	
 	whitelist = wiz.whiteList('read')
 	for item in whitelist:
 		try: name, id, fold = item
@@ -74,7 +68,7 @@ def allWithProgress(_in, _out, dp, ignore, title):
 		excludes.append(fold)
 		if fold.startswith('pvr'):
 			wiz.setS('pvrclient', id)
-
+	
 	nFiles = float(len(zin.namelist()))
 	zipsize = wiz.convertSize(sum([item.file_size for item in zin.infolist()]))
 
@@ -117,7 +111,7 @@ def allWithProgress(_in, _out, dp, ignore, title):
 				pass
 		dp.update(prog, line1, line2, line3)
 		if dp.iscanceled(): break
-	if dp.iscanceled():
+	if dp.iscanceled(): 
 		dp.close()
 		wiz.LogNotify("[COLOR %s]%s[/COLOR]" % (COLOR1, ADDONTITLE), "[COLOR %s]Extract Cancelled[/COLOR]" % COLOR2)
 		sys.exit()

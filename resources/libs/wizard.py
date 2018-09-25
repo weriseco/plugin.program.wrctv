@@ -17,7 +17,7 @@
 #  http://www.gnu.org/copyleft/gpl.html                                        #
 ################################################################################
 
-import xbmc, xbmcaddon, xbmcgui, xbmcplugin, os, sys, xbmcvfs, HTMLParser, glob, json
+import xbmc, xbmcaddon, xbmcgui, xbmcplugin, os, sys, xbmcvfs, HTMLParser, glob, zipfile, json
 import shutil
 import errno
 import string
@@ -74,13 +74,7 @@ TOMORROW       = TODAY + timedelta(days=1)
 TWODAYS        = TODAY + timedelta(days=2)
 THREEDAYS      = TODAY + timedelta(days=3)
 ONEWEEK        = TODAY + timedelta(days=7)
-
-KODIV            = float(xbmc.getInfoLabel("System.BuildVersion")[:4])
-if KODIV > 17:
-	from resources.libs import zfile as zipfile
-else:
-	import zipfile
-
+KODIV          = float(xbmc.getInfoLabel("System.BuildVersion")[:4])
 EXCLUDES       = uservar.EXCLUDES
 CACHETEXT      = uservar.CACHETEXT
 CACHEAGE       = uservar.CACHEAGE if str(uservar.CACHEAGE).isdigit() else 30
