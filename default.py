@@ -82,13 +82,10 @@ AUTONEXTRUN      = wiz.getS('nextautocleanup')
 INCLUDEVIDEO     = wiz.getS('includevideo')
 INCLUDEALL       = wiz.getS('includeall')
 INCLUDECHAPPAAI       = wiz.getS('includechappaai')
-INCLUDEURANUS    = wiz.getS('includeuranus')
-INCLUDEDEATH   = wiz.getS('includedeath')
 INCLUDEPLACENTA    = wiz.getS('includeplacenta')
 INCLUDEINCURSION       = wiz.getS('includeincursion')
-INCLUDENUMBERS   = wiz.getS('includenumbers')
 INCLUDEGAIA     = wiz.getS('includegaia')
-INCLUDENEPTUNE   = wiz.getS('includeneptune')
+INCLUDEMAGICALITY   = wiz.getS('includemagicality')
 SEPERATE         = wiz.getS('seperate')
 NOTIFY           = wiz.getS('notify')
 NOTEID           = wiz.getS('noteid')
@@ -802,22 +799,16 @@ def maintMenu(view=None):
 	wizlogsize = ': [COLOR red]Not Found[/COLOR]' if not os.path.exists(WIZLOG) else ": [COLOR springgreen]%s[/COLOR]" % wiz.convertSize(os.path.getsize(WIZLOG))
 	if includeall == 'true':
 		includechappaai = 'true'
-		includeuranus = 'true'
-		includedeath = 'true'
 		includeplacenta = 'true'
 		includeincursion = 'true'
-		includenumbers = 'true'
 		includegaia = 'true'
-		includeneptune = 'true'
+		includemagicality = 'true'
 	else:
 		includechappaai = 'true' if INCLUDECHAPPAAI     == 'true' else 'false'
-		includeuranus = 'true' if INCLUDEURANUS     == 'true' else 'false'
-		includedeath = 'true' if INCLUDEDEATH  == 'true' else 'false'
 		includeplacenta = 'true' if INCLUDEPLACENTA == 'true' else 'false'
 		includeincursion = 'true' if INCLUDEINCURSION  == 'true' else 'false'
-		includenumbers = 'true' if INCLUDENUMBERS == 'true' else 'false'
 		includegaia = 'true' if INCLUDEGAIA   == 'true' else 'false'
-		includeneptune = 'true' if INCLUDENEPTUNE == 'true' else 'false'
+		includemagicality = 'true' if INCLUDEMAGICALITY == 'true' else 'false'
 	sizepack   = wiz.getSize(PACKAGES)
 	sizethumb  = wiz.getSize(THUMBS)
 	archive    = wiz.getSize(ARCHIVE_CACHE)
@@ -911,13 +902,10 @@ def maintMenu(view=None):
 	if includevid == 'true':
 		addFile('--- Include All Video Addons: %s' % includeall.replace('true',on).replace('false',off), 'togglecache', 'includeall', icon=ICONMAINT, themeit=THEME3)
 		addFile('--- Include Chappa\'ai: %s' % includechappaai.replace('true',on).replace('false',off), 'togglecache', 'includechappaai', icon=ICONMAINT, themeit=THEME3)
-		addFile('--- Include Uranus: %s' % includeuranus.replace('true',on).replace('false',off), 'togglecache', 'includeuranus', icon=ICONMAINT, themeit=THEME3)
-		addFile('--- Include Death Streams: %s' % includedeath.replace('true',on).replace('false',off), 'togglecache', 'includedeath', icon=ICONMAINT, themeit=THEME3)
 		addFile('--- Include Placenta: %s' % includeplacenta.replace('true',on).replace('false',off), 'togglecache', 'includeplacenta', icon=ICONMAINT, themeit=THEME3)
 		addFile('--- Include Incursion: %s' % includeincursion.replace('true',on).replace('false',off), 'togglecache', 'includeincursion', icon=ICONMAINT, themeit=THEME3)
-		addFile('--- Include Numbers: %s' % includenumbers.replace('true',on).replace('false',off), 'togglecache', 'includenumbers', icon=ICONMAINT, themeit=THEME3)
 		addFile('--- Include Gaia: %s' % includegaia.replace('true',on).replace('false',off), 'togglecache', 'includegaia', icon=ICONMAINT, themeit=THEME3)
-		addFile('--- Include Neptune Rising: %s' % includeneptune.replace('true',on).replace('false',off), 'togglecache', 'includeneptune', icon=ICONMAINT, themeit=THEME3)
+		addFile('--- Include Magicality: %s' % includemagicality.replace('true',on).replace('false',off), 'togglecache', 'includemagicality', icon=ICONMAINT, themeit=THEME3)
 		addFile('--- Enable All Video Addons', 'togglecache', 'true', icon=ICONMAINT, themeit=THEME3)
 		addFile('--- Disable All Video Addons', 'togglecache', 'false', icon=ICONMAINT, themeit=THEME3)
 	setView('files', 'viewType')
@@ -1765,8 +1753,8 @@ def createMenu(type, add, name):
 	return menu_items
 
 def toggleCache(state):
-	cachelist = ['includevideo', 'includeall', 'includechappaai', 'includeuranus', 'includedeath', 'includeneptune', 'includeplacenta', 'includegaia', 'includeincursion', 'includenumbers']
-	titlelist = ['Include Video Addons', 'Include All Addons', 'Include Chappa\'ai', 'Include Uranus', 'Include Death Streams', 'Include Neptune', 'Include Placenta', 'Include Gaia', 'Include Incursion', 'Include Numbers']
+	cachelist = ['includevideo', 'includeall', 'includechappaai', 'includemagicality', 'includeplacenta', 'includegaia', 'includeincursion']
+	titlelist = ['Include Video Addons', 'Include All Addons', 'Include Chappa\'ai', 'Include Magicality', 'Include Placenta', 'Include Gaia', 'Include Incursion']
 	if state in ['true', 'false']:
 		for item in cachelist:
 			wiz.setS(item, state)
