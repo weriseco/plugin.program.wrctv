@@ -96,13 +96,10 @@ COLOR2         = uservar.COLOR2
 INCLUDEVIDEO   = ADDON.getSetting('includevideo')
 INCLUDEALL     = ADDON.getSetting('includeall')
 INCLUDECHAPPAAI = ADDON.getSetting('includechappaai')
-INCLUDEURANUS = ADDON.getSetting('includeuranus')
-INCLUDEDEATH = ADDON.getSetting('includedeath')
 INCLUDEPLACENTA  = ADDON.getSetting('includeplacenta')
 INCLUDEINCURSION = ADDON.getSetting('includeincursion')
-INCLUDENUMBERS = ADDON.getSetting('includenumbers')
 INCLUDEGAIA   = ADDON.getSetting('includegaia')
-INCLUDENEPTUNE = ADDON.getSetting('includeneptune')
+INCLUDEMAGICALITY = ADDON.getSetting('includemagicality')
 SHOWADULT      = ADDON.getSetting('adult')
 WIZDEBUGGING   = ADDON.getSetting('addon_debug')
 DEBUGLEVEL     = ADDON.getSetting('debuglevel')
@@ -2267,22 +2264,17 @@ def clearCache(over=None):
 	PROFILEADDONDATA = os.path.join(PROFILE,'addon_data')
 	dbfiles   = [
 		## TODO: Double check these
-		(os.path.join(ADDOND, 'plugin.video.uranus', 'cache.db')),
-		(os.path.join(ADDOND, 'plugin.video.uranus', 'meta.db')),
-		(os.path.join(DATABASE,  'DEATHScache.db')),
 		(os.path.join(ADDOND, 'plugin.video.placenta', 'cache.db')),
 		(os.path.join(ADDOND, 'plugin.video.placenta', 'cache.meta.5.db')),
 		(os.path.join(ADDOND, 'plugin.video.placenta', 'cache.providers.13.db')),
 		(os.path.join(ADDOND, 'plugin.video.incursion', 'cache.db')),
 		(os.path.join(ADDOND, 'plugin.video.incursion', 'cache.meta.5.db')),
 		(os.path.join(ADDOND, 'plugin.video.incursion', 'cache.providers.13.db')),
-		(os.path.join(ADDOND, 'plugin.video.numbersbynumbers', 'cache.db')),
-		(os.path.join(ADDOND, 'plugin.video.numbersbynumbers', 'meta.5.db')),
-		(os.path.join(ADDOND, 'plugin.video.numbersbynumbers', 'providers.13.db')),
 		(os.path.join(ADDOND, 'plugin.video.gaia', 'cache.db')),
 		(os.path.join(ADDOND, 'plugin.video.gaia', 'meta.db')),
-		(os.path.join(ADDOND, 'plugin.video.neptune', 'cache.db')),
-		(os.path.join(ADDOND, 'plugin.video.neptune', 'meta.5.db'))]
+		(os.path.join(ADDOND, 'plugin.video.magicality', 'cache.db')),
+		(os.path.join(ADDOND, 'plugin.video.magicality', 'meta.5.db')),
+		(os.path.join(ADDOND, 'plugin.video.magicality', 'cache.providers.13.db'))]
 
 	cachelist = [
 		(PROFILEADDONDATA),
@@ -2338,10 +2330,6 @@ def clearCache(over=None):
 		if INCLUDEALL == 'true': files = dbfiles
 		else:
 			## TODO: Double check these
-			if INCLUDEURANUS == 'true':
-				files.append(os.path.join(ADDOND, 'plugin.video.uranus', 'cache.db'))
-				files.append(os.path.join(ADDOND, 'plugin.video.uranus', 'meta.db'))
-			if INCLUDEDEATH == 'true': files.append(os.path.join(DATABASE, 'DEATHScache.db'))
 			if INCLUDEPLACENTA == 'true':
 				files.append(os.path.join(ADDOND, 'plugin.video.placenta', 'cache.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.placenta', 'meta.5.db'))
@@ -2350,16 +2338,13 @@ def clearCache(over=None):
 				files.append(os.path.join(ADDOND, 'plugin.video.incursion', 'cache.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.incursion', 'meta.5.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.incursion', 'providers.13.db'))
-			if INCLUDENUMBERS == 'true':
-				files.append(os.path.join(ADDOND, 'plugin.video.numbersbynumbers', 'cache.db'))
-				files.append(os.path.join(ADDOND, 'plugin.video.numbersbynumbers', 'meta.5.db'))
-				files.append(os.path.join(ADDOND, 'plugin.video.numbersbynumbers', 'providers.13.db'))
 			if INCLUDEGAIA == 'true':
 				files.append(os.path.join(ADDOND, 'plugin.video.gaia', 'cache.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.gaia', 'meta.db'))
-			if INCLUDENEPTUNE == 'true':
-				files.append(os.path.join(ADDOND, 'plugin.video.neptune', 'cache.db'))
-				files.append(os.path.join(ADDOND, 'plugin.video.neptune', 'meta.5.db'))
+			if INCLUDEMAGICALITY == 'true':
+				files.append(os.path.join(ADDOND, 'plugin.video.magicality', 'cache.db'))
+				files.append(os.path.join(ADDOND, 'plugin.video.magicality', 'meta.5.db'))
+				files.append(os.path.join(ADDOND, 'plugin.video.magicality', 'providers.13.db'))
 		if len(files) > 0:
 			for item in files:
 				if os.path.exists(item):

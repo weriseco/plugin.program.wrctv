@@ -48,7 +48,7 @@ KEEPLOGIN      = wiz.getS('keeplogin')
 LOGINSAVE      = wiz.getS('loginlastsave')
 COLOR1         = uservar.COLOR1
 COLOR2         = uservar.COLOR2
-ORDER          = ['api-opensubtitles', 'api-orion', 'api-chappaai', 'api-uranus', 'api-death', 'api-placenta', 'api-incursion', 'api-numbers', 'api-gaia', 'api-neptune', 'api-eis', 'api-metahandler', 'api-metadatautils']
+ORDER          = ['api-opensubtitles', 'api-orion', 'api-chappaai', 'api-placenta', 'api-incursion', 'api-gaia', 'api-magicality', 'api-eis', 'api-metahandler', 'api-metadatautils']
 
 LOGINID = {
 	'api-opensubtitles': {
@@ -87,30 +87,6 @@ LOGINID = {
 		'default'  : 'tmdb_api',
 		'data'     : ['trakt_api_client_id', 'trakt_api_client_secret', 'tmdb_api', 'tvdb_api', 'lastfm_api_key',  'lastfm_api_shared_secret'],
 		'activate' : ''},
-	'api-uranus': {
-		'name'     : 'Uranus',
-		'plugin'   : 'plugin.video.uranus',
-		'saved'    : 'api-uranus',
-		'path'     : os.path.join(ADDONS, 'plugin.video.uranus'),
-		'icon'     : os.path.join(ADDONS, 'plugin.video.uranus', 'icon.jpg'),
-		'fanart'   : os.path.join(ADDONS, 'plugin.video.uranus', 'fanart.jpg'),
-		'file'     : os.path.join(LOGINFOLD, 'api-uranus'),
-		'settings' : os.path.join(ADDOND, 'plugin.video.uranus', 'settings.xml'),
-		'default'  : 'tmdb_apikey',
-		'data'     : ['tmdb_apikey'],
-		'activate' : ''},
-	'api-death': {
-		'name'     : 'Death Streams',
-		'plugin'   : 'plugin.video.blamo',
-		'saved'    : 'api-death',
-		'path'     : os.path.join(ADDONS, 'plugin.video.blamo'),
-		'icon'     : os.path.join(ADDONS, 'plugin.video.blamo', 'icon.jpg'),
-		'fanart'   : os.path.join(ADDONS, 'plugin.video.blamo', 'fanart.jpg'),
-		'file'     : os.path.join(LOGINFOLD, 'api-blamo'),
-		'settings' : os.path.join(ADDOND, 'plugin.video.blamo', 'settings.xml'),
-		'default'  : 'tmdb_apikey',
-		'data'     : ['fanart_person_key', 'fanart_key', 'tmdb_key', 'tvdb_key'],
-		'activate' : ''},
 	'api-placenta': {
 		'name'     : 'Placenta',
 		'plugin'   : 'plugin.video.placenta',
@@ -135,18 +111,6 @@ LOGINID = {
 		'default'  : 'tm.user',
 		'data'     : ['fanart.tv.user', 'tm.user', 'imdb.user'],
 		'activate' : ''},
-	'api-numbers': {
-		'name'     : 'Numbers',
-		'plugin'   : 'plugin.video.numbersbynumbers',
-		'saved'    : 'api-numbers',
-		'path'     : os.path.join(ADDONS, 'plugin.video.numbersbynumbers'),
-		'icon'     : os.path.join(ADDONS, 'plugin.video.numbersbynumbers', 'icon.png'),
-		'fanart'   : os.path.join(ADDONS, 'plugin.video.numbersbynumbers', 'fanart.jpg'),
-		'file'     : os.path.join(LOGINFOLD, 'api-numbers'),
-		'settings' : os.path.join(ADDOND, 'plugin.video.numbersbynumbers', 'settings.xml'),
-		'default'  : 'tm.user',
-		'data'     : ['fanart.tv.user', 'tm.user', 'imdb.user'],
-		'activate' : ''},
 	'api-gaia': {
 		'name'     : 'Gaia',
 		'plugin'   : 'plugin.video.gaia',
@@ -159,15 +123,15 @@ LOGINID = {
 		'default'  : 'accounts.informants.tmdb.api',
 		'data'     : ['accounts.artwork.fanart.enabled', 'accounts.artwork.fanart.api', 'accounts.informants.imdb.enabled', 'accounts.informants.imdb.user', 'accounts.informants.tmdb.enabled', 'accounts.informants.tmdb.api'],
 		'activate' : 'RunPlugin(plugin://plugin.video.gaia/?action=accountSettings)'},
-	'api-neptune': {
-		'name'     : 'Neptune Rising',
+	'api-magicality': {
+		'name'     : 'Magicality',
 		'plugin'   : 'plugin.video.neptune',
 		'saved'    : 'api-neptune',
-		'path'     : os.path.join(ADDONS, 'plugin.video.neptune'),
-		'icon'     : os.path.join(ADDONS, 'plugin.video.neptune', 'icon.png'),
-		'fanart'   : os.path.join(ADDONS, 'plugin.video.neptune', 'fanart.jpg'),
-		'file'     : os.path.join(LOGINFOLD, 'api-neptune'),
-		'settings' : os.path.join(ADDOND, 'plugin.video.neptune', 'settings.xml'),
+		'path'     : os.path.join(ADDONS, 'plugin.video.magicality'),
+		'icon'     : os.path.join(ADDONS, 'plugin.video.magicality', 'icon.png'),
+		'fanart'   : os.path.join(ADDONS, 'plugin.video.magicality', 'fanart.jpg'),
+		'file'     : os.path.join(LOGINFOLD, 'api-magicality'),
+		'settings' : os.path.join(ADDOND, 'plugin.video.magicality', 'settings.xml'),
 		'default'  : 'tm.user',
 		'data'     : ['fanart.tv.user', 'tm.user', 'imdb.user'],
 		'activate' : ''},
