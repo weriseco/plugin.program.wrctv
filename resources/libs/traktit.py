@@ -48,7 +48,7 @@ KEEPTRAKT      = wiz.getS('keeptrakt')
 TRAKTSAVE      = wiz.getS('traktlastsave')
 COLOR1         = uservar.COLOR1
 COLOR2         = uservar.COLOR2
-ORDER          = ['chappaai', 'uranus', 'death', 'placenta', 'incursion', 'numbers', 'gaia', 'neptune', 'trakt', 'wraith']
+ORDER          = ['chappaai', 'placenta', 'incursion', 'gaia', 'magicality', 'trakt', 'wraith']
 
 TRAKTID = {
 	'chappaai': {
@@ -63,30 +63,6 @@ TRAKTID = {
 		'default'  : 'trakt_access_token',
 		'data'     : ['trakt_access_token', 'trakt_expires_at', 'trakt_period', 'trakt_refresh_token'],
 		'activate' : 'RunPlugin(plugin://plugin.video.chappaai/authenticate_trakt)'},
-	'uranus': {
-		'name'     : 'Uranus',
-		'plugin'   : 'plugin.video.uranus',
-		'saved'    : 'uranus',
-		'path'     : os.path.join(ADDONS, 'plugin.video.uranus'),
-		'icon'     : os.path.join(ADDONS, 'plugin.video.uranus', 'icon.png'),
-		'fanart'   : os.path.join(ADDONS, 'plugin.video.uranus', 'fanart.jpg'),
-		'file'     : os.path.join(TRAKTFOLD, 'uranus_trakt'),
-		'settings' : os.path.join(ADDOND, 'plugin.video.uranus', 'settings.xml'),
-		'default'  : 'trakt.user',
-		'data'     : ['trakt.refresh', 'trakt.token', 'trakt.user'],
-		'activate' : 'RunPlugin(plugin://plugin.video.uranus/?action=authTrakt)'},
-	'death': {
-		'name'     : 'Death Streams',
-		'plugin'   : 'plugin.video.blamo',
-		'saved'    : 'death',
-		'path'     : os.path.join(ADDONS, 'plugin.video.blamo'),
-		'icon'     : os.path.join(ADDONS, 'plugin.video.blamo', 'icon.png'),
-		'fanart'   : os.path.join(ADDONS, 'plugin.video.blamo', 'fanart.jpg'),
-		'file'     : os.path.join(TRAKTFOLD, 'death_trakt'),
-		'settings' : os.path.join(ADDOND, 'plugin.video.blamo', 'settings.xml'),
-		'default'  : 'trakt_user',
-		'data'     : ['trakt_bookmark', 'trakt_oauth_token', 'trakt_offline', 'trakt_refresh_token', 'trakt_timeout', 'trakt_user'],
-		'activate' : 'RunPlugin(plugin://plugin.video.blamo/?mode=auth_trakt)'},
 	'placenta': {
 		'name'     : 'Placenta',
 		'plugin'   : 'plugin.video.placenta',
@@ -112,18 +88,6 @@ TRAKTID = {
 		'default'  : 'trakt.user',
 		'data'     : ['trakt.refresh', 'trakt.token', 'trakt.user'],
 		'activate' : 'RunPlugin(plugin://plugin.video.incursion/?action=authTrakt)'},
-	'numbers': {
-		'name'     : 'numbers',
-		'plugin'   : 'plugin.video.numbersbynumbers',
-		'saved'    : 'numbers',
-		'path'     : os.path.join(ADDONS, 'plugin.video.numbersbynumbers'),
-		'icon'     : os.path.join(ADDONS, 'plugin.video.numbersbynumbers', 'icon.png'),
-		'fanart'   : os.path.join(ADDONS, 'plugin.video.numbersbynumbers', 'fanart.jpg'),
-		'file'     : os.path.join(TRAKTFOLD, 'numbersbynumbers_trakt'),
-		'settings' : os.path.join(ADDOND, 'plugin.video.numbersbynumbers', 'settings.xml'),
-		'default'  : 'trakt.user',
-		'data'     : ['trakt.user', 'trakt.refresh', 'trakt.token'],
-		'activate' : 'RunPlugin(plugin://plugin.video.numbersbynumbers/?action=authTrakt)'},
 	'gaia': {
 		'name'     : 'Gaia',
 		'plugin'   : 'plugin.video.gaia',
@@ -136,18 +100,18 @@ TRAKTID = {
 		'default'  : 'accounts.informants.trakt.user',
 		'data'     : ['accounts.informants.trakt.user', 'accounts.informants.trakt.refresh', 'accounts.informants.trakt.token'],
 		'activate' : 'RunPlugin(plugin://plugin.video.gaia/?action=traktAuthorize)'},
-	'neptune': {
-		'name'     : 'Neptune Rising',
-		'plugin'   : 'plugin.video.neptune',
-		'saved'    : 'neptune',
-		'path'     : os.path.join(ADDONS, 'plugin.video.neptune'),
-		'icon'     : os.path.join(ADDONS, 'plugin.video.neptune', 'icon.png'),
-		'fanart'   : os.path.join(ADDONS, 'plugin.video.neptune', 'fanart.jpg'),
-		'file'     : os.path.join(TRAKTFOLD, 'neptune_trakt'),
-		'settings' : os.path.join(ADDOND, 'plugin.video.neptune', 'settings.xml'),
+	'magicality': {
+		'name'     : 'Magicality',
+		'plugin'   : 'plugin.video.magicality',
+		'saved'    : 'magicality',
+		'path'     : os.path.join(ADDONS, 'plugin.video.magicality'),
+		'icon'     : os.path.join(ADDONS, 'plugin.video.magicality', 'icon.png'),
+		'fanart'   : os.path.join(ADDONS, 'plugin.video.magicality', 'fanart.jpg'),
+		'file'     : os.path.join(TRAKTFOLD, 'magicality_trakt'),
+		'settings' : os.path.join(ADDOND, 'plugin.video.magicality', 'settings.xml'),
 		'default'  : 'trakt.user',
 		'data'     : ['trakt.refresh', 'trakt.token', 'trakt.user'],
-		'activate' : 'RunPlugin(plugin://plugin.video.neptune/?action=authTrakt)'},
+		'activate' : 'RunPlugin(plugin://plugin.video.magicality/?action=authTrakt)'},
 	'trakt': {
 		'name'     : 'Trakt',
 		'plugin'   : 'script.trakt',
