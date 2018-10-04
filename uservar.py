@@ -39,11 +39,11 @@ ART            = os.path.join(PATH, 'resources', 'art')
 #           ICONSETTINGS  = 'http://aftermathwizard.net/repo/wizard/settings.png'
 # Leave as http:// for default icon
 ICONBUILDS     = os.path.join(ART, 'builds.png')
-ICONMAINT      = os.path.join(ART, 'Maintenance.png')
-ICONSPEED      = 'http://'
+ICONMAINT      = os.path.join(ART, 'maintenance.png')
+ICONSPEED      = os.path.join(ART, 'speed.png')
 ICONAPK        = os.path.join(ART, 'apkinstaller.png')
 ICONADDONS     = os.path.join(ART, 'addoninstaller.png')
-ICONYOUTUBE    = 'http://'
+ICONYOUTUBE    = os.path.join(ART, 'youtube.png')
 ICONSAVE       = os.path.join(ART, 'savedata.png')
 ICONTRAKT      = os.path.join(ART, 'keeptrakt.png')
 ICONREAL       = os.path.join(ART, 'keepdebrid.png')
