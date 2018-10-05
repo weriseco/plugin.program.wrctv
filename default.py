@@ -2453,36 +2453,24 @@ def get_params():
 
 #########################################NET TOOLS#############################################
 def net_tools(view=None):
-	if HIDESPACERS == 'No': addFile(wiz.sep('Net Tools'), '', themeit=THEME3)
-	addDir ('Speed Tester' ,'speedtest', icon=ICONSPEED, themeit=THEME1)
+	addDir ('Speed Tester' ,'speedtestM', icon=ICONAPK, themeit=THEME1)
 	if HIDESPACERS == 'No': addFile(wiz.sep(), '', themeit=THEME3)
-	addDir ('View IP Address & MAC Address',        'viewIP',    icon=ICONSPEED, themeit=THEME1)
-	setView('files', 'viewType')
-def viewIP():
-	infoLabel = ['Network.IPAddress',
-				 'Network.MacAddress',]
-	data      = []; x = 0
-	for info in infoLabel:
-		temp = wiz.getInfo(info)
-		y = 0
-		while temp == "Busy" and y < 10:
-			temp = wiz.getInfo(info); y += 1; wiz.log("%s sleep %s" % (info, str(y))); xbmc.sleep(200)
-		data.append(temp)
-		x += 1
-		config    = wiz.getConfig()
-		ipfinal   = '%(ip)s' % config['client'] #else 'Unknown'
-		provider  = '%(isp)s' % config['client'] #else 'Unknown'
-		location  = '%(country)s' % config['client'] #else 'Unknown'
-	addFile('[COLOR %s]Local IP:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, data[0]), '', icon=ICONMAINT, themeit=THEME2)
-	addFile('[COLOR %s]External IP:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, ipfinal), '', icon=ICONMAINT, themeit=THEME2)
-	addFile('[COLOR %s]Provider:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, provider), '', icon=ICONMAINT, themeit=THEME2)
-	addFile('[COLOR %s]Location:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, location), '', icon=ICONMAINT, themeit=THEME2)
-	addFile('[COLOR %s]MacAddress:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, data[1]), '', icon=ICONMAINT, themeit=THEME2)
+	addDir ('View IP Address & MAC Address',        'viewIP',    icon=ICONMAINT, themeit=THEME1)
 	setView('files', 'viewType')
 
-#######################SPEED TEST#######################################
-	addFile('Run Speed Test',             'speed',      icon=ICONMAINT, themeit=THEME3)
+def viewIP():
+	mac,inter_ip,ip,city,state,country,isp = wiz.net_info()
+	addFile('[COLOR %s]Mac:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, mac), '', icon=ICONMAINT, themeit=THEME2)
+	addFile('[COLOR %s]Internal IP: [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, inter_ip), '', icon=ICONMAINT, themeit=THEME2)
+	addFile('[COLOR %s]External IP:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, ip), '', icon=ICONMAINT, themeit=THEME2)
+	addFile('[COLOR %s]City:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, city), '', icon=ICONMAINT, themeit=THEME2)
+	addFile('[COLOR %s]State:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, state), '', icon=ICONMAINT, themeit=THEME2)
+	addFile('[COLOR %s]Country:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, country), '', icon=ICONMAINT, themeit=THEME2)
+	addFile('[COLOR %s]ISP:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, isp), '', icon=ICONMAINT, themeit=THEME2)
+	setView('files', 'viewType')
+
 def speedTest():
+	addFile('Run Speed Test',             'runspeedtest',      icon=ICONMAINT, themeit=THEME3)
 	if os.path.exists(SPEEDTESTFOLD):
 		speedimg = glob.glob(os.path.join(SPEEDTESTFOLD, '*.png'))
 		speedimg.sort(key=lambda f: os.path.getmtime(f), reverse=True)
@@ -2498,12 +2486,12 @@ def clearSpeedTest():
 	speedimg = glob.glob(os.path.join(SPEEDTESTFOLD, '*.png'))
 	for file in speedimg:
 		wiz.removeFile(file)
+
 def viewSpeedTest(img=None):
 	img = os.path.join(SPEEDTESTFOLD, img)
-
 	notify.speedTest(img)
 
-def speed():
+def runspeedtest():
 	try:
 		found = speedtest.speedtest()
 		if not os.path.exists(SPEEDTESTFOLD): os.makedirs(SPEEDTESTFOLD)
@@ -2616,10 +2604,12 @@ elif mode=='restoreextzip'  : restoreextit('build')
 elif mode=='restoreextgui'  : restoreextit('gui')
 elif mode=='restoreextaddon': restoreextit('addondata')
 elif mode=='writeadvanced'  : writeAdvanced(name, url)
-elif mode=='speedtest'      : speedTest()
+elif mode=='speedtest'      : net_tools()
 elif mode=='runspeedtest'   : runSpeedTest(); wiz.refresh()
 elif mode=='clearspeedtest' : clearSpeedTest(); wiz.refresh()
 elif mode=='viewspeedtest'  : viewSpeedTest(name); wiz.refresh()
+
+elif mode=='speedtestM'     : speedTest()
 
 elif mode=='apk'            : apkMenu(name, url)
 elif mode=='apkscrape'      : apkScraper(name)
