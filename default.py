@@ -1150,26 +1150,27 @@ def traktMenu():
 	if HIDESPACERS == 'No': addFile(wiz.sep(), '', icon=ICONTRAKT, themeit=THEME3)
 
 	for trakt in traktit.ORDER:
-		name   = TRAKTID[trakt]['name']
-		path   = TRAKTID[trakt]['path']
-		saved  = TRAKTID[trakt]['saved']
-		file   = TRAKTID[trakt]['file']
-		user   = wiz.getS(saved)
-		auser  = traktit.traktUser(trakt)
-		icon   = TRAKTID[trakt]['icon']   if os.path.exists(path) else ICONTRAKT
-		fanart = TRAKTID[trakt]['fanart'] if os.path.exists(path) else FANART
-		menu = createMenu('saveaddon', 'Trakt', trakt)
-		menu2 = createMenu('save', 'Trakt', trakt)
-		menu.append((THEME2 % '%s Settings' % name,              'RunPlugin(plugin://%s/?mode=opensettings&name=%s&url=trakt)' %   (ADDON_ID, trakt)))
+		if xbmc.getCondVisibility('System.HasAddon(%s)' % TRAKTID[trakt]['plugin']):
+			name   = TRAKTID[trakt]['name']
+			path   = TRAKTID[trakt]['path']
+			saved  = TRAKTID[trakt]['saved']
+			file   = TRAKTID[trakt]['file']
+			user   = wiz.getS(saved)
+			auser  = traktit.traktUser(trakt)
+			icon   = TRAKTID[trakt]['icon']   if os.path.exists(path) else ICONTRAKT
+			fanart = TRAKTID[trakt]['fanart'] if os.path.exists(path) else FANART
+			menu = createMenu('saveaddon', 'Trakt', trakt)
+			menu2 = createMenu('save', 'Trakt', trakt)
+			menu.append((THEME2 % '%s Settings' % name,              'RunPlugin(plugin://%s/?mode=opensettings&name=%s&url=trakt)' %   (ADDON_ID, trakt)))
 
-		addFile('[+]-> %s' % name,     '', icon=icon, fanart=fanart, themeit=THEME3)
-		if not os.path.exists(path): addFile('[COLOR red]Addon Data: Not Installed[/COLOR]', '', icon=icon, fanart=fanart, menu=menu)
-		elif not auser:              addFile('[COLOR red]Addon Data: Not Registered[/COLOR]','authtrakt', trakt, icon=icon, fanart=fanart, menu=menu)
-		else:                        addFile('[COLOR springgreen]Addon Data: %s[/COLOR]' % auser,'authtrakt', trakt, icon=icon, fanart=fanart, menu=menu)
-		if user == "":
-			if os.path.exists(file): addFile('[COLOR red]Saved Data: Save File Found(Import Data)[/COLOR]','importtrakt', trakt, icon=icon, fanart=fanart, menu=menu2)
-			else :                   addFile('[COLOR red]Saved Data: Not Saved[/COLOR]','savetrakt', trakt, icon=icon, fanart=fanart, menu=menu2)
-		else:                        addFile('[COLOR springgreen]Saved Data: %s[/COLOR]' % user, '', icon=icon, fanart=fanart, menu=menu2)
+			addFile('[+]-> %s' % name,     '', icon=icon, fanart=fanart, themeit=THEME3)
+			if not os.path.exists(path): addFile('[COLOR red]Addon Data: Not Installed[/COLOR]', '', icon=icon, fanart=fanart, menu=menu)
+			elif not auser:              addFile('[COLOR red]Addon Data: Not Registered[/COLOR]','authtrakt', trakt, icon=icon, fanart=fanart, menu=menu)
+			else:                        addFile('[COLOR springgreen]Addon Data: %s[/COLOR]' % auser,'authtrakt', trakt, icon=icon, fanart=fanart, menu=menu)
+			if user == "":
+				if os.path.exists(file): addFile('[COLOR red]Saved Data: Save File Found(Import Data)[/COLOR]','importtrakt', trakt, icon=icon, fanart=fanart, menu=menu2)
+				else :                   addFile('[COLOR red]Saved Data: Not Saved[/COLOR]','savetrakt', trakt, icon=icon, fanart=fanart, menu=menu2)
+			else:                        addFile('[COLOR springgreen]Saved Data: %s[/COLOR]' % user, '', icon=icon, fanart=fanart, menu=menu2)
 
 	if HIDESPACERS == 'No': addFile(wiz.sep(), '', themeit=THEME3)
 	addFile('Save All Trakt Data',          'savetrakt',    'all', icon=ICONTRAKT,  themeit=THEME3)
@@ -1188,26 +1189,27 @@ def realMenu():
 	if HIDESPACERS == 'No': addFile(wiz.sep(), '', icon=ICONREAL, themeit=THEME3)
 
 	for debrid in debridit.ORDER:
-		name   = DEBRIDID[debrid]['name']
-		path   = DEBRIDID[debrid]['path']
-		saved  = DEBRIDID[debrid]['saved']
-		file   = DEBRIDID[debrid]['file']
-		user   = wiz.getS(saved)
-		auser  = debridit.debridUser(debrid)
-		icon   = DEBRIDID[debrid]['icon']   if os.path.exists(path) else ICONREAL
-		fanart = DEBRIDID[debrid]['fanart'] if os.path.exists(path) else FANART
-		menu = createMenu('saveaddon', 'Debrid', debrid)
-		menu2 = createMenu('save', 'Debrid', debrid)
-		menu.append((THEME2 % '%s Settings' % name,              'RunPlugin(plugin://%s/?mode=opensettings&name=%s&url=debrid)' %   (ADDON_ID, debrid)))
+		if xbmc.getCondVisibility('System.HasAddon(%s)' % DEBRIDID[debrid]['plugin']):
+			name   = DEBRIDID[debrid]['name']
+			path   = DEBRIDID[debrid]['path']
+			saved  = DEBRIDID[debrid]['saved']
+			file   = DEBRIDID[debrid]['file']
+			user   = wiz.getS(saved)
+			auser  = debridit.debridUser(debrid)
+			icon   = DEBRIDID[debrid]['icon']   if os.path.exists(path) else ICONREAL
+			fanart = DEBRIDID[debrid]['fanart'] if os.path.exists(path) else FANART
+			menu = createMenu('saveaddon', 'Debrid', debrid)
+			menu2 = createMenu('save', 'Debrid', debrid)
+			menu.append((THEME2 % '%s Settings' % name,              'RunPlugin(plugin://%s/?mode=opensettings&name=%s&url=debrid)' %   (ADDON_ID, debrid)))
 
-		addFile('[+]-> %s' % name,     '', icon=icon, fanart=fanart, themeit=THEME3)
-		if not os.path.exists(path): addFile('[COLOR red]Addon Data: Not Installed[/COLOR]', '', icon=icon, fanart=fanart, menu=menu)
-		elif not auser:              addFile('[COLOR red]Addon Data: Not Registered[/COLOR]','authdebrid', debrid, icon=icon, fanart=fanart, menu=menu)
-		else:                        addFile('[COLOR springgreen]Addon Data: %s[/COLOR]' % auser,'authdebrid', debrid, icon=icon, fanart=fanart, menu=menu)
-		if user == "":
-			if os.path.exists(file): addFile('[COLOR red]Saved Data: Save File Found(Import Data)[/COLOR]','importdebrid', debrid, icon=icon, fanart=fanart, menu=menu2)
-			else :                   addFile('[COLOR red]Saved Data: Not Saved[/COLOR]','savedebrid', debrid, icon=icon, fanart=fanart, menu=menu2)
-		else:                        addFile('[COLOR springgreen]Saved Data: %s[/COLOR]' % user, '', icon=icon, fanart=fanart, menu=menu2)
+			addFile('[+]-> %s' % name,     '', icon=icon, fanart=fanart, themeit=THEME3)
+			if not os.path.exists(path): addFile('[COLOR red]Addon Data: Not Installed[/COLOR]', '', icon=icon, fanart=fanart, menu=menu)
+			elif not auser:              addFile('[COLOR red]Addon Data: Not Registered[/COLOR]','authdebrid', debrid, icon=icon, fanart=fanart, menu=menu)
+			else:                        addFile('[COLOR springgreen]Addon Data: %s[/COLOR]' % auser,'authdebrid', debrid, icon=icon, fanart=fanart, menu=menu)
+			if user == "":
+				if os.path.exists(file): addFile('[COLOR red]Saved Data: Save File Found(Import Data)[/COLOR]','importdebrid', debrid, icon=icon, fanart=fanart, menu=menu2)
+				else :                   addFile('[COLOR red]Saved Data: Not Saved[/COLOR]','savedebrid', debrid, icon=icon, fanart=fanart, menu=menu2)
+			else:                        addFile('[COLOR springgreen]Saved Data: %s[/COLOR]' % user, '', icon=icon, fanart=fanart, menu=menu2)
 
 	if HIDESPACERS == 'No': addFile(wiz.sep(), '', themeit=THEME3)
 	addFile('Save All Real Debrid Data',          'savedebrid',    'all', icon=ICONREAL,  themeit=THEME3)
@@ -1226,26 +1228,27 @@ def loginMenu():
 	if HIDESPACERS == 'No': addFile(wiz.sep(), '', icon=ICONLOGIN, themeit=THEME3)
 
 	for login in loginit.ORDER:
-		name   = LOGINID[login]['name']
-		path   = LOGINID[login]['path']
-		saved  = LOGINID[login]['saved']
-		file   = LOGINID[login]['file']
-		user   = wiz.getS(saved)
-		auser  = loginit.loginUser(login)
-		icon   = LOGINID[login]['icon']   if os.path.exists(path) else ICONLOGIN
-		fanart = LOGINID[login]['fanart'] if os.path.exists(path) else FANART
-		menu = createMenu('saveaddon', 'Login', login)
-		menu2 = createMenu('save', 'Login', login)
-		menu.append((THEME2 % '%s Settings' % name,              'RunPlugin(plugin://%s/?mode=opensettings&name=%s&url=login)' %   (ADDON_ID, login)))
+		if xbmc.getCondVisibility('System.HasAddon(%s)' % LOGINID[login]['plugin']):
+			name   = LOGINID[login]['name']
+			path   = LOGINID[login]['path']
+			saved  = LOGINID[login]['saved']
+			file   = LOGINID[login]['file']
+			user   = wiz.getS(saved)
+			auser  = loginit.loginUser(login)
+			icon   = LOGINID[login]['icon']   if os.path.exists(path) else ICONLOGIN
+			fanart = LOGINID[login]['fanart'] if os.path.exists(path) else FANART
+			menu = createMenu('saveaddon', 'Login', login)
+			menu2 = createMenu('save', 'Login', login)
+			menu.append((THEME2 % '%s Settings' % name,              'RunPlugin(plugin://%s/?mode=opensettings&name=%s&url=login)' %   (ADDON_ID, login)))
 
-		addFile('[+]-> %s' % name,     '', icon=icon, fanart=fanart, themeit=THEME3)
-		if not os.path.exists(path): addFile('[COLOR red]Addon Data: Not Installed[/COLOR]', '', icon=icon, fanart=fanart, menu=menu)
-		elif not auser:              addFile('[COLOR red]Addon Data: Not Registered[/COLOR]','authlogin', login, icon=icon, fanart=fanart, menu=menu)
-		else:                        addFile('[COLOR springgreen]Addon Data: %s[/COLOR]' % auser,'authlogin', login, icon=icon, fanart=fanart, menu=menu)
-		if user == "":
-			if os.path.exists(file): addFile('[COLOR red]Saved Data: Save File Found(Import Data)[/COLOR]','importlogin', login, icon=icon, fanart=fanart, menu=menu2)
-			else :                   addFile('[COLOR red]Saved Data: Not Saved[/COLOR]','savelogin', login, icon=icon, fanart=fanart, menu=menu2)
-		else:                        addFile('[COLOR springgreen]Saved Data: %s[/COLOR]' % user, '', icon=icon, fanart=fanart, menu=menu2)
+			addFile('[+]-> %s' % name,     '', icon=icon, fanart=fanart, themeit=THEME3)
+			if not os.path.exists(path): addFile('[COLOR red]Addon Data: Not Installed[/COLOR]', '', icon=icon, fanart=fanart, menu=menu)
+			elif not auser:              addFile('[COLOR red]Addon Data: Not Registered[/COLOR]','authlogin', login, icon=icon, fanart=fanart, menu=menu)
+			else:                        addFile('[COLOR springgreen]Addon Data: %s[/COLOR]' % auser,'authlogin', login, icon=icon, fanart=fanart, menu=menu)
+			if user == "":
+				if os.path.exists(file): addFile('[COLOR red]Saved Data: Save File Found(Import Data)[/COLOR]','importlogin', login, icon=icon, fanart=fanart, menu=menu2)
+				else :                   addFile('[COLOR red]Saved Data: Not Saved[/COLOR]','savelogin', login, icon=icon, fanart=fanart, menu=menu2)
+			else:                        addFile('[COLOR springgreen]Saved Data: %s[/COLOR]' % user, '', icon=icon, fanart=fanart, menu=menu2)
 
 	if HIDESPACERS == 'No': addFile(wiz.sep(), '', themeit=THEME3)
 	addFile('Save All API Keys',          'savelogin',    'all', icon=ICONLOGIN,  themeit=THEME3)
