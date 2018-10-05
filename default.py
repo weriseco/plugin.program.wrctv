@@ -910,6 +910,24 @@ def maintMenu(view=None):
 		addFile('--- Disable All Video Addons', 'togglecache', 'false', icon=ICONMAINT, themeit=THEME3)
 	setView('files', 'viewType')
 
+#########################################NET TOOLS#############################################
+def net_tools(view=None):
+	addDir ('Speed Tester' ,'speedtestM', icon=ICONAPK, themeit=THEME1)
+	if HIDESPACERS == 'No': addFile(wiz.sep(), '', themeit=THEME3)
+	addDir ('View IP Address & MAC Address',        'viewIP',    icon=ICONMAINT, themeit=THEME1)
+	setView('files', 'viewType')
+
+def viewIP():
+	mac,inter_ip,ip,city,state,country,isp = wiz.net_info()
+	addFile('[COLOR %s]Mac:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, mac), '', icon=ICONMAINT, themeit=THEME2)
+	addFile('[COLOR %s]Internal IP: [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, inter_ip), '', icon=ICONMAINT, themeit=THEME2)
+	addFile('[COLOR %s]External IP:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, ip), '', icon=ICONMAINT, themeit=THEME2)
+	addFile('[COLOR %s]City:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, city), '', icon=ICONMAINT, themeit=THEME2)
+	addFile('[COLOR %s]State:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, state), '', icon=ICONMAINT, themeit=THEME2)
+	addFile('[COLOR %s]Country:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, country), '', icon=ICONMAINT, themeit=THEME2)
+	addFile('[COLOR %s]ISP:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, isp), '', icon=ICONMAINT, themeit=THEME2)
+	setView('files', 'viewType')
+
 def speedTest():
 	addFile('Run Speed Test',             'runspeedtest',      icon=ICONMAINT, themeit=THEME3)
 	if os.path.exists(SPEEDTESTFOLD):
@@ -2451,58 +2469,6 @@ def get_params():
 
 		return param
 
-#########################################NET TOOLS#############################################
-def net_tools(view=None):
-	addDir ('Speed Tester' ,'speedtestM', icon=ICONAPK, themeit=THEME1)
-	if HIDESPACERS == 'No': addFile(wiz.sep(), '', themeit=THEME3)
-	addDir ('View IP Address & MAC Address',        'viewIP',    icon=ICONMAINT, themeit=THEME1)
-	setView('files', 'viewType')
-
-def viewIP():
-	mac,inter_ip,ip,city,state,country,isp = wiz.net_info()
-	addFile('[COLOR %s]Mac:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, mac), '', icon=ICONMAINT, themeit=THEME2)
-	addFile('[COLOR %s]Internal IP: [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, inter_ip), '', icon=ICONMAINT, themeit=THEME2)
-	addFile('[COLOR %s]External IP:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, ip), '', icon=ICONMAINT, themeit=THEME2)
-	addFile('[COLOR %s]City:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, city), '', icon=ICONMAINT, themeit=THEME2)
-	addFile('[COLOR %s]State:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, state), '', icon=ICONMAINT, themeit=THEME2)
-	addFile('[COLOR %s]Country:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, country), '', icon=ICONMAINT, themeit=THEME2)
-	addFile('[COLOR %s]ISP:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, isp), '', icon=ICONMAINT, themeit=THEME2)
-	setView('files', 'viewType')
-
-def speedTest():
-	addFile('Run Speed Test',             'runspeedtest',      icon=ICONMAINT, themeit=THEME3)
-	if os.path.exists(SPEEDTESTFOLD):
-		speedimg = glob.glob(os.path.join(SPEEDTESTFOLD, '*.png'))
-		speedimg.sort(key=lambda f: os.path.getmtime(f), reverse=True)
-		if len(speedimg) > 0:
-			addFile('Clear Results',          'clearspeedtest',    icon=ICONMAINT, themeit=THEME3)
-			addFile(wiz.sep('Previous Runs'), '', icon=ICONMAINT, themeit=THEME3)
-			for item in speedimg:
-				created = datetime.fromtimestamp(os.path.getmtime(item)).strftime('%m/%d/%Y %H:%M:%S')
-				img = item.replace(os.path.join(SPEEDTESTFOLD, ''), '')
-				addFile('[B]%s[/B]: [I]Ran %s[/I]' % (img, created), 'viewspeedtest', img, icon=ICONMAINT, themeit=THEME3)
-
-def clearSpeedTest():
-	speedimg = glob.glob(os.path.join(SPEEDTESTFOLD, '*.png'))
-	for file in speedimg:
-		wiz.removeFile(file)
-
-def viewSpeedTest(img=None):
-	img = os.path.join(SPEEDTESTFOLD, img)
-	notify.speedTest(img)
-
-def runspeedtest():
-	try:
-		found = speedtest.speedtest()
-		if not os.path.exists(SPEEDTESTFOLD): os.makedirs(SPEEDTESTFOLD)
-		urlsplits = found[0].split('/')
-		dest = os.path.join(SPEEDTESTFOLD, urlsplits[-1])
-		urllib.urlretrieve(found[0], dest)
-		viewSpeedTest(urlsplits[-1])
-	except:
-		wiz.log("[Speed Test] Error Running Speed Test")
-		pass
-
 ################KODI VERSION##########################################
 def KodiVer():
 	if KODIV >= 16.0 and KODIV <= 16.9:vername = 'Jarvis'
@@ -2608,6 +2574,7 @@ elif mode=='speedtest'      : net_tools()
 elif mode=='runspeedtest'   : runSpeedTest(); wiz.refresh()
 elif mode=='clearspeedtest' : clearSpeedTest(); wiz.refresh()
 elif mode=='viewspeedtest'  : viewSpeedTest(name); wiz.refresh()
+elif mode=="viewIP"         : viewIP();
 
 elif mode=='speedtestM'     : speedTest()
 
