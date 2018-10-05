@@ -905,6 +905,24 @@ def maintMenu(view=None):
 		addFile('--- Disable All Video Addons', 'togglecache', 'false', icon=ICONMAINT, themeit=THEME3)
 	setView('files', 'viewType')
 
+#########################################NET TOOLS#############################################
+def net_tools(view=None):
+	addDir ('Speed Tester' ,'speedtestM', icon=ICONAPK, themeit=THEME1)
+	if HIDESPACERS == 'No': addFile(wiz.sep(), '', themeit=THEME3)
+	addDir ('View IP Address & MAC Address',        'viewIP',    icon=ICONMAINT, themeit=THEME1)
+	setView('files', 'viewType')
+
+def viewIP():
+	mac,inter_ip,ip,city,state,country,isp = wiz.net_info()
+	addFile('[COLOR %s]Mac:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, mac), '', icon=ICONMAINT, themeit=THEME2)
+	addFile('[COLOR %s]Internal IP: [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, inter_ip), '', icon=ICONMAINT, themeit=THEME2)
+	addFile('[COLOR %s]External IP:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, ip), '', icon=ICONMAINT, themeit=THEME2)
+	addFile('[COLOR %s]City:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, city), '', icon=ICONMAINT, themeit=THEME2)
+	addFile('[COLOR %s]State:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, state), '', icon=ICONMAINT, themeit=THEME2)
+	addFile('[COLOR %s]Country:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, country), '', icon=ICONMAINT, themeit=THEME2)
+	addFile('[COLOR %s]ISP:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, isp), '', icon=ICONMAINT, themeit=THEME2)
+	setView('files', 'viewType')
+
 def speedTest():
 	addFile('Run Speed Test',             'runspeedtest',      icon=ICONMAINT, themeit=THEME3)
 	if os.path.exists(SPEEDTESTFOLD):
@@ -1150,26 +1168,27 @@ def traktMenu():
 	if HIDESPACERS == 'No': addFile(wiz.sep(), '', icon=ICONTRAKT, themeit=THEME3)
 
 	for trakt in traktit.ORDER:
-		name   = TRAKTID[trakt]['name']
-		path   = TRAKTID[trakt]['path']
-		saved  = TRAKTID[trakt]['saved']
-		file   = TRAKTID[trakt]['file']
-		user   = wiz.getS(saved)
-		auser  = traktit.traktUser(trakt)
-		icon   = TRAKTID[trakt]['icon']   if os.path.exists(path) else ICONTRAKT
-		fanart = TRAKTID[trakt]['fanart'] if os.path.exists(path) else FANART
-		menu = createMenu('saveaddon', 'Trakt', trakt)
-		menu2 = createMenu('save', 'Trakt', trakt)
-		menu.append((THEME2 % '%s Settings' % name,              'RunPlugin(plugin://%s/?mode=opensettings&name=%s&url=trakt)' %   (ADDON_ID, trakt)))
+		if xbmc.getCondVisibility('System.HasAddon(%s)' % TRAKTID[trakt]['plugin']):
+			name   = TRAKTID[trakt]['name']
+			path   = TRAKTID[trakt]['path']
+			saved  = TRAKTID[trakt]['saved']
+			file   = TRAKTID[trakt]['file']
+			user   = wiz.getS(saved)
+			auser  = traktit.traktUser(trakt)
+			icon   = TRAKTID[trakt]['icon']   if os.path.exists(path) else ICONTRAKT
+			fanart = TRAKTID[trakt]['fanart'] if os.path.exists(path) else FANART
+			menu = createMenu('saveaddon', 'Trakt', trakt)
+			menu2 = createMenu('save', 'Trakt', trakt)
+			menu.append((THEME2 % '%s Settings' % name,              'RunPlugin(plugin://%s/?mode=opensettings&name=%s&url=trakt)' %   (ADDON_ID, trakt)))
 
-		addFile('[+]-> %s' % name,     '', icon=icon, fanart=fanart, themeit=THEME3)
-		if not os.path.exists(path): addFile('[COLOR red]Addon Data: Not Installed[/COLOR]', '', icon=icon, fanart=fanart, menu=menu)
-		elif not auser:              addFile('[COLOR red]Addon Data: Not Registered[/COLOR]','authtrakt', trakt, icon=icon, fanart=fanart, menu=menu)
-		else:                        addFile('[COLOR springgreen]Addon Data: %s[/COLOR]' % auser,'authtrakt', trakt, icon=icon, fanart=fanart, menu=menu)
-		if user == "":
-			if os.path.exists(file): addFile('[COLOR red]Saved Data: Save File Found(Import Data)[/COLOR]','importtrakt', trakt, icon=icon, fanart=fanart, menu=menu2)
-			else :                   addFile('[COLOR red]Saved Data: Not Saved[/COLOR]','savetrakt', trakt, icon=icon, fanart=fanart, menu=menu2)
-		else:                        addFile('[COLOR springgreen]Saved Data: %s[/COLOR]' % user, '', icon=icon, fanart=fanart, menu=menu2)
+			addFile('[+]-> %s' % name,     '', icon=icon, fanart=fanart, themeit=THEME3)
+			if not os.path.exists(path): addFile('[COLOR red]Addon Data: Not Installed[/COLOR]', '', icon=icon, fanart=fanart, menu=menu)
+			elif not auser:              addFile('[COLOR red]Addon Data: Not Registered[/COLOR]','authtrakt', trakt, icon=icon, fanart=fanart, menu=menu)
+			else:                        addFile('[COLOR springgreen]Addon Data: %s[/COLOR]' % auser,'authtrakt', trakt, icon=icon, fanart=fanart, menu=menu)
+			if user == "":
+				if os.path.exists(file): addFile('[COLOR red]Saved Data: Save File Found(Import Data)[/COLOR]','importtrakt', trakt, icon=icon, fanart=fanart, menu=menu2)
+				else :                   addFile('[COLOR red]Saved Data: Not Saved[/COLOR]','savetrakt', trakt, icon=icon, fanart=fanart, menu=menu2)
+			else:                        addFile('[COLOR springgreen]Saved Data: %s[/COLOR]' % user, '', icon=icon, fanart=fanart, menu=menu2)
 
 	if HIDESPACERS == 'No': addFile(wiz.sep(), '', themeit=THEME3)
 	addFile('Save All Trakt Data',          'savetrakt',    'all', icon=ICONTRAKT,  themeit=THEME3)
@@ -1188,26 +1207,27 @@ def realMenu():
 	if HIDESPACERS == 'No': addFile(wiz.sep(), '', icon=ICONREAL, themeit=THEME3)
 
 	for debrid in debridit.ORDER:
-		name   = DEBRIDID[debrid]['name']
-		path   = DEBRIDID[debrid]['path']
-		saved  = DEBRIDID[debrid]['saved']
-		file   = DEBRIDID[debrid]['file']
-		user   = wiz.getS(saved)
-		auser  = debridit.debridUser(debrid)
-		icon   = DEBRIDID[debrid]['icon']   if os.path.exists(path) else ICONREAL
-		fanart = DEBRIDID[debrid]['fanart'] if os.path.exists(path) else FANART
-		menu = createMenu('saveaddon', 'Debrid', debrid)
-		menu2 = createMenu('save', 'Debrid', debrid)
-		menu.append((THEME2 % '%s Settings' % name,              'RunPlugin(plugin://%s/?mode=opensettings&name=%s&url=debrid)' %   (ADDON_ID, debrid)))
+		if xbmc.getCondVisibility('System.HasAddon(%s)' % DEBRIDID[debrid]['plugin']):
+			name   = DEBRIDID[debrid]['name']
+			path   = DEBRIDID[debrid]['path']
+			saved  = DEBRIDID[debrid]['saved']
+			file   = DEBRIDID[debrid]['file']
+			user   = wiz.getS(saved)
+			auser  = debridit.debridUser(debrid)
+			icon   = DEBRIDID[debrid]['icon']   if os.path.exists(path) else ICONREAL
+			fanart = DEBRIDID[debrid]['fanart'] if os.path.exists(path) else FANART
+			menu = createMenu('saveaddon', 'Debrid', debrid)
+			menu2 = createMenu('save', 'Debrid', debrid)
+			menu.append((THEME2 % '%s Settings' % name,              'RunPlugin(plugin://%s/?mode=opensettings&name=%s&url=debrid)' %   (ADDON_ID, debrid)))
 
-		addFile('[+]-> %s' % name,     '', icon=icon, fanart=fanart, themeit=THEME3)
-		if not os.path.exists(path): addFile('[COLOR red]Addon Data: Not Installed[/COLOR]', '', icon=icon, fanart=fanart, menu=menu)
-		elif not auser:              addFile('[COLOR red]Addon Data: Not Registered[/COLOR]','authdebrid', debrid, icon=icon, fanart=fanart, menu=menu)
-		else:                        addFile('[COLOR springgreen]Addon Data: %s[/COLOR]' % auser,'authdebrid', debrid, icon=icon, fanart=fanart, menu=menu)
-		if user == "":
-			if os.path.exists(file): addFile('[COLOR red]Saved Data: Save File Found(Import Data)[/COLOR]','importdebrid', debrid, icon=icon, fanart=fanart, menu=menu2)
-			else :                   addFile('[COLOR red]Saved Data: Not Saved[/COLOR]','savedebrid', debrid, icon=icon, fanart=fanart, menu=menu2)
-		else:                        addFile('[COLOR springgreen]Saved Data: %s[/COLOR]' % user, '', icon=icon, fanart=fanart, menu=menu2)
+			addFile('[+]-> %s' % name,     '', icon=icon, fanart=fanart, themeit=THEME3)
+			if not os.path.exists(path): addFile('[COLOR red]Addon Data: Not Installed[/COLOR]', '', icon=icon, fanart=fanart, menu=menu)
+			elif not auser:              addFile('[COLOR red]Addon Data: Not Registered[/COLOR]','authdebrid', debrid, icon=icon, fanart=fanart, menu=menu)
+			else:                        addFile('[COLOR springgreen]Addon Data: %s[/COLOR]' % auser,'authdebrid', debrid, icon=icon, fanart=fanart, menu=menu)
+			if user == "":
+				if os.path.exists(file): addFile('[COLOR red]Saved Data: Save File Found(Import Data)[/COLOR]','importdebrid', debrid, icon=icon, fanart=fanart, menu=menu2)
+				else :                   addFile('[COLOR red]Saved Data: Not Saved[/COLOR]','savedebrid', debrid, icon=icon, fanart=fanart, menu=menu2)
+			else:                        addFile('[COLOR springgreen]Saved Data: %s[/COLOR]' % user, '', icon=icon, fanart=fanart, menu=menu2)
 
 	if HIDESPACERS == 'No': addFile(wiz.sep(), '', themeit=THEME3)
 	addFile('Save All Real Debrid Data',          'savedebrid',    'all', icon=ICONREAL,  themeit=THEME3)
@@ -1226,26 +1246,27 @@ def loginMenu():
 	if HIDESPACERS == 'No': addFile(wiz.sep(), '', icon=ICONLOGIN, themeit=THEME3)
 
 	for login in loginit.ORDER:
-		name   = LOGINID[login]['name']
-		path   = LOGINID[login]['path']
-		saved  = LOGINID[login]['saved']
-		file   = LOGINID[login]['file']
-		user   = wiz.getS(saved)
-		auser  = loginit.loginUser(login)
-		icon   = LOGINID[login]['icon']   if os.path.exists(path) else ICONLOGIN
-		fanart = LOGINID[login]['fanart'] if os.path.exists(path) else FANART
-		menu = createMenu('saveaddon', 'Login', login)
-		menu2 = createMenu('save', 'Login', login)
-		menu.append((THEME2 % '%s Settings' % name,              'RunPlugin(plugin://%s/?mode=opensettings&name=%s&url=login)' %   (ADDON_ID, login)))
+		if xbmc.getCondVisibility('System.HasAddon(%s)' % LOGINID[login]['plugin']):
+			name   = LOGINID[login]['name']
+			path   = LOGINID[login]['path']
+			saved  = LOGINID[login]['saved']
+			file   = LOGINID[login]['file']
+			user   = wiz.getS(saved)
+			auser  = loginit.loginUser(login)
+			icon   = LOGINID[login]['icon']   if os.path.exists(path) else ICONLOGIN
+			fanart = LOGINID[login]['fanart'] if os.path.exists(path) else FANART
+			menu = createMenu('saveaddon', 'Login', login)
+			menu2 = createMenu('save', 'Login', login)
+			menu.append((THEME2 % '%s Settings' % name,              'RunPlugin(plugin://%s/?mode=opensettings&name=%s&url=login)' %   (ADDON_ID, login)))
 
-		addFile('[+]-> %s' % name,     '', icon=icon, fanart=fanart, themeit=THEME3)
-		if not os.path.exists(path): addFile('[COLOR red]Addon Data: Not Installed[/COLOR]', '', icon=icon, fanart=fanart, menu=menu)
-		elif not auser:              addFile('[COLOR red]Addon Data: Not Registered[/COLOR]','authlogin', login, icon=icon, fanart=fanart, menu=menu)
-		else:                        addFile('[COLOR springgreen]Addon Data: %s[/COLOR]' % auser,'authlogin', login, icon=icon, fanart=fanart, menu=menu)
-		if user == "":
-			if os.path.exists(file): addFile('[COLOR red]Saved Data: Save File Found(Import Data)[/COLOR]','importlogin', login, icon=icon, fanart=fanart, menu=menu2)
-			else :                   addFile('[COLOR red]Saved Data: Not Saved[/COLOR]','savelogin', login, icon=icon, fanart=fanart, menu=menu2)
-		else:                        addFile('[COLOR springgreen]Saved Data: %s[/COLOR]' % user, '', icon=icon, fanart=fanart, menu=menu2)
+			addFile('[+]-> %s' % name,     '', icon=icon, fanart=fanart, themeit=THEME3)
+			if not os.path.exists(path): addFile('[COLOR red]Addon Data: Not Installed[/COLOR]', '', icon=icon, fanart=fanart, menu=menu)
+			elif not auser:              addFile('[COLOR red]Addon Data: Not Registered[/COLOR]','authlogin', login, icon=icon, fanart=fanart, menu=menu)
+			else:                        addFile('[COLOR springgreen]Addon Data: %s[/COLOR]' % auser,'authlogin', login, icon=icon, fanart=fanart, menu=menu)
+			if user == "":
+				if os.path.exists(file): addFile('[COLOR red]Saved Data: Save File Found(Import Data)[/COLOR]','importlogin', login, icon=icon, fanart=fanart, menu=menu2)
+				else :                   addFile('[COLOR red]Saved Data: Not Saved[/COLOR]','savelogin', login, icon=icon, fanart=fanart, menu=menu2)
+			else:                        addFile('[COLOR springgreen]Saved Data: %s[/COLOR]' % user, '', icon=icon, fanart=fanart, menu=menu2)
 
 	if HIDESPACERS == 'No': addFile(wiz.sep(), '', themeit=THEME3)
 	addFile('Save All API Keys',          'savelogin',    'all', icon=ICONLOGIN,  themeit=THEME3)
@@ -2446,70 +2467,6 @@ def get_params():
 
 		return param
 
-#########################################NET TOOLS#############################################
-def net_tools(view=None):
-	if HIDESPACERS == 'No': addFile(wiz.sep('Net Tools'), '', themeit=THEME3)
-	addDir ('Speed Tester' ,'speedtest', icon=ICONSPEED, themeit=THEME1)
-	if HIDESPACERS == 'No': addFile(wiz.sep(), '', themeit=THEME3)
-	addDir ('View IP Address & MAC Address',        'viewIP',    icon=ICONSPEED, themeit=THEME1)
-	setView('files', 'viewType')
-def viewIP():
-	infoLabel = ['Network.IPAddress',
-				 'Network.MacAddress',]
-	data      = []; x = 0
-	for info in infoLabel:
-		temp = wiz.getInfo(info)
-		y = 0
-		while temp == "Busy" and y < 10:
-			temp = wiz.getInfo(info); y += 1; wiz.log("%s sleep %s" % (info, str(y))); xbmc.sleep(200)
-		data.append(temp)
-		x += 1
-		config    = wiz.getConfig()
-		ipfinal   = '%(ip)s' % config['client'] #else 'Unknown'
-		provider  = '%(isp)s' % config['client'] #else 'Unknown'
-		location  = '%(country)s' % config['client'] #else 'Unknown'
-	addFile('[COLOR %s]Local IP:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, data[0]), '', icon=ICONMAINT, themeit=THEME2)
-	addFile('[COLOR %s]External IP:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, ipfinal), '', icon=ICONMAINT, themeit=THEME2)
-	addFile('[COLOR %s]Provider:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, provider), '', icon=ICONMAINT, themeit=THEME2)
-	addFile('[COLOR %s]Location:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, location), '', icon=ICONMAINT, themeit=THEME2)
-	addFile('[COLOR %s]MacAddress:[/COLOR] [COLOR %s]%s[/COLOR]' % (COLOR1, COLOR2, data[1]), '', icon=ICONMAINT, themeit=THEME2)
-	setView('files', 'viewType')
-
-#######################SPEED TEST#######################################
-	addFile('Run Speed Test',             'speed',      icon=ICONMAINT, themeit=THEME3)
-def speedTest():
-	if os.path.exists(SPEEDTESTFOLD):
-		speedimg = glob.glob(os.path.join(SPEEDTESTFOLD, '*.png'))
-		speedimg.sort(key=lambda f: os.path.getmtime(f), reverse=True)
-		if len(speedimg) > 0:
-			addFile('Clear Results',          'clearspeedtest',    icon=ICONMAINT, themeit=THEME3)
-			addFile(wiz.sep('Previous Runs'), '', icon=ICONMAINT, themeit=THEME3)
-			for item in speedimg:
-				created = datetime.fromtimestamp(os.path.getmtime(item)).strftime('%m/%d/%Y %H:%M:%S')
-				img = item.replace(os.path.join(SPEEDTESTFOLD, ''), '')
-				addFile('[B]%s[/B]: [I]Ran %s[/I]' % (img, created), 'viewspeedtest', img, icon=ICONMAINT, themeit=THEME3)
-
-def clearSpeedTest():
-	speedimg = glob.glob(os.path.join(SPEEDTESTFOLD, '*.png'))
-	for file in speedimg:
-		wiz.removeFile(file)
-def viewSpeedTest(img=None):
-	img = os.path.join(SPEEDTESTFOLD, img)
-
-	notify.speedTest(img)
-
-def speed():
-	try:
-		found = speedtest.speedtest()
-		if not os.path.exists(SPEEDTESTFOLD): os.makedirs(SPEEDTESTFOLD)
-		urlsplits = found[0].split('/')
-		dest = os.path.join(SPEEDTESTFOLD, urlsplits[-1])
-		urllib.urlretrieve(found[0], dest)
-		viewSpeedTest(urlsplits[-1])
-	except:
-		wiz.log("[Speed Test] Error Running Speed Test")
-		pass
-
 ################KODI VERSION##########################################
 def KodiVer():
 	if KODIV >= 16.0 and KODIV <= 16.9:vername = 'Jarvis'
@@ -2611,10 +2568,13 @@ elif mode=='restoreextzip'  : restoreextit('build')
 elif mode=='restoreextgui'  : restoreextit('gui')
 elif mode=='restoreextaddon': restoreextit('addondata')
 elif mode=='writeadvanced'  : writeAdvanced(name, url)
-elif mode=='speedtest'      : speedTest()
+elif mode=='speedtest'      : net_tools()
 elif mode=='runspeedtest'   : runSpeedTest(); wiz.refresh()
 elif mode=='clearspeedtest' : clearSpeedTest(); wiz.refresh()
 elif mode=='viewspeedtest'  : viewSpeedTest(name); wiz.refresh()
+elif mode=="viewIP"         : viewIP();
+
+elif mode=='speedtestM'     : speedTest()
 
 elif mode=='apk'            : apkMenu(name, url)
 elif mode=='apkscrape'      : apkScraper(name)
