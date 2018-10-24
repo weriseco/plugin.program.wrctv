@@ -82,9 +82,8 @@ AUTOFEQ          = wiz.getS('autocleanfeq')
 AUTONEXTRUN      = wiz.getS('nextautocleanup')
 INCLUDEVIDEO     = wiz.getS('includevideo')
 INCLUDEALL       = wiz.getS('includeall')
-INCLUDECHAPPAAI       = wiz.getS('includechappaai')
 INCLUDEPLACENTA    = wiz.getS('includeplacenta')
-INCLUDEINCURSION       = wiz.getS('includeincursion')
+INCLUDEEXODUSREDUX    = wiz.getS('includeexodusredux')
 INCLUDEGAIA     = wiz.getS('includegaia')
 INCLUDEMAGICALITY   = wiz.getS('includemagicality')
 SEPERATE         = wiz.getS('seperate')
@@ -793,15 +792,13 @@ def maintMenu(view=None):
 	errorsfound = str(errors) + ' Error(s) Found' if errors > 0 else 'None Found'
 	wizlogsize = ': [COLOR red]Not Found[/COLOR]' if not os.path.exists(WIZLOG) else ": [COLOR springgreen]%s[/COLOR]" % wiz.convertSize(os.path.getsize(WIZLOG))
 	if includeall == 'true':
-		includechappaai = 'true'
 		includeplacenta = 'true'
-		includeincursion = 'true'
 		includegaia = 'true'
 		includemagicality = 'true'
+		includeexodusredux = 'true'
 	else:
-		includechappaai = 'true' if INCLUDECHAPPAAI     == 'true' else 'false'
+		includeexodusredux = 'true' if INCLUDEEXODUSREDUX     == 'true' else 'false'
 		includeplacenta = 'true' if INCLUDEPLACENTA == 'true' else 'false'
-		includeincursion = 'true' if INCLUDEINCURSION  == 'true' else 'false'
 		includegaia = 'true' if INCLUDEGAIA   == 'true' else 'false'
 		includemagicality = 'true' if INCLUDEMAGICALITY == 'true' else 'false'
 	sizepack   = wiz.getSize(PACKAGES)
@@ -896,9 +893,8 @@ def maintMenu(view=None):
 	addFile('Include Video Cache in Clear Cache: %s' % includevid.replace('true',on).replace('false',off), 'togglecache', 'includevideo', icon=ICONMAINT, themeit=THEME3)
 	if includevid == 'true':
 		addFile('--- Include All Video Addons: %s' % includeall.replace('true',on).replace('false',off), 'togglecache', 'includeall', icon=ICONMAINT, themeit=THEME3)
-		addFile('--- Include Chappa\'ai: %s' % includechappaai.replace('true',on).replace('false',off), 'togglecache', 'includechappaai', icon=ICONMAINT, themeit=THEME3)
 		addFile('--- Include Placenta: %s' % includeplacenta.replace('true',on).replace('false',off), 'togglecache', 'includeplacenta', icon=ICONMAINT, themeit=THEME3)
-		addFile('--- Include Incursion: %s' % includeincursion.replace('true',on).replace('false',off), 'togglecache', 'includeincursion', icon=ICONMAINT, themeit=THEME3)
+		addFile('--- Include Exodus Redux: %s' % includeexodusredux.replace('true',on).replace('false',off), 'togglecache', 'includeexodusredux', icon=ICONMAINT, themeit=THEME3)
 		addFile('--- Include Gaia: %s' % includegaia.replace('true',on).replace('false',off), 'togglecache', 'includegaia', icon=ICONMAINT, themeit=THEME3)
 		addFile('--- Include Magicality: %s' % includemagicality.replace('true',on).replace('false',off), 'togglecache', 'includemagicality', icon=ICONMAINT, themeit=THEME3)
 		addFile('--- Enable All Video Addons', 'togglecache', 'true', icon=ICONMAINT, themeit=THEME3)
@@ -1769,8 +1765,8 @@ def createMenu(type, add, name):
 	return menu_items
 
 def toggleCache(state):
-	cachelist = ['includevideo', 'includeall', 'includechappaai', 'includemagicality', 'includeplacenta', 'includegaia', 'includeincursion']
-	titlelist = ['Include Video Addons', 'Include All Addons', 'Include Chappa\'ai', 'Include Magicality', 'Include Placenta', 'Include Gaia', 'Include Incursion']
+	cachelist = ['includevideo', 'includeall', 'includemagicality', 'includeplacenta', 'includegaia', 'includeexodusredux']
+	titlelist = ['Include Video Addons', 'Include All Addons', 'Include Magicality', 'Include Placenta', 'Include Gaia', 'Include Exodus Redux']
 	if state in ['true', 'false']:
 		for item in cachelist:
 			wiz.setS(item, state)
