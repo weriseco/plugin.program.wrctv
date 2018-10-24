@@ -55,9 +55,8 @@
 		<setting type="lsep" label="Clearing Video Cache:"/>
 		<setting id="includevideo" type="bool" label="Include Video Addons in Clear Cache: " default="true"/>
 		<setting id="includeall" type="bool" label="Include All Addons: " default="true" enable="!eq(-1,false)" visible="!eq(-1,false)"/>
-		<setting id="includechappai" type="bool" label="Include Chappa\'ai Cache DB: " default="true" enable="!eq(-2,false)" visible="!eq(-2,false)"/>
 		<setting id="includeplacenta" type="bool" label="Include Placenta DB: " default="true" enable="!eq(-6,false)" visible="!eq(-6,false)"/>
-		<setting id="includeincursion" type="bool" label="Include Incursion Cache DB: " default="true" enable="!eq(-7,false)" visible="!eq(-7,false)"/>
+		<setting id="includeexodusredux" type="bool" label="Include Exodus Redux DB: " default="true" enable="!eq(-6,false)" visible="!eq(-6,false)"/>
 		<setting id="includegaia" type="bool" label="Include Gaia Cache DB: " default="true" enable="!eq(-9,false)" visible="!eq(-9,false)"/>
 		<setting id="includemagicality" type="bool" label="Include Magicality Cache DB: " default="true" enable="!eq(-10,false)" visible="!eq(-10,false)"/>
 	</category>
@@ -84,13 +83,11 @@
 	<category label="Trakt Settings">
 		<setting type="lsep" label="Save Trakt Data:"/>
 		<setting id="keeptrakt" type="bool" label="Keep My Trakt Data" default="false"/>
-		<setting id="chappaai" type="text" label="Chappa'ai: " enable="false" default=""/>
 		<setting id="placenta" type="text" label="Placenta: " enable="false" default=""/>
-		<setting id="incursion" type="text" label="Incursion: " enable="false" default=""/>
 		<setting id="gaia" type="text" label="Gaia: " enable="false" default=""/>
 		<setting id="magicality" type="text" label="Magicality: " enable="false" default=""/>
 		<setting id="trakt" type="text" label="Trakt: " enable="false" default=""/>
-		<setting id="wraith" type="text" label="Wraith: " enable="false" default=""/>
+		<setting id="exodusredux" type="text" label="Exodus Redux: " enable="false" default=""/>
 		<setting id="traktlastsave" type="text" label="Last Time Trakt Saved: " enable="false" default=""/>
 		<setting id="keeptraktwizard" type="action" label="Trakt Save Data Menu - DOES NOTHING" action=""/>
 	</category>
@@ -113,10 +110,9 @@
 		<setting id="keeplogin" type="bool" label="Keep My API Data" default="false"/>
 		<setting id="api-opensubtitles" type="text" label="Open Subtitles: " enable="false" default=""/>
 		<setting id="api-orion" type="text" label="Orion: " enable="false" default=""/>
-		<setting id="api-chappaai" type="text" label="Chappa'ai: " enable="false" default=""/>
 		<setting id="api-placenta" type="text" label="Placenta: " enable="false" default=""/>
-		<setting id="api-incursion" type="text" label="Incursion: " enable="false" default=""/>
 		<setting id="api-gaia" type="text" label="Gaia: " enable="false" default=""/>
+		<setting id="api-exodusredux" type="text" label="Exodus Redux: " enable="false" default=""/>
 		<setting id="api-magicality" type="text" label="Magicality: " enable="false" default=""/>
 		<setting id="api-eis" type="text" label="ExtendedInfo Script: " enable="false" default=""/>
 		<setting id="api-metahandler" type="text" label="metahandler: " enable="false" default=""/>
