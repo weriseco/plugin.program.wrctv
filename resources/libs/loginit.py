@@ -48,7 +48,7 @@ KEEPLOGIN      = wiz.getS('keeplogin')
 LOGINSAVE      = wiz.getS('loginlastsave')
 COLOR1         = uservar.COLOR1
 COLOR2         = uservar.COLOR2
-ORDER          = ['api-opensubtitles', 'api-orion', 'api-chappaai', 'api-placenta', 'api-incursion', 'api-gaia', 'api-magicality', 'api-eis', 'api-metahandler', 'api-metadatautils']
+ORDER          = ['api-opensubtitles', 'api-orion', 'api-placenta', 'api-gaia', 'api-magicality', 'api-eis', 'api-metahandler', 'api-metadatautils', 'api-exodusredux']
 
 LOGINID = {
 	'api-opensubtitles': {
@@ -75,18 +75,6 @@ LOGINID = {
 		'default'  : 'account.key',
 		'data'     : ['account.key', 'account.valid'],
 		'activate' : 'RunPlugin(plugin://script.module.orion/?action=settingsAccountLogin)'},
-	'api-chappaai': {
-		'name'     : 'Chappa\'ai',
-		'plugin'   : 'plugin.video.chappaai',
-		'saved'    : 'api-chappaai',
-		'path'     : os.path.join(ADDONS, 'plugin.video.chappaai'),
-		'icon'     : os.path.join(ADDONS, 'plugin.video.chappaai', 'icon.jpg'),
-		'fanart'   : os.path.join(ADDONS, 'plugin.video.chappaai', 'fanart.jpg'),
-		'file'     : os.path.join(LOGINFOLD, 'api-chappaai'),
-		'settings' : os.path.join(ADDOND, 'plugin.video.chappaai', 'settings.xml'),
-		'default'  : 'tmdb_api',
-		'data'     : ['trakt_api_client_id', 'trakt_api_client_secret', 'tmdb_api', 'tvdb_api', 'lastfm_api_key',  'lastfm_api_shared_secret'],
-		'activate' : ''},
 	'api-placenta': {
 		'name'     : 'Placenta',
 		'plugin'   : 'plugin.video.placenta',
@@ -96,18 +84,6 @@ LOGINID = {
 		'fanart'   : os.path.join(ADDONS, 'plugin.video.placenta', 'fanart.jpg'),
 		'file'     : os.path.join(LOGINFOLD, 'api-placenta'),
 		'settings' : os.path.join(ADDOND, 'plugin.video.placenta', 'settings.xml'),
-		'default'  : 'tm.user',
-		'data'     : ['fanart.tv.user', 'tm.user', 'imdb.user'],
-		'activate' : ''},
-	'api-incursion': {
-		'name'     : 'Incursion',
-		'plugin'   : 'plugin.video.incursion',
-		'saved'    : 'api-incursion',
-		'path'     : os.path.join(ADDONS, 'plugin.video.incursion'),
-		'icon'     : os.path.join(ADDONS, 'plugin.video.incursion', 'icon.png'),
-		'fanart'   : os.path.join(ADDONS, 'plugin.video.incursion', 'fanart.jpg'),
-		'file'     : os.path.join(LOGINFOLD, 'api-incursion'),
-		'settings' : os.path.join(ADDOND, 'plugin.video.incursion', 'settings.xml'),
 		'default'  : 'tm.user',
 		'data'     : ['fanart.tv.user', 'tm.user', 'imdb.user'],
 		'activate' : ''},
@@ -170,6 +146,18 @@ LOGINID = {
 		'settings' : os.path.join(ADDOND, 'script.module.metadatautils', 'settings.xml'),
 		'default'  : 'tmdb_apikey',
 		'data'     : ['fanarttv_apikey', 'omdbapi_apikey', 'tmdb_apikey'],
+		'activate' : ''},
+	'api-exodusredux': {
+		'name'     : 'Exodus Redux',
+		'plugin'   : 'plugin.video.exodusredux',
+		'saved'    : 'api-exodusredux',
+		'path'     : os.path.join(ADDONS, 'plugin.video.exodusredux'),
+		'icon'     : os.path.join(ADDONS, 'plugin.video.exodusredux', 'icon.jpg'),
+		'fanart'   : os.path.join(ADDONS, 'plugin.video.exodusredux', 'fanart.jpg'),
+		'file'     : os.path.join(LOGINFOLD, 'api-exodusredux'),
+		'settings' : os.path.join(ADDOND, 'plugin.video.exodusredux', 'settings.xml'),
+		'default'  : 'tm.user',
+		'data'     : ['fanart.tv.user', 'tm.user', 'imdb.user'],
 		'activate' : ''}
 }
 
