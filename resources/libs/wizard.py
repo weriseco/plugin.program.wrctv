@@ -2317,7 +2317,7 @@ def clearCache(over=None):
 				files.append(os.path.join(ADDOND, 'plugin.video.placenta', 'cache.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.placenta', 'meta.5.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.placenta', 'providers.13.db'))
-			if INCLUDEEXODUSREDUX == 'true'
+			if INCLUDEEXODUSREDUX == 'true':
 				files.append(os.path.join(ADDOND, 'plugin.video.exodusredux', 'cache.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.exodusredux', 'meta.5.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.exodusredux', 'providers.13.db'))

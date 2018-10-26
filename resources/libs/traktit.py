@@ -67,7 +67,7 @@ TRAKTID = {
 		'name'     : 'Gaia',
 		'plugin'   : 'plugin.video.gaia',
 		'saved'    : 'gaia',
-s		'path'     : os.path.join(ADDONS, 'plugin.video.gaia'),
+		'path'     : os.path.join(ADDONS, 'plugin.video.gaia'),
 		'icon'     : os.path.join(ADDONS, 'plugin.video.gaia', 'icon.png'),
 		'fanart'   : os.path.join(ADDONS, 'plugin.video.gaia', 'fanart.jpg'),
 		'file'     : os.path.join(TRAKTFOLD, 'gaia_trakt'),
