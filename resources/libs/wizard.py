@@ -95,9 +95,8 @@ COLOR1         = uservar.COLOR1
 COLOR2         = uservar.COLOR2
 INCLUDEVIDEO   = ADDON.getSetting('includevideo')
 INCLUDEALL     = ADDON.getSetting('includeall')
-INCLUDECHAPPAAI = ADDON.getSetting('includechappaai')
 INCLUDEPLACENTA  = ADDON.getSetting('includeplacenta')
-INCLUDEINCURSION = ADDON.getSetting('includeincursion')
+INCLUDEEXODUSREDUX  = ADDON.getSetting('includeexodusredux')
 INCLUDEGAIA   = ADDON.getSetting('includegaia')
 INCLUDEMAGICALITY = ADDON.getSetting('includemagicality')
 SHOWADULT      = ADDON.getSetting('adult')
@@ -475,22 +474,17 @@ def getCacheSize():
 	PROFILEADDONDATA = os.path.join(PROFILE,'addon_data')
 	dbfiles   = [
 		## TODO: fix these
-		(os.path.join(ADDOND, 'plugin.video.uranus', 'cache.db')),
-		(os.path.join(ADDOND, 'plugin.video.uranus', 'meta.db')),
-		(os.path.join(DATABASE,  'DEATHScache.db')),
 		(os.path.join(ADDOND, 'plugin.video.placenta', 'cache.db')),
 		(os.path.join(ADDOND, 'plugin.video.placenta', 'cache.meta.5.db')),
 		(os.path.join(ADDOND, 'plugin.video.placenta', 'cache.providers.13.db')),
-		(os.path.join(ADDOND, 'plugin.video.incursion', 'cache.db')),
-		(os.path.join(ADDOND, 'plugin.video.incursion', 'cache.meta.5.db')),
-		(os.path.join(ADDOND, 'plugin.video.incursion', 'cache.providers.13.db')),
-		(os.path.join(ADDOND, 'plugin.video.numbersbynumbers', 'cache.db')),
-		(os.path.join(ADDOND, 'plugin.video.numbersbynumbers', 'meta.5.db')),
-		(os.path.join(ADDOND, 'plugin.video.numbersbynumbers', 'providers.13.db')),
+		(os.path.join(ADDOND, 'plugin.video.magicality', 'cache.db')),
+		(os.path.join(ADDOND, 'plugin.video.magicality', 'cache.meta.5.db')),
+		(os.path.join(ADDOND, 'plugin.video.magicality', 'cache.providers.13.db')),
+		(os.path.join(ADDOND, 'plugin.video.exodusredux', 'cache.db')),
+		(os.path.join(ADDOND, 'plugin.video.exodusredux', 'cache.meta.5.db')),
+		(os.path.join(ADDOND, 'plugin.video.exodusredux', 'cache.providers.13.db')),
 		(os.path.join(ADDOND, 'plugin.video.gaia', 'cache.db')),
-		(os.path.join(ADDOND, 'plugin.video.gaia', 'meta.db')),
-		(os.path.join(ADDOND, 'plugin.video.neptune', 'cache.db')),
-		(os.path.join(ADDOND, 'plugin.video.neptune', 'meta.5.db'))]
+		(os.path.join(ADDOND, 'plugin.video.gaia', 'meta.db'))]
 	cachelist = [
 		(ADDOND),
 		(os.path.join(HOME,'cache')),
@@ -521,28 +515,21 @@ def getCacheSize():
 		if INCLUDEALL == 'true': files = dbfiles
 		else:
 			## TODO: Double check these and add more
-			if INCLUDEURANUS == 'true':
-				files.append(os.path.join(ADDOND, 'plugin.video.uranus', 'cache.db'))
-				files.append(os.path.join(ADDOND, 'plugin.video.uranus', 'meta.db'))
-			if INCLUDEDEATH == 'true': files.append(os.path.join(DATABASE, 'DEATHScache.db'))
+			if INCLUDEEXODUSREDUX == 'true':
+				files.append(os.path.join(ADDOND, 'plugin.video.exodusredux', 'cache.db'))
+				files.append(os.path.join(ADDOND, 'plugin.video.exodusredux', 'meta.5.db'))
+				files.append(os.path.join(ADDOND, 'plugin.video.exodusredux', 'providers.13.db'))
 			if INCLUDEPLACENTA == 'true':
 				files.append(os.path.join(ADDOND, 'plugin.video.placenta', 'cache.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.placenta', 'meta.5.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.placenta', 'providers.13.db'))
-			if INCLUDEINCURSION == 'true':
-				files.append(os.path.join(ADDOND, 'plugin.video.incursion', 'cache.db'))
-				files.append(os.path.join(ADDOND, 'plugin.video.incursion', 'meta.5.db'))
-				files.append(os.path.join(ADDOND, 'plugin.video.incursion', 'providers.13.db'))
-			if INCLUDENUMBERS == 'true':
-				files.append(os.path.join(ADDOND, 'plugin.video.numbersbynumbers', 'cache.db'))
-				files.append(os.path.join(ADDOND, 'plugin.video.numbersbynumbers', 'meta.5.db'))
-				files.append(os.path.join(ADDOND, 'plugin.video.numbersbynumbers', 'providers.13.db'))
+			if INCLUDEMAGICALITY == 'true':
+				files.append(os.path.join(ADDOND, 'plugin.video.magicality', 'cache.db'))
+				files.append(os.path.join(ADDOND, 'plugin.video.magicality', 'meta.5.db'))
+				files.append(os.path.join(ADDOND, 'plugin.video.magicality', 'providers.13.db'))
 			if INCLUDEGAIA == 'true':
 				files.append(os.path.join(ADDOND, 'plugin.video.gaia', 'cache.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.gaia', 'meta.db'))
-			if INCLUDENEPTUNE == 'true':
-				files.append(os.path.join(ADDOND, 'plugin.video.neptune', 'cache.db'))
-				files.append(os.path.join(ADDOND, 'plugin.video.neptune', 'meta.5.db'))
 		if len(files) > 0:
 			for item in files:
 				if not os.path.exists(item): continue
@@ -731,7 +718,7 @@ def createTemp(plugin):
 	log("%s: wrote addon.xml" % plugin)
 
 def fixmetas():
-	idlist = ['plugin.video.chappaai', 'plugin.video.meta', 'script.renegadesmeta']
+	idlist = []
 	#temp   = os.path.join(PLUGIN, 'resources', 'tempaddon.xml')
 	#f      = open(temp, 'r'); r = f.read(); f.close()
 	for item in idlist:
@@ -1354,22 +1341,18 @@ def backUpOptions(type, name=""):
 	exclude_dirs  = [ADDON_ID, 'cache', 'system', 'Thumbnails', 'peripheral_data', 'temp', 'My_Builds', 'keymaps']
 	exclude_files = ['Textures13.db', '.DS_Store', 'advancedsettings.xml', 'Thumbs.db', '.gitignore']
 	## TODO: fix these
-	bad_files     = [(os.path.join(ADDOND, 'plugin.video.uranus', 'cache.db')),
-					(os.path.join(ADDOND, 'plugin.video.uranus', 'meta.db')),
-					(os.path.join(DATABASE,  'DEATHScache.db')),
+	bad_files     = [
 					(os.path.join(ADDOND, 'plugin.video.placenta', 'cache.db')),
 					(os.path.join(ADDOND, 'plugin.video.placenta', 'cache.meta.5.db')),
 					(os.path.join(ADDOND, 'plugin.video.placenta', 'cache.providers.13.db')),
-					(os.path.join(ADDOND, 'plugin.video.incursion', 'cache.db')),
-					(os.path.join(ADDOND, 'plugin.video.incursion', 'cache.meta.5.db')),
-					(os.path.join(ADDOND, 'plugin.video.incursion', 'cache.providers.13.db')),
-					(os.path.join(ADDOND, 'plugin.video.numbersbynumbers', 'cache.db')),
-					(os.path.join(ADDOND, 'plugin.video.numbersbynumbers', 'meta.5.db')),
-					(os.path.join(ADDOND, 'plugin.video.numbersbynumbers', 'providers.13.db')),
+					(os.path.join(ADDOND, 'plugin.video.magicality', 'cache.db')),
+					(os.path.join(ADDOND, 'plugin.video.magicality', 'cache.meta.5.db')),
+					(os.path.join(ADDOND, 'plugin.video.magicality', 'cache.providers.13.db')),
+					(os.path.join(ADDOND, 'plugin.video.exodusredux', 'cache.db')),
+					(os.path.join(ADDOND, 'plugin.video.exodusredux', 'cache.meta.5.db')),
+					(os.path.join(ADDOND, 'plugin.video.exodusredux', 'cache.providers.13.db')),
 					(os.path.join(ADDOND, 'plugin.video.gaia', 'cache.db')),
-					(os.path.join(ADDOND, 'plugin.video.gaia', 'meta.db')),
-					(os.path.join(ADDOND, 'plugin.video.neptune', 'cache.db')),
-					(os.path.join(ADDOND, 'plugin.video.neptune', 'meta.5.db'))]
+					(os.path.join(ADDOND, 'plugin.video.gaia', 'meta.db')),]
 
 	backup   = xbmc.translatePath(BACKUPLOCATION)
 	mybuilds = xbmc.translatePath(MYBUILDS)
@@ -2267,11 +2250,11 @@ def clearCache(over=None):
 		(os.path.join(ADDOND, 'plugin.video.placenta', 'cache.db')),
 		(os.path.join(ADDOND, 'plugin.video.placenta', 'cache.meta.5.db')),
 		(os.path.join(ADDOND, 'plugin.video.placenta', 'cache.providers.13.db')),
-		(os.path.join(ADDOND, 'plugin.video.incursion', 'cache.db')),
-		(os.path.join(ADDOND, 'plugin.video.incursion', 'cache.meta.5.db')),
-		(os.path.join(ADDOND, 'plugin.video.incursion', 'cache.providers.13.db')),
 		(os.path.join(ADDOND, 'plugin.video.gaia', 'cache.db')),
 		(os.path.join(ADDOND, 'plugin.video.gaia', 'meta.db')),
+		(os.path.join(ADDOND, 'plugin.video.exodusredux', 'cache.db')),
+		(os.path.join(ADDOND, 'plugin.video.exoudsredux', 'meta.5.db')),
+		(os.path.join(ADDOND, 'plugin.video.exodusredux', 'cache.providers.13.db'))
 		(os.path.join(ADDOND, 'plugin.video.magicality', 'cache.db')),
 		(os.path.join(ADDOND, 'plugin.video.magicality', 'meta.5.db')),
 		(os.path.join(ADDOND, 'plugin.video.magicality', 'cache.providers.13.db'))]
@@ -2334,10 +2317,10 @@ def clearCache(over=None):
 				files.append(os.path.join(ADDOND, 'plugin.video.placenta', 'cache.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.placenta', 'meta.5.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.placenta', 'providers.13.db'))
-			if INCLUDEINCURSION == 'true':
-				files.append(os.path.join(ADDOND, 'plugin.video.incursion', 'cache.db'))
-				files.append(os.path.join(ADDOND, 'plugin.video.incursion', 'meta.5.db'))
-				files.append(os.path.join(ADDOND, 'plugin.video.incursion', 'providers.13.db'))
+			if INCLUDEEXODUSREDUX == 'true':
+				files.append(os.path.join(ADDOND, 'plugin.video.exodusredux', 'cache.db'))
+				files.append(os.path.join(ADDOND, 'plugin.video.exodusredux', 'meta.5.db'))
+				files.append(os.path.join(ADDOND, 'plugin.video.exodusredux', 'providers.13.db'))
 			if INCLUDEGAIA == 'true':
 				files.append(os.path.join(ADDOND, 'plugin.video.gaia', 'cache.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.gaia', 'meta.db'))

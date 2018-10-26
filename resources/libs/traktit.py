@@ -48,21 +48,9 @@ KEEPTRAKT      = wiz.getS('keeptrakt')
 TRAKTSAVE      = wiz.getS('traktlastsave')
 COLOR1         = uservar.COLOR1
 COLOR2         = uservar.COLOR2
-ORDER          = ['chappaai', 'placenta', 'incursion', 'gaia', 'magicality', 'trakt', 'wraith']
+ORDER          = ['placenta', 'gaia', 'magicality', 'trakt', 'exodusredux']
 
 TRAKTID = {
-	'chappaai': {
-		'name'     : 'Chappa\'ai',
-		'plugin'   : 'plugin.video.chappaai',
-		'saved'    : 'chappaai',
-		'path'     : os.path.join(ADDONS, 'plugin.video.chappaai'),
-		'icon'     : os.path.join(ADDONS, 'plugin.video.chappaai', 'icon.jpg'),
-		'fanart'   : os.path.join(ADDONS, 'plugin.video.chappaai', 'fanart.jpg'),
-		'file'     : os.path.join(TRAKTFOLD, 'chappaai_trakt'),
-		'settings' : os.path.join(ADDOND, 'plugin.video.chappaai', 'settings.xml'),
-		'default'  : 'trakt_access_token',
-		'data'     : ['trakt_access_token', 'trakt_expires_at', 'trakt_period', 'trakt_refresh_token'],
-		'activate' : 'RunPlugin(plugin://plugin.video.chappaai/authenticate_trakt)'},
 	'placenta': {
 		'name'     : 'Placenta',
 		'plugin'   : 'plugin.video.placenta',
@@ -75,19 +63,6 @@ TRAKTID = {
 		'default'  : 'trakt.user',
 		'data'     : ['trakt.user', 'trakt.refresh', 'trakt.token'],
 		'activate' : 'RunPlugin(plugin://plugin.video.placenta/?action=authTrakt)'},
-	'incursion': {
-		'name'     : 'incursion',
-		'plugin'   : 'plugin.video.incursion',
-		'saved'    : 'incursion',
-		'path'     : os.path.join(ADDONS, 'plugin.video.incursion'),
-		'icon'     : os.path.join(ADDONS, 'plugin.video.incursion', 'icon.png'),
-		'fanart'   : os.path.join(ADDONS, 'plugin.video.incursion', 'fanart.jpg'),
-		'file'     : os.path.join(TRAKTFOLD, 'incursion_trakt'),
-		'icon'     : os.path.join(ADDONS, 'plugin.video.incursion', 'icon.png'),
-		'settings' : os.path.join(ADDOND, 'plugin.video.incursion', 'settings.xml'),
-		'default'  : 'trakt.user',
-		'data'     : ['trakt.refresh', 'trakt.token', 'trakt.user'],
-		'activate' : 'RunPlugin(plugin://plugin.video.incursion/?action=authTrakt)'},
 	'gaia': {
 		'name'     : 'Gaia',
 		'plugin'   : 'plugin.video.gaia',
@@ -124,18 +99,18 @@ TRAKTID = {
 		'default'  : 'user',
 		'data'     : ['authorization', 'user'],
 		'activate' : 'RunScript(script.trakt, action=auth_info)'},
-	'wraith': {
-		'name'     : 'Wraith',
-		'plugin'   : 'script.extendedinfo',
-		'saved'    : 'wraith',
-		'path'     : os.path.join(ADDONS, 'script.extendedinfo'),
-		'icon'     : os.path.join(ADDONS, 'script.extendedinfo', 'icon.png'),
-		'fanart'   : os.path.join(ADDONS, 'script.extendedinfo', 'fanart.jpg'),
-		'file'     : os.path.join(TRAKTFOLD, 'trakt_wraith'),
-		'settings' : os.path.join(ADDOND, 'script.extendedinfo', 'settings.xml'),
-		'default'  : 'user',
-		'data'     : ['authorization', 'user'],
-		'activate' : 'RunScript(script.extendedinfo, info=authTrakt)'},
+	'exodusredux': {
+		'name'     : 'Exodus Redux',
+		'plugin'   : 'plugin.video.exodusredux',
+		'saved'    : 'exodusredux',
+		'path'     : os.path.join(ADDONS, 'plugin.video.exodusredux'),
+		'icon'     : os.path.join(ADDONS, 'plugin.video.exodusredux', 'icon.png'),
+		'fanart'   : os.path.join(ADDONS, 'plugin.video.exodusredux', 'fanart.jpg'),
+		'file'     : os.path.join(TRAKTFOLD, 'exodusredux_trakt'),
+		'settings' : os.path.join(ADDOND, 'plugin.video.exodusredux', 'settings.xml'),
+		'default'  : 'trakt.user',
+		'data'     : ['trakt.user', 'trakt.refresh', 'trakt.token'],
+		'activate' : 'RunPlugin(plugin://plugin.video.exodusredux/?action=authTrakt)'}
 }
 
 def traktUser(who):
