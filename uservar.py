@@ -4,26 +4,26 @@ import os, xbmc, xbmcaddon
 ### User Edit Variables #################################
 #########################################################
 ADDON_ID       = xbmcaddon.Addon().getAddonInfo('id')
-ADDONTITLE     = '[B][COLOR dodgerblue]Aftermath[/COLOR] [COLOR white]Wizard[/COLOR][/B]'
+ADDONTITLE     = '[B][COLOR dodgerblue]Aftermath[/COLOR][/B] Wizard'
 BUILDERNAME    = 'Aftermath'
 EXCLUDES       = [ADDON_ID, 'repository.aftermath']
 # Enable/Disable the text file caching with 'Yes' or 'No' and age being how often it rechecks in minutes
 CACHETEXT      = 'Yes'
 CACHEAGE       = 30
 # Text File with build info in it.
-BUILDFILE      = 'http://cb.srfx.in/builds.txt'
+BUILDFILE      = 'http://'
 # How often you would list it to check for build updates in days
 # 0 being every startup of kodi
 UPDATECHECK    = 0
 # Text File with apk info in it.  Leave as 'http://' to ignore
-APKFILE        = 'http://cb.srfx.in/apks.txt'
+APKFILE        = 'http://'
 # Text File with Youtube Videos urls.  Leave as 'http://' to ignore
 YOUTUBETITLE   = ''
 YOUTUBEFILE    = 'http://'
 # Text File for addon installer.  Leave as 'http://' to ignore
-ADDONFILE      = 'http://cb.srfx.in/addons.txt'
+ADDONFILE      = 'http://'
 # Text File for advanced settings.  Leave as 'http://' to ignore
-ADVANCEDFILE   = 'http://aftermathwizard.net/testtext/advanced.txt'
+ADVANCEDFILE   = 'http://'
 
 # Dont need to edit just here for icons stored locally
 PATH           = xbmcaddon.Addon().getAddonInfo('path')
@@ -74,9 +74,9 @@ THEME5         = '[COLOR '+COLOR1+']Current Theme:[/COLOR] [COLOR '+COLOR2+']%s[
 # Enable 'Contact' menu item 'Yes' hide or 'No' dont hide
 HIDECONTACT    = 'No'
 # You can add \n to do line breaks
-CONTACT        = 'Thank you for choosing Aftermath Wizard.\n\nContact us on facebook at http://facebook.com'
+CONTACT        = 'Thank you for choosing Aftermath Wizard.\n\nContact us on Github at http://www.github.com/drinfernoo/plugin.program.aftermath/'
 #Images used for the contact window.  http:// for default icon and fanart
-CONTACTICON    = os.path.join(ART, 'qricon.png')
+CONTACTICON    = 'http://'
 CONTACTFANART  = 'http://'
 #########################################################
 
@@ -84,7 +84,7 @@ CONTACTFANART  = 'http://'
 ### AUTO UPDATE #########################################
 ########## FOR THOSE WITH NO REPO #######################
 # Enable Auto Update 'Yes' or 'No'
-AUTOUPDATE     = 'No'
+AUTOUPDATE     = 'Yes'
 # Url to wizard version
 WIZARDFILE     = BUILDFILE
 #########################################################
@@ -93,7 +93,7 @@ WIZARDFILE     = BUILDFILE
 ### AUTO INSTALL ########################################
 ########## REPO IF NOT INSTALLED ########################
 # Enable Auto Install 'Yes' or 'No'
-AUTOINSTALL    = 'Yes'
+AUTOINSTALL    = 'No'
 # Addon ID for the repository
 REPOID         = 'repository.aftermath'
 # Url to Addons.xml file in your repo folder(this is so we can get the latest version)
@@ -106,18 +106,18 @@ REPOZIPURL     = 'https://raw.githubusercontent.com/surfacingx/Aftermath/master/
 ### NOTIFICATION WINDOW##################################
 #########################################################
 # Enable Notification screen Yes or No
-ENABLE         = 'Yes'
+ENABLE         = 'No'
 # Url to notification file
-NOTIFICATION   = 'http://cb.srfx.in/notify.txt'
+NOTIFICATION   = 'http://'
 # Use either 'Text' or 'Image'
 HEADERTYPE     = 'Text'
 # Font size of header
 FONTHEADER     = 'Font14'
-HEADERMESSAGE  = '[B][COLOR dodgerblue]Aftermath[/COLOR] [COLOR white]Wizard[/COLOR][/B]'
+HEADERMESSAGE  = '[B][COLOR dodgerblue]Aftermath[/COLOR][/B] Wizard'
 # url to image if using Image 424x180
-HEADERIMAGE    = ''
+HEADERIMAGE    = 'http://'
 # Font for Notification Window
 FONTSETTINGS   = 'Font13'
 # Background for Notification Window
-BACKGROUND     = 'http://cb.srfx.in/img/fanart.jpg'
+BACKGROUND     = 'http://'
 #########################################################

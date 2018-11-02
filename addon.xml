@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.program.aftermath" name="[COLOR dodgerblue][B]Aftermath[/B][/COLOR] Wizard" version="0.3.0" provider-name="Surfacingx">
+<addon id="plugin.program.aftermath" name="[COLOR dodgerblue][B]Aftermath[/B][/COLOR] Wizard" version="0.3.0" provider-name="drinfernoo">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -9,7 +9,7 @@
   <extension point="xbmc.service" library="startup.py" start="startup" />
   <extension point="xbmc.addon.metadata">
     <summary lang="en">[COLOR dodgerblue][B]Aftermath[/B][/COLOR] Wizard</summary>
-    <description lang="en">[COLOR dodgerblue][B]Aftermath[/B][/COLOR] Wizard allows you to get access to the latest [COLOR dodgerblue][B]Aftermath[/B][/COLOR] Custom Builds.</description>
+    <description lang="en">[COLOR dodgerblue][B]Aftermath[/B][/COLOR] Wizard offers many maintenance features, selective add-on data saving, and automated build installs.</description>
     <platform>all</platform>
   </extension>
 </addon>

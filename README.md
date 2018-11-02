@@ -1,16 +1,31 @@
 # plugin.program.aftermath
 Aftermath Wizard
 
-Aftermath Wizard was created to help the Kodi community out and help get rid of the broken personal wizards that are floating around. As this is a work in progress, I would highly recommend the use of a repository, but if you prefer not to, there is a built-in auto-updater. The current version of the wizard is v0.2.5.
+Aftermath Wizard was created to help the Kodi community out and help get rid of the broken personal wizards that are floating around. As this is a work in progress, I would highly recommend the use of a repository, but if you prefer not to, there is a built-in auto-updater.
 
-To get started, you can clone or fork this repository, and begin making your own changes.
+Currently, this version of the wizard supports:
 
-There are a few things that need to be edited to fully customize your wizard:
-
-* [addon.xml](https://github.com/drinfernoo/plugin.program.aftermath/wiki/addon.xml)
-* icon.png - the icon to be shown in Kodi. This must be a 512x512 pixel '.png' file.
-* fanart.jpg - the fanart to be shown in Kodi. This must be a 1920x1080 (or similar ratio) pixel '.jpg' file.
-* [uservar.py](https://github.com/drinfernoo/plugin.program.aftermath/wiki/uservar.py)
-* [Wizard Text Files](https://github.com/drinfernoo/plugin.program.aftermath/wiki/Wizard-Text-Files)
-
-Once you've edited these files, you can zip the directory and install inside Kodi.
+Trakt Saving:
+ - Gaia
+ - Placenta
+ - Magicality
+ - Exodus Redux
+ - Trakt
+ 
+RD/PM Saving:
+ - Gaia
+ - ResolveURL
+ - URLResolver
+ 
+API Key Saving:
+ - OpenSubtitles
+ - Orion
+ - Placenta
+ - Gaia
+ - Magicality
+ - Extended Info Script
+ - Metahandler
+ - script.module.metadatautils
+ - Exodus Redux
+ 
+If you don't see these in your menus, don't be alarmed... it's just because you dont have them installed. They are supported, however ;)
