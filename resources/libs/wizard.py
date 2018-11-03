@@ -2254,7 +2254,7 @@ def clearCache(over=None):
 		(os.path.join(ADDOND, 'plugin.video.gaia', 'meta.db')),
 		(os.path.join(ADDOND, 'plugin.video.exodusredux', 'cache.db')),
 		(os.path.join(ADDOND, 'plugin.video.exoudsredux', 'meta.5.db')),
-		(os.path.join(ADDOND, 'plugin.video.exodusredux', 'cache.providers.13.db'))
+		(os.path.join(ADDOND, 'plugin.video.exodusredux', 'cache.providers.13.db')),
 		(os.path.join(ADDOND, 'plugin.video.magicality', 'cache.db')),
 		(os.path.join(ADDOND, 'plugin.video.magicality', 'meta.5.db')),
 		(os.path.join(ADDOND, 'plugin.video.magicality', 'cache.providers.13.db'))]
