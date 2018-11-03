@@ -1,5 +1,9 @@
 import os, xbmc, xbmcaddon
 
+# Dont need to edit just here for icons stored locally
+PATH           = xbmcaddon.Addon().getAddonInfo('path')
+ART            = os.path.join(PATH, 'resources', 'art')
+
 #########################################################
 ### User Edit Variables #################################
 #########################################################
@@ -24,10 +28,6 @@ YOUTUBEFILE    = 'http://'
 ADDONFILE      = 'http://'
 # Text File for advanced settings.  Leave as 'http://' to ignore
 ADVANCEDFILE   = 'http://'
-
-# Dont need to edit just here for icons stored locally
-PATH           = xbmcaddon.Addon().getAddonInfo('path')
-ART            = os.path.join(PATH, 'resources', 'art')
 
 #########################################################
 ### THEMING MENU ITEMS ##################################
