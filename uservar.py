@@ -76,7 +76,7 @@ HIDECONTACT    = 'No'
 # You can add \n to do line breaks
 CONTACT        = 'Thank you for choosing Aftermath Wizard.\n\nContact us on Github at http://www.github.com/drinfernoo/plugin.program.aftermath/'
 #Images used for the contact window.  http:// for default icon and fanart
-CONTACTICON    = 'http://'
+CONTACTICON    = os.path.join(ART, 'qricon.png')
 CONTACTFANART  = 'http://'
 #########################################################
 
