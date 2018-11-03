@@ -93,13 +93,13 @@ WIZARDFILE     = BUILDFILE
 ### AUTO INSTALL ########################################
 ########## REPO IF NOT INSTALLED ########################
 # Enable Auto Install 'Yes' or 'No'
-AUTOINSTALL    = 'No'
+AUTOINSTALL    = 'Yes'
 # Addon ID for the repository
 REPOID         = 'repository.aftermath'
 # Url to Addons.xml file in your repo folder(this is so we can get the latest version)
-REPOADDONXML   = 'https://raw.githubusercontent.com/surfacingx/Aftermath/master/repository.aftermath/addon.xml'
+REPOADDONXML   = 'https://raw.githubusercontent.com/drinfernoo/drinfernoo.github.io/master/repository.aftermath/zips/addons.xml'
 # Url to folder zip is located in
-REPOZIPURL     = 'https://raw.githubusercontent.com/surfacingx/Aftermath/master/repository.aftermath/'
+REPOZIPURL     = 'https://raw.githubusercontent.com/drinfernoo/drinfernoo.github.io/master/zips/repository.aftermath/'
 #########################################################
 
 #########################################################
