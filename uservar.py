@@ -11,8 +11,8 @@ EXCLUDES       = [ADDON_ID, 'repository.aftermath']
 CACHETEXT      = 'Yes'
 CACHEAGE       = 30
 # Text File with build info in it.
-BUILDFILE      = 'http://'
-# How often you would list it to check for build updates in days
+BUILDFILE      = os.path.join(PATH, 'resources', 'example_text_files', 'builds.txt')
+# How often you would like it to check for build updates in days
 # 0 being every startup of kodi
 UPDATECHECK    = 0
 # Text File with apk info in it.  Leave as 'http://' to ignore
@@ -97,7 +97,7 @@ AUTOINSTALL    = 'Yes'
 # Addon ID for the repository
 REPOID         = 'repository.aftermath'
 # Url to Addons.xml file in your repo folder(this is so we can get the latest version)
-REPOADDONXML   = 'https://raw.githubusercontent.com/drinfernoo/drinfernoo.github.io/master/repository.aftermath/zips/addons.xml'
+REPOADDONXML   = 'https://raw.githubusercontent.com/drinfernoo/drinfernoo.github.io/master/zips/addons.xml'
 # Url to folder zip is located in
 REPOZIPURL     = 'https://raw.githubusercontent.com/drinfernoo/drinfernoo.github.io/master/zips/repository.aftermath/'
 #########################################################
