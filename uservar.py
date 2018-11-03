@@ -15,7 +15,7 @@ EXCLUDES       = [ADDON_ID, 'repository.aftermath']
 CACHETEXT      = 'Yes'
 CACHEAGE       = 30
 # Text File with build info in it.
-BUILDFILE      = os.path.join(PATH, 'resources', 'example_text_files', 'builds.txt')
+BUILDFILE      = 'http://'
 # How often you would like it to check for build updates in days
 # 0 being every startup of kodi
 UPDATECHECK    = 0
@@ -106,7 +106,7 @@ REPOZIPURL     = 'https://raw.githubusercontent.com/drinfernoo/drinfernoo.github
 ### NOTIFICATION WINDOW##################################
 #########################################################
 # Enable Notification screen Yes or No
-ENABLE         = 'No'
+ENABLE         = 'Yes'
 # Url to notification file
 NOTIFICATION   = 'http://'
 # Use either 'Text' or 'Image'
