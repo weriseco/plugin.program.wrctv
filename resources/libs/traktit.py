@@ -48,8 +48,7 @@ KEEPTRAKT      = wiz.getS('keeptrakt')
 TRAKTSAVE      = wiz.getS('traktlastsave')
 COLOR1         = uservar.COLOR1
 COLOR2         = uservar.COLOR2
-ORDER          = ['placenta', 'gaia', 'magicality', 'trakt', 'exodusredux']
-ORDER          = ['chappaai', 'uranus', 'death', 'placenta', 'incursion', 'numbers', 'gaia', 'neptune', 'seren', 'trakt', 'wraith']
+ORDER          = ['placenta', 'gaia', 'magicality', 'seren', 'trakt', 'exodusredux']
 
 TRAKTID = {
 	'placenta': {
@@ -91,13 +90,13 @@ TRAKTID = {
 		'activate' : 'RunPlugin(plugin://plugin.video.neptune/?action=authTrakt)'},
 	'seren': {
 		'name'     : 'Seren',
-		'plugin'   : 'plugin.video.alphaSeren',
+		'plugin'   : 'plugin.video.Seren',
 		'saved'    : 'seren',
-		'path'     : os.path.join(ADDONS, 'plugin.video.alphaSeren'),
-		'icon'     : os.path.join(ADDONS, 'plugin.video.alphaSeren', 'icon.png'),
-		'fanart'   : os.path.join(ADDONS, 'plugin.video.alphaSeren', 'fanart.jpg'),
+		'path'     : os.path.join(ADDONS, 'plugin.video.Seren'),
+		'icon'     : os.path.join(ADDONS, 'plugin.video.Seren', 'icon.png'),
+		'fanart'   : os.path.join(ADDONS, 'plugin.video.Seren', 'fanart.jpg'),
 		'file'     : os.path.join(TRAKTFOLD, 'seren_trakt'),
-		'settings' : os.path.join(ADDOND, 'plugin.video.alphaSeren', 'settings.xml'),
+		'settings' : os.path.join(ADDOND, 'plugin.video.Seren', 'settings.xml'),
 		'default'  : 'trakt.username',
 		'data'     : ['trakt.username', 'trakt.secret', 'trakt.refresh', 'trakt.clientid', 'trakt.auth'],
 		'activate' : 'RunPlugin(plugin://plugin.video.alphaSeren/?action=authTrakt)'},		
