@@ -48,8 +48,7 @@ KEEPLOGIN      = wiz.getS('keeplogin')
 LOGINSAVE      = wiz.getS('loginlastsave')
 COLOR1         = uservar.COLOR1
 COLOR2         = uservar.COLOR2
-ORDER          = ['api-opensubtitles', 'api-orion', 'api-placenta', 'api-gaia', 'api-magicality', 'api-eis', 'api-metahandler', 'api-metadatautils', 'api-exodusredux']
-ORDER          = ['api-opensubtitles', 'api-orion', 'api-seren', 'api-chappaai', 'api-uranus', 'api-death', 'api-placenta', 'api-incursion', 'api-numbers', 'api-gaia', 'api-neptune', 'api-eis', 'api-metahandler', 'api-metadatautils']
+ORDER          = ['api-opensubtitles', 'api-orion', 'api-seren', 'api-placenta', 'api-gaia', 'api-magicality', 'api-eis', 'api-metahandler', 'api-metadatautils', 'api-exodusredux']
 
 LOGINID = {
 	'api-opensubtitles': {
@@ -78,16 +77,16 @@ LOGINID = {
 		'activate' : 'RunPlugin(plugin://script.module.orion/?action=settingsAccountLogin)'},
 	'api-seren': {
 		'name'     : 'Seren',
-		'plugin'   : 'plugin.video.alphaSeren',
+		'plugin'   : 'plugin.video.Seren',
 		'saved'    : 'api-seren',
-		'path'     : os.path.join(ADDONS, 'plugin.video.alphaSeren'),
-		'icon'     : os.path.join(ADDONS, 'plugin.video.alphaSeren', 'icon.png'),
-		'fanart'   : os.path.join(ADDONS, 'plugin.video.alphaSeren', 'fanart.jpg'),
+		'path'     : os.path.join(ADDONS, 'plugin.video.Seren'),
+		'icon'     : os.path.join(ADDONS, 'plugin.video.Seren', 'icon.png'),
+		'fanart'   : os.path.join(ADDONS, 'plugin.video.Seren', 'fanart.jpg'),
 		'file'     : os.path.join(LOGINFOLD, 'api-seren'),
-		'settings' : os.path.join(ADDOND, 'plugin.video.alphaSeren', 'settings.xml'),
+		'settings' : os.path.join(ADDOND, 'plugin.video.Seren', 'settings.xml'),
 		'default'  : 'tmdb.apikey',
-		'data'     : ['tmdb.apikey'],
-		'activate' : 'RunPlugin(plugin://plugin.video.alphaSeren/?mode=auth_tmdb)'},
+		'data'     : ['tmdb.apikey', 'tvdb.apikey', 'tvdb.expiry', 'tvdb.jw'],
+		'activate' : ''},
 	'api-placenta': {
 		'name'     : 'Placenta',
 		'plugin'   : 'plugin.video.placenta',
