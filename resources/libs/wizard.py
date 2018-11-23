@@ -534,10 +534,10 @@ def getCacheSize():
 			if INCLUDEGAIA == 'true':
 				files.append(os.path.join(ADDOND, 'plugin.video.gaia', 'cache.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.gaia', 'meta.db'))
-            if INCLUDESEREN == 'true':
+			if INCLUDESEREN == 'true':
 				files.append(os.path.join(ADDOND, 'plugin.video.Seren', 'cache.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.Seren', 'providers.db'))
-                files.append(os.path.join(ADDOND, 'plugin.video.Seren', 'torrentScrape.db'))
+				files.append(os.path.join(ADDOND, 'plugin.video.Seren', 'torrentScrape.db'))
 		if len(files) > 0:
 			for item in files:
 				if not os.path.exists(item): continue
@@ -2336,7 +2336,7 @@ def clearCache(over=None):
 				files.append(os.path.join(ADDOND, 'plugin.video.magicality', 'cache.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.magicality', 'meta.5.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.magicality', 'providers.13.db'))
-            if INCLUDESEREN == 'true':
+			if INCLUDESEREN == 'true':
 				files.append(os.path.join(ADDOND, 'plugin.video.Seren', 'cache.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.Seren', 'torrentScrape.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.Seren', 'providers.db'))

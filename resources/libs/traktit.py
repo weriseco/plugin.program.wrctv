@@ -86,7 +86,7 @@ TRAKTID = {
 		'settings' : os.path.join(ADDOND, 'plugin.video.magicality', 'settings.xml'),
 		'default'  : 'trakt.user',
 		'data'     : ['trakt.refresh', 'trakt.token', 'trakt.user'],
-		'activate' : 'RunPlugin(plugin://plugin.video.magicality/?action=authTrakt)'},
+		'activate' : 'RunPlugin(plugin://plugin.video.magicality/?action=authTrakt)',
 		'activate' : 'RunPlugin(plugin://plugin.video.neptune/?action=authTrakt)'},
 	'seren': {
 		'name'     : 'Seren',
@@ -99,7 +99,7 @@ TRAKTID = {
 		'settings' : os.path.join(ADDOND, 'plugin.video.Seren', 'settings.xml'),
 		'default'  : 'trakt.username',
 		'data'     : ['trakt.username', 'trakt.secret', 'trakt.refresh', 'trakt.clientid', 'trakt.auth'],
-		'activate' : 'RunPlugin(plugin://plugin.video.alphaSeren/?action=authTrakt)'},		
+		'activate' : 'RunPlugin(plugin://plugin.video.alphaSeren/?action=authTrakt)'},
 	'trakt': {
 		'name'     : 'Trakt',
 		'plugin'   : 'script.trakt',
