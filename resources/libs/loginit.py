@@ -48,7 +48,7 @@ KEEPLOGIN      = wiz.getS('keeplogin')
 LOGINSAVE      = wiz.getS('loginlastsave')
 COLOR1         = uservar.COLOR1
 COLOR2         = uservar.COLOR2
-ORDER          = ['api-opensubtitles', 'api-orion', 'api-placenta', 'api-gaia', 'api-magicality', 'api-eis', 'api-metahandler', 'api-metadatautils', 'api-exodusredux']
+ORDER          = ['api-opensubtitles', 'api-orion', 'api-seren', 'api-placenta', 'api-gaia', 'api-magicality', 'api-eis', 'api-metahandler', 'api-metadatautils', 'api-exodusredux']
 
 LOGINID = {
 	'api-opensubtitles': {
@@ -75,6 +75,18 @@ LOGINID = {
 		'default'  : 'account.key',
 		'data'     : ['account.key', 'account.valid'],
 		'activate' : 'RunPlugin(plugin://script.module.orion/?action=settingsAccountLogin)'},
+	'api-seren': {
+		'name'     : 'Seren',
+		'plugin'   : 'plugin.video.seren',
+		'saved'    : 'api-seren',
+		'path'     : os.path.join(ADDONS, 'plugin.video.seren'),
+		'icon'     : os.path.join(ADDONS, 'plugin.video.seren', 'temp-icon.png'),
+		'fanart'   : os.path.join(ADDONS, 'plugin.video.seren', 'temp-fanart.jpg'),
+		'file'     : os.path.join(LOGINFOLD, 'api-seren'),
+		'settings' : os.path.join(ADDOND, 'plugin.video.seren', 'settings.xml'),
+		'default'  : 'tmdb.apikey',
+		'data'     : ['tmdb.apikey', 'tvdb.apikey', 'tvdb.expiry', 'tvdb.jw'],
+		'activate' : ''},
 	'api-placenta': {
 		'name'     : 'Placenta',
 		'plugin'   : 'plugin.video.placenta',

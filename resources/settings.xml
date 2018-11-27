@@ -58,6 +58,7 @@
 		<setting id="includeplacenta" type="bool" label="Include Placenta DB: " default="true" enable="!eq(-6,false)" visible="!eq(-6,false)"/>
 		<setting id="includeexodusredux" type="bool" label="Include Exodus Redux DB: " default="true" enable="!eq(-6,false)" visible="!eq(-6,false)"/>
 		<setting id="includegaia" type="bool" label="Include Gaia Cache DB: " default="true" enable="!eq(-9,false)" visible="!eq(-9,false)"/>
+        <setting id="includeseren" type="bool" label="Include Seren Cache DB: " default="true" enable="!eq(-9,false)" visible="!eq(-9,false)"/>
 		<setting id="includemagicality" type="bool" label="Include Magicality Cache DB: " default="true" enable="!eq(-10,false)" visible="!eq(-10,false)"/>
 	</category>
 

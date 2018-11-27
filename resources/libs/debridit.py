@@ -48,7 +48,7 @@ KEEPTRAKT      = wiz.getS('keepdebrid')
 REALSAVE       = wiz.getS('debridlastsave')
 COLOR1         = uservar.COLOR1
 COLOR2         = uservar.COLOR2
-ORDER          = ['gaia', 'gaiapm', 'url', 'url2', 'url3', 'url4']
+ORDER          = ['gaia', 'gaiapm', 'serenrd', 'serenpm', 'url', 'url2', 'url3', 'url4']
 
 DEBRIDID = {
 	'gaia': {
@@ -75,6 +75,30 @@ DEBRIDID = {
 		'default'  : 'accounts.debrid.premiumize.user',
 		'data'     : [ 'accounts.debrid.premiumize.enabled', 'accounts.debrid.premiumize.user', 'accounts.debrid.premiumize.pin'],
 		'activate' : 'RunPlugin(plugin://plugin.video.gaia/?action=premiumizeSettings)'},
+	'serenrd': {
+		'name'     : 'Seren RD',
+		'plugin'   : 'plugin.video.seren',
+		'saved'    : 'serenrd',
+		'path'     : os.path.join(ADDONS, 'plugin.video.seren'),
+		'icon'     : os.path.join(ADDONS, 'plugin.video.seren', 'temp-icon.png'),
+		'fanart'   : os.path.join(ADDONS, 'plugin.video.seren', 'temp-fanart.jpg'),
+		'file'     : os.path.join(REALFOLD, 'seren_rd'),
+		'settings' : os.path.join(ADDOND, 'plugin.video.seren', 'settings.xml'),
+		'default'  : 'rd.username',
+		'data'     : [ 'rd.username', 'realdebrid.enabled', 'rd.torrents', 'rd.secret', 'rd.refresh', 'rd.hosters', 'rd.client_id', 'rd.autodelete', 'rd.auth_start', 'rd.auth'],
+		'activate' : 'RunPlugin(plugin://plugin.video.seren/?action=authRealDebrid)'},
+	'serenpm': {
+		'name'     : 'Seren PM',
+		'plugin'   : 'plugin.video.seren',
+		'saved'    : 'serenpm',
+		'path'     : os.path.join(ADDONS, 'plugin.video.seren'),
+		'icon'     : os.path.join(ADDONS, 'plugin.video.seren', 'temp-icon.png'),
+		'fanart'   : os.path.join(ADDONS, 'plugin.video.seren', 'temp-fanart.jpg'),
+		'file'     : os.path.join(REALFOLD, 'seren_pm'),
+		'settings' : os.path.join(ADDOND, 'plugin.video.seren', 'settings.xml'),
+		'default'  : 'premiumize.pin',
+		'data'     : ['premiumize.pin', 'premiumize.torrents', 'premiumize.hosters', 'premiumize.enabled', 'premiumize.threshold', 'premiumize.autodelete'],
+		'activate' : 'RunPlugin(plugin.video.seren/?action=openSettings)'},
 	'url': {
 		'name'     : 'URLResolver RD',
 		'plugin'   : 'script.module.urlresolver',

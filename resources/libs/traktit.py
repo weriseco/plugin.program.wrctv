@@ -48,7 +48,7 @@ KEEPTRAKT      = wiz.getS('keeptrakt')
 TRAKTSAVE      = wiz.getS('traktlastsave')
 COLOR1         = uservar.COLOR1
 COLOR2         = uservar.COLOR2
-ORDER          = ['placenta', 'gaia', 'magicality', 'trakt', 'exodusredux']
+ORDER          = ['placenta', 'gaia', 'magicality', 'seren', 'trakt', 'exodusredux']
 
 TRAKTID = {
 	'placenta': {
@@ -87,6 +87,18 @@ TRAKTID = {
 		'default'  : 'trakt.user',
 		'data'     : ['trakt.refresh', 'trakt.token', 'trakt.user'],
 		'activate' : 'RunPlugin(plugin://plugin.video.magicality/?action=authTrakt)'},
+	'seren': {
+		'name'     : 'Seren',
+		'plugin'   : 'plugin.video.seren',
+		'saved'    : 'seren',
+		'path'     : os.path.join(ADDONS, 'plugin.video.seren'),
+		'icon'     : os.path.join(ADDONS, 'plugin.video.seren', 'temp-icon.png'),
+		'fanart'   : os.path.join(ADDONS, 'plugin.video.seren', 'temp-fanart.jpg'),
+		'file'     : os.path.join(TRAKTFOLD, 'seren_trakt'),
+		'settings' : os.path.join(ADDOND, 'plugin.video.seren', 'settings.xml'),
+		'default'  : 'trakt.username',
+		'data'     : ['trakt.username', 'trakt.secret', 'trakt.refresh', 'trakt.clientid', 'trakt.auth'],
+		'activate' : 'RunPlugin(plugin://plugin.video.seren/?action=authTrakt)'},
 	'trakt': {
 		'name'     : 'Trakt',
 		'plugin'   : 'script.trakt',
