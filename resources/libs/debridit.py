@@ -85,7 +85,7 @@ DEBRIDID = {
 		'file'     : os.path.join(REALFOLD, 'seren_rd'),
 		'settings' : os.path.join(ADDOND, 'plugin.video.seren', 'settings.xml'),
 		'default'  : 'rd.username',
-		'data'     : [ 'rd.username', 'realdebrid.enabled', 'rd.torrents', 'rd.secret', 'rd.refresh', 'rd.hosters', 'rd.client_id', 'rd.autodelete', 'rd.auth_start', 'rd.auth'],
+		'data'     : [ 'rd.auth', 'rd.auth_start', 'rd.client_id', 'rd.expiry', 'rd.refresh', 'rd.secret', 'rd.username', 'realdebrid.enabled'],
 		'activate' : 'RunPlugin(plugin://plugin.video.seren/?action=authRealDebrid)'},
 	'serenpm': {
 		'name'     : 'Seren PM',
@@ -97,7 +97,7 @@ DEBRIDID = {
 		'file'     : os.path.join(REALFOLD, 'seren_pm'),
 		'settings' : os.path.join(ADDOND, 'plugin.video.seren', 'settings.xml'),
 		'default'  : 'premiumize.pin',
-		'data'     : ['premiumize.pin', 'premiumize.torrents', 'premiumize.hosters', 'premiumize.enabled', 'premiumize.threshold', 'premiumize.autodelete'],
+		'data'     : ['premiumize.enabled', 'premiumize.pin'],
 		'activate' : 'RunPlugin(plugin.video.seren/?action=openSettings)'},
 	'url': {
 		'name'     : 'URLResolver RD',

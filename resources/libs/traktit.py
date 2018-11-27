@@ -97,7 +97,7 @@ TRAKTID = {
 		'file'     : os.path.join(TRAKTFOLD, 'seren_trakt'),
 		'settings' : os.path.join(ADDOND, 'plugin.video.seren', 'settings.xml'),
 		'default'  : 'trakt.username',
-		'data'     : ['trakt.username', 'trakt.secret', 'trakt.refresh', 'trakt.clientid', 'trakt.auth'],
+		'data'     : ['trakt.auth', 'trakt.refresh', 'trakt.username'],
 		'activate' : 'RunPlugin(plugin://plugin.video.seren/?action=authTrakt)'},
 	'trakt': {
 		'name'     : 'Trakt',
