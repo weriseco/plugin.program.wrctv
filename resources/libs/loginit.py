@@ -48,7 +48,7 @@ KEEPLOGIN      = wiz.getS('keeplogin')
 LOGINSAVE      = wiz.getS('loginlastsave')
 COLOR1         = uservar.COLOR1
 COLOR2         = uservar.COLOR2
-ORDER          = ['api-opensubtitles', 'api-orion', 'api-seren', 'api-placenta', 'api-gaia', 'api-magicality', 'api-eis', 'api-metahandler', 'api-metadatautils', 'api-exodusredux']
+ORDER          = ['api-opensubtitles', 'api-orion', 'api-placenta', 'api-gaia', 'api-magicality', 'api-eis', 'api-metahandler', 'api-metadatautils', 'api-exodusredux']
 
 LOGINID = {
 	'api-opensubtitles': {
