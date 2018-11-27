@@ -25,7 +25,6 @@ API Key Saving:
  - Placenta
  - Gaia
  - Magicality
- - Seren
  - Extended Info Script
  - Metahandler
  - script.module.metadatautils
