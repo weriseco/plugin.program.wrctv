@@ -11,9 +11,11 @@ Trakt Saving:
  - Magicality
  - Exodus Redux
  - Trakt
+ - Seren
  
 RD/PM Saving:
  - Gaia
+ - Seren
  - ResolveURL
  - URLResolver
  
@@ -23,6 +25,7 @@ API Key Saving:
  - Placenta
  - Gaia
  - Magicality
+ - Seren
  - Extended Info Script
  - Metahandler
  - script.module.metadatautils
