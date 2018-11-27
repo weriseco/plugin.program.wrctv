@@ -85,7 +85,7 @@ DEBRIDID = {
 		'file'     : os.path.join(REALFOLD, 'seren_rd'),
 		'settings' : os.path.join(ADDOND, 'plugin.video.seren', 'settings.xml'),
 		'default'  : 'rd.username',
-		'data'     : [ 'rd.auth', 'rd.auth_start', 'rd.client_id', 'rd.expiry', 'rd.refresh', 'rd.secret', 'rd.username', 'realdebrid.enabled'],
+		'data'     : [ 'rd.auth', 'rd.client_id', 'rd.expiry', 'rd.refresh', 'rd.secret', 'rd.username', 'realdebrid.enabled'],
 		'activate' : 'RunPlugin(plugin://plugin.video.seren/?action=authRealDebrid)'},
 	'serenpm': {
 		'name'     : 'Seren PM',

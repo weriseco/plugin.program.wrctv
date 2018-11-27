@@ -85,7 +85,7 @@ LOGINID = {
 		'file'     : os.path.join(LOGINFOLD, 'api-seren'),
 		'settings' : os.path.join(ADDOND, 'plugin.video.seren', 'settings.xml'),
 		'default'  : 'tmdb.apikey',
-		'data'     : ['tmdb.apikey', 'trakt.clientid', 'trakt.secret', 'tvdb.apikey', 'tvdb.expiry', 'tvdb.jw'],
+		'data'     : ['tmdb.apikey', 'trakt.clientid', 'trakt.secret'],
 		'activate' : ''},
 	'api-placenta': {
 		'name'     : 'Placenta',
