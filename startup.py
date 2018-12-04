@@ -427,14 +427,14 @@ if KEEPTRAKT == 'true':
 		wiz.log("[Trakt Data] Next Auto Save isnt until: %s / TODAY is: %s" % (TRAKTSAVE, str(TODAY)), xbmc.LOGNOTICE)
 else: wiz.log("[Trakt Data] Not Enabled", xbmc.LOGNOTICE)
 
-wiz.log("[Real Debrid Data] Started", xbmc.LOGNOTICE)
+wiz.log("[Debrid Data] Started", xbmc.LOGNOTICE)
 if KEEPREAL == 'true':
 	if REALSAVE <= str(TODAY):
-		wiz.log("[Real Debrid Data] Saving all Data", xbmc.LOGNOTICE)
+		wiz.log("[Debrid Data] Saving all Data", xbmc.LOGNOTICE)
 		debridit.autoUpdate('all')
 		wiz.setS('debridlastsave', str(THREEDAYS))
 	else:
-		wiz.log("[Real Debrid Data] Next Auto Save isnt until: %s / TODAY is: %s" % (REALSAVE, str(TODAY)), xbmc.LOGNOTICE)
+		wiz.log("[Debrid Data] Next Auto Save isnt until: %s / TODAY is: %s" % (REALSAVE, str(TODAY)), xbmc.LOGNOTICE)
 else: wiz.log("[Real Debrid Data] Not Enabled", xbmc.LOGNOTICE)
 
 wiz.log("[Login Data] Started", xbmc.LOGNOTICE)

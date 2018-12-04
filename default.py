@@ -1137,13 +1137,13 @@ def saveMenu():
     whitelist  = 'true' if KEEPWHITELIST == 'true' else 'false'
 
     addDir ('Keep Trakt Data',               'trakt',                icon=ICONTRAKT, themeit=THEME1)
-    addDir ('Keep Real Debrid',              'realdebrid',           icon=ICONREAL,  themeit=THEME1)
+    addDir ('Keep Debrid',              'realdebrid',           icon=ICONREAL,  themeit=THEME1)
     addDir ('Keep API Keys',               'login',                icon=ICONLOGIN, themeit=THEME1)
     addFile('Import Save Data',              'managedata', 'import', icon=ICONSAVE,  themeit=THEME1)
     addFile('Export Save Data',              'managedata', 'export', icon=ICONSAVE,  themeit=THEME1)
     addFile('- Click to toggle settings -', '', themeit=THEME3)
     addFile('Save Trakt: %s' % trakt.replace('true',on).replace('false',off)                       ,'togglesetting', 'keeptrakt',      icon=ICONTRAKT, themeit=THEME1)
-    addFile('Save Real Debrid: %s' % real.replace('true',on).replace('false',off)                  ,'togglesetting', 'keepdebrid',     icon=ICONREAL,  themeit=THEME1)
+    addFile('Save Debrid: %s' % real.replace('true',on).replace('false',off)                  ,'togglesetting', 'keepdebrid',     icon=ICONREAL,  themeit=THEME1)
     addFile('Save API Keys: %s' % login.replace('true',on).replace('false',off)                  ,'togglesetting', 'keeplogin',      icon=ICONLOGIN, themeit=THEME1)
     addFile('Keep \'Sources.xml\': %s' % sources.replace('true',on).replace('false',off)           ,'togglesetting', 'keepsources',    icon=ICONSAVE,  themeit=THEME1)
     addFile('Keep \'Profiles.xml\': %s' % profiles.replace('true',on).replace('false',off)         ,'togglesetting', 'keepprofiles',   icon=ICONSAVE,  themeit=THEME1)
@@ -1231,11 +1231,11 @@ def realMenu():
             else:                        addFile('[COLOR springgreen]Saved Data: %s[/COLOR]' % user, '', icon=icon, fanart=fanart, menu=menu2)
 
     if HIDESPACERS == 'No': addFile(wiz.sep(), '', themeit=THEME3)
-    addFile('Save All Real Debrid Data',          'savedebrid',    'all', icon=ICONREAL,  themeit=THEME3)
-    addFile('Recover All Saved Real Debrid Data', 'restoredebrid', 'all', icon=ICONREAL,  themeit=THEME3)
-    addFile('Import Real Debrid Data',            'importdebrid',  'all', icon=ICONREAL,  themeit=THEME3)
-    addFile('Clear All Addon Real Debrid Data',               'addondebrid',   'all', icon=ICONREAL,  themeit=THEME3)
-    addFile('Clear All Saved Real Debrid Data',   'cleardebrid',   'all', icon=ICONREAL,  themeit=THEME3)
+    addFile('Save All Debrid Data',          'savedebrid',    'all', icon=ICONREAL,  themeit=THEME3)
+    addFile('Recover All Saved Debrid Data', 'restoredebrid', 'all', icon=ICONREAL,  themeit=THEME3)
+    addFile('Import Debrid Data',            'importdebrid',  'all', icon=ICONREAL,  themeit=THEME3)
+    addFile('Clear All Addon Debrid Data',               'addondebrid',   'all', icon=ICONREAL,  themeit=THEME3)
+    addFile('Clear All Saved Debrid Data',   'cleardebrid',   'all', icon=ICONREAL,  themeit=THEME3)
     setView('files', 'viewType')
 
 def loginMenu():
