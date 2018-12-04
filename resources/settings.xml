@@ -55,11 +55,11 @@
 		<setting type="lsep" label="Clearing Video Cache:"/>
 		<setting id="includevideo" type="bool" label="Include Video Addons in Clear Cache: " default="true"/>
 		<setting id="includeall" type="bool" label="Include All Addons: " default="true" enable="!eq(-1,false)" visible="!eq(-1,false)"/>
+        <setting id="includeexodusredux" type="bool" label="Include Exodus Redux DB: " default="true" enable="!eq(-6,false)" visible="!eq(-6,false)"/>
+        <setting id="includegaia" type="bool" label="Include Gaia Cache DB: " default="true" enable="!eq(-9,false)" visible="!eq(-9,false)"/>
+        <setting id="includemagicality" type="bool" label="Include Magicality Cache DB: " default="true" enable="!eq(-10,false)" visible="!eq(-10,false)"/>
 		<setting id="includeplacenta" type="bool" label="Include Placenta DB: " default="true" enable="!eq(-6,false)" visible="!eq(-6,false)"/>
-		<setting id="includeexodusredux" type="bool" label="Include Exodus Redux DB: " default="true" enable="!eq(-6,false)" visible="!eq(-6,false)"/>
-		<setting id="includegaia" type="bool" label="Include Gaia Cache DB: " default="true" enable="!eq(-9,false)" visible="!eq(-9,false)"/>
         <setting id="includeseren" type="bool" label="Include Seren Cache DB: " default="true" enable="!eq(-9,false)" visible="!eq(-9,false)"/>
-		<setting id="includemagicality" type="bool" label="Include Magicality Cache DB: " default="true" enable="!eq(-10,false)" visible="!eq(-10,false)"/>
 	</category>
 
 	<category label="Install Settings">
@@ -84,25 +84,28 @@
 	<category label="Trakt Settings">
 		<setting type="lsep" label="Save Trakt Data:"/>
 		<setting id="keeptrakt" type="bool" label="Keep My Trakt Data" default="false"/>
+        <setting id="exodusredux" type="text" label="Exodus Redux: " enable="false" default=""/>
+        <setting id="gaia" type="text" label="Gaia: " enable="false" default=""/>
 		<setting id="placenta" type="text" label="Placenta: " enable="false" default=""/>
-		<setting id="gaia" type="text" label="Gaia: " enable="false" default=""/>
 		<setting id="magicality" type="text" label="Magicality: " enable="false" default=""/>
-		<setting id="trakt" type="text" label="Trakt: " enable="false" default=""/>
-		<setting id="exodusredux" type="text" label="Exodus Redux: " enable="false" default=""/>
+        <setting id="seren" type="text" label="Seren: " enable="false" default=""/>
+        <setting id="trakt" type="text" label="Trakt: " enable="false" default=""/>
 		<setting id="traktlastsave" type="text" label="Last Time Trakt Saved: " enable="false" default=""/>
 		<setting id="keeptraktwizard" type="action" label="Trakt Save Data Menu - DOES NOTHING" action=""/>
 	</category>
 
-	<category label="Real Debrid Settings">
-		<setting type="lsep" label="Save Real Debrid Data:"/>
-		<setting id="keepdebrid" type="bool" label="Keep My Real Debrid Data" default="false"/>
+	<category label="Debrid Settings">
+		<setting type="lsep" label="Save Debrid Data:"/>
+		<setting id="keepdebrid" type="bool" label="Keep My Debrid Data" default="false"/>
 		<setting id="gaiard" type="text" label="Gaia RD: " enable="false" default=""/>
 		<setting id="gaiapm" type="text" label="Gaia PM: " enable="false" default=""/>
 		<setting id="serenrd" type="text" label="Seren RD: " enable="false" default=""/>
 		<setting id="serenpm" type="text" label="Seren PM: " enable="false" default=""/>
+        <setting id="urlrd" type="text" label="URLResolver RD: " enable="false" default=""/>
 		<setting id="urlpm" type="text" label="URLResolver PM: " enable="false" default=""/>
+        <setting id="rurlrd" type="text" label="ResolveURL RD: " enable="false" default=""/>
 		<setting id="rurlpm" type="text" label="ResolveURL PM: " enable="false" default=""/>
-		<setting id="debridlastsave" type="text" label="Last Time Real Debrid Saved: " enable="false" default=""/>
+		<setting id="debridlastsave" type="text" label="Last Time Debrid Saved: " enable="false" default=""/>
 		<setting id="keepdebridwizard" type="action" label="Debrid Save Data Menu - DOES NOTHING" action=""/>
 	</category>
 
