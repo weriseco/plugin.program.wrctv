@@ -98,8 +98,8 @@
 		<setting id="keepdebrid" type="bool" label="Keep My Real Debrid Data" default="false"/>
 		<setting id="gaiard" type="text" label="Gaia RD: " enable="false" default=""/>
 		<setting id="gaiapm" type="text" label="Gaia PM: " enable="false" default=""/>
-		<setting id="urlrd" type="text" label="URLResolver RD: " enable="false" default=""/>
-		<setting id="rurlrd" type="text" label="ResolveURL RD: " enable="false" default=""/>
+		<setting id="serenrd" type="text" label="Seren RD: " enable="false" default=""/>
+		<setting id="serenpm" type="text" label="Seren PM: " enable="false" default=""/>
 		<setting id="urlpm" type="text" label="URLResolver PM: " enable="false" default=""/>
 		<setting id="rurlpm" type="text" label="ResolveURL PM: " enable="false" default=""/>
 		<setting id="debridlastsave" type="text" label="Last Time Real Debrid Saved: " enable="false" default=""/>

@@ -486,9 +486,9 @@ def getCacheSize():
 		(os.path.join(ADDOND, 'plugin.video.exodusredux', 'cache.providers.13.db')),
 		(os.path.join(ADDOND, 'plugin.video.gaia', 'cache.db')),
 		(os.path.join(ADDOND, 'plugin.video.gaia', 'meta.db')),
-        (os.path.join(ADDOND, 'plugin.video.Seren', 'cache.db')),
-		(os.path.join(ADDOND, 'plugin.video.Seren', 'providers.db')),
-        (os.path.join(ADDOND, 'plugin.video.Seren', 'torrentScrape.db'))]
+        (os.path.join(ADDOND, 'plugin.video.seren', 'cache.db')),
+		(os.path.join(ADDOND, 'plugin.video.seren', 'providers.db')),
+        (os.path.join(ADDOND, 'plugin.video.seren', 'torrentScrape.db'))]
 	cachelist = [
 		(ADDOND),
 		(os.path.join(HOME,'cache')),
@@ -535,9 +535,9 @@ def getCacheSize():
 				files.append(os.path.join(ADDOND, 'plugin.video.gaia', 'cache.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.gaia', 'meta.db'))
 			if INCLUDESEREN == 'true':
-				files.append(os.path.join(ADDOND, 'plugin.video.Seren', 'cache.db'))
-				files.append(os.path.join(ADDOND, 'plugin.video.Seren', 'providers.db'))
-				files.append(os.path.join(ADDOND, 'plugin.video.Seren', 'torrentScrape.db'))
+				files.append(os.path.join(ADDOND, 'plugin.video.seren', 'cache.db'))
+				files.append(os.path.join(ADDOND, 'plugin.video.seren', 'providers.db'))
+				files.append(os.path.join(ADDOND, 'plugin.video.seren', 'torrentScrape.db'))
 		if len(files) > 0:
 			for item in files:
 				if not os.path.exists(item): continue
@@ -2337,9 +2337,9 @@ def clearCache(over=None):
 				files.append(os.path.join(ADDOND, 'plugin.video.magicality', 'meta.5.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.magicality', 'providers.13.db'))
 			if INCLUDESEREN == 'true':
-				files.append(os.path.join(ADDOND, 'plugin.video.Seren', 'cache.db'))
-				files.append(os.path.join(ADDOND, 'plugin.video.Seren', 'torrentScrape.db'))
-				files.append(os.path.join(ADDOND, 'plugin.video.Seren', 'providers.db'))
+				files.append(os.path.join(ADDOND, 'plugin.video.seren', 'cache.db'))
+				files.append(os.path.join(ADDOND, 'plugin.video.seren', 'torrentScrape.db'))
+				files.append(os.path.join(ADDOND, 'plugin.video.seren', 'providers.db'))
 		if len(files) > 0:
 			for item in files:
 				if os.path.exists(item):
