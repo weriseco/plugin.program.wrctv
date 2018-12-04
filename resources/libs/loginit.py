@@ -197,13 +197,13 @@ def loginIt(do, who):
 					if user == '' and do == 'update': continue
 					updateLogin(do, log)
 				except: pass
-			else: wiz.log('[API Keys] %s(%s) is not installed' % (LOGINID[log]['name'],LOGINID[log]['plugin']), xbmc.LOGERROR)
+			else: wiz.log('[Login Info] %s(%s) is not installed' % (LOGINID[log]['name'],LOGINID[log]['plugin']), xbmc.LOGERROR)
 		wiz.setS('loginlastsave', str(THREEDAYS))
 	else:
 		if LOGINID[who]:
 			if os.path.exists(LOGINID[who]['path']):
 				updateLogin(do, who)
-		else: wiz.log('[API Keys] Invalid Entry: %s' % who, xbmc.LOGERROR)
+		else: wiz.log('[Login Info] Invalid Entry: %s' % who, xbmc.LOGERROR)
 
 def clearSaved(who, over=False):
 	if who == 'all':
@@ -213,7 +213,7 @@ def clearSaved(who, over=False):
 		file = LOGINID[who]['file']
 		if os.path.exists(file):
 			os.remove(file)
-			wiz.LogNotify('[COLOR %s]%s[/COLOR]' % (COLOR1, LOGINID[who]['name']), '[COLOR %s]API Key: Removed![/COLOR]' % COLOR2, 2000, LOGINID[who]['icon'])
+			wiz.LogNotify('[COLOR %s]%s[/COLOR]' % (COLOR1, LOGINID[who]['name']), '[COLOR %s]Login Info: Removed![/COLOR]' % COLOR2, 2000, LOGINID[who]['icon'])
 		wiz.setS(LOGINID[who]['saved'], '')
 	if over == False: wiz.refresh()
 
@@ -254,7 +254,7 @@ def updateLogin(do, who):
 				wiz.setS(saved, user)
 				wiz.LogNotify("[COLOR %s]%s[/COLOR]" % (COLOR1, name), '[COLOR %s]Login: Restored![/COLOR]' % COLOR2, 2000, icon)
 			except Exception, e:
-				wiz.log("[Login Data] Unable to Restore %s (%s)" % (who, str(e)), xbmc.LOGERROR)
+				wiz.log("[Login Info] Unable to Restore %s (%s)" % (who, str(e)), xbmc.LOGERROR)
 		#else: wiz.LogNotify(name,'login Data: [COLOR red]Not Found![/COLOR]', 2000, icon)
 	elif do == 'clearaddon':
 		wiz.log('%s SETTINGS: %s' % (name, settings), xbmc.LOGDEBUG)
@@ -287,7 +287,7 @@ def autoUpdate(who):
 			if u == None or u == '': return
 			elif su == '': loginIt('update', who)
 			elif not u == su:
-				if DIALOG.yesno(ADDONTITLE, "[COLOR %s]Would you like to save the [COLOR %s]API[/COLOR] key for [COLOR %s]%s[/COLOR]?" % (COLOR2, COLOR1, COLOR1, n), "Addon: [COLOR springgreen][B]%s[/B][/COLOR]" % u, "Saved:[/COLOR] [COLOR red][B]%s[/B][/COLOR]" % su if not su == '' else 'Saved:[/COLOR] [COLOR red][B]None[/B][/COLOR]', yeslabel="[B][COLOR springgreen]Save Data[/COLOR][/B]", nolabel="[B][COLOR red]No Cancel[/COLOR][/B]"):
+				if DIALOG.yesno(ADDONTITLE, "[COLOR %s]Would you like to save the [COLOR %s]Login Info[/COLOR] for [COLOR %s]%s[/COLOR]?" % (COLOR2, COLOR1, COLOR1, n), "Addon: [COLOR springgreen][B]%s[/B][/COLOR]" % u, "Saved:[/COLOR] [COLOR red][B]%s[/B][/COLOR]" % su if not su == '' else 'Saved:[/COLOR] [COLOR red][B]None[/B][/COLOR]', yeslabel="[B][COLOR springgreen]Save Data[/COLOR][/B]", nolabel="[B][COLOR red]No Cancel[/COLOR][/B]"):
 					loginIt('update', who)
 			else: loginIt('update', who)
 
@@ -306,7 +306,7 @@ def importlist(who):
 			m  = re.compile('<login><id>%s</id><value>(.+?)</value></login>' % d).findall(g)
 			if len(m) > 0:
 				if not m[0] == su:
-					if DIALOG.yesno(ADDONTITLE, "[COLOR %s]Would you like to import the [COLOR %s]Login[/COLOR] data for [COLOR %s]%s[/COLOR]?" % (COLOR2, COLOR1, COLOR1, n), "File: [COLOR springgreen][B]%s[/B][/COLOR]" % m[0], "Saved:[/COLOR] [COLOR red][B]%s[/B][/COLOR]" % su if not su == '' else 'Saved:[/COLOR] [COLOR red][B]None[/B][/COLOR]', yeslabel="[B][COLOR springgreen]Save Data[/COLOR][/B]", nolabel="[B][COLOR red]No Cancel[/COLOR][/B]"):
+					if DIALOG.yesno(ADDONTITLE, "[COLOR %s]Would you like to import the [COLOR %s]Login Info[/COLOR] for [COLOR %s]%s[/COLOR]?" % (COLOR2, COLOR1, COLOR1, n), "File: [COLOR springgreen][B]%s[/B][/COLOR]" % m[0], "Saved:[/COLOR] [COLOR red][B]%s[/B][/COLOR]" % su if not su == '' else 'Saved:[/COLOR] [COLOR red][B]None[/B][/COLOR]', yeslabel="[B][COLOR springgreen]Save Data[/COLOR][/B]", nolabel="[B][COLOR red]No Cancel[/COLOR][/B]"):
 						wiz.setS(sa, m[0])
 						wiz.log('[Import Data] %s: %s' % (who, str(m)), xbmc.LOGNOTICE)
 					else: wiz.log('[Import Data] Declined Import(%s): %s' % (who, str(m)), xbmc.LOGNOTICE)

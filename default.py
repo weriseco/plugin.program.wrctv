@@ -1138,13 +1138,13 @@ def saveMenu():
 
     addDir ('Keep Trakt Data',               'trakt',                icon=ICONTRAKT, themeit=THEME1)
     addDir ('Keep Debrid',              'realdebrid',           icon=ICONREAL,  themeit=THEME1)
-    addDir ('Keep API Keys',               'login',                icon=ICONLOGIN, themeit=THEME1)
+    addDir ('Keep Login Info',               'login',                icon=ICONLOGIN, themeit=THEME1)
     addFile('Import Save Data',              'managedata', 'import', icon=ICONSAVE,  themeit=THEME1)
     addFile('Export Save Data',              'managedata', 'export', icon=ICONSAVE,  themeit=THEME1)
     addFile('- Click to toggle settings -', '', themeit=THEME3)
     addFile('Save Trakt: %s' % trakt.replace('true',on).replace('false',off)                       ,'togglesetting', 'keeptrakt',      icon=ICONTRAKT, themeit=THEME1)
     addFile('Save Debrid: %s' % real.replace('true',on).replace('false',off)                  ,'togglesetting', 'keepdebrid',     icon=ICONREAL,  themeit=THEME1)
-    addFile('Save API Keys: %s' % login.replace('true',on).replace('false',off)                  ,'togglesetting', 'keeplogin',      icon=ICONLOGIN, themeit=THEME1)
+    addFile('Save Login Info: %s' % login.replace('true',on).replace('false',off)                  ,'togglesetting', 'keeplogin',      icon=ICONLOGIN, themeit=THEME1)
     addFile('Keep \'Sources.xml\': %s' % sources.replace('true',on).replace('false',off)           ,'togglesetting', 'keepsources',    icon=ICONSAVE,  themeit=THEME1)
     addFile('Keep \'Profiles.xml\': %s' % profiles.replace('true',on).replace('false',off)         ,'togglesetting', 'keepprofiles',   icon=ICONSAVE,  themeit=THEME1)
     addFile('Keep \'Advancedsettings.xml\': %s' % advanced.replace('true',on).replace('false',off) ,'togglesetting', 'keepadvanced',   icon=ICONSAVE,  themeit=THEME1)
@@ -1270,11 +1270,11 @@ def loginMenu():
             else:                        addFile('[COLOR springgreen]Saved Data: %s[/COLOR]' % user, '', icon=icon, fanart=fanart, menu=menu2)
 
     if HIDESPACERS == 'No': addFile(wiz.sep(), '', themeit=THEME3)
-    addFile('Save All API Keys',          'savelogin',    'all', icon=ICONLOGIN,  themeit=THEME3)
-    addFile('Recover All Saved API Keys', 'restorelogin', 'all', icon=ICONLOGIN,  themeit=THEME3)
-    addFile('Import API Keys',            'importlogin',  'all', icon=ICONLOGIN,  themeit=THEME3)
-    addFile('Clear All Addon API Keys',         'addonlogin',   'all', icon=ICONLOGIN,  themeit=THEME3)
-    addFile('Clear All Saved API Keys',   'clearlogin',   'all', icon=ICONLOGIN,  themeit=THEME3)
+    addFile('Save All Login Info',          'savelogin',    'all', icon=ICONLOGIN,  themeit=THEME3)
+    addFile('Recover All Saved Login Info', 'restorelogin', 'all', icon=ICONLOGIN,  themeit=THEME3)
+    addFile('Import Login Info',            'importlogin',  'all', icon=ICONLOGIN,  themeit=THEME3)
+    addFile('Clear All Addon Login Info',         'addonlogin',   'all', icon=ICONLOGIN,  themeit=THEME3)
+    addFile('Clear All Saved Login Info',   'clearlogin',   'all', icon=ICONLOGIN,  themeit=THEME3)
     setView('files', 'viewType')
 
 def fixUpdate():
