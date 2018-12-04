@@ -110,8 +110,8 @@
 	</category>
 
 	<category label="API Settings">
-		<setting type="lsep" label="Save API Data:"/>
-		<setting id="keeplogin" type="bool" label="Keep My API Data" default="false"/>
+		<setting type="lsep" label="Save Login Info:"/>
+		<setting id="keeplogin" type="bool" label="Keep My Login Info" default="false"/>
 		<setting id="api-opensubtitles" type="text" label="Open Subtitles: " enable="false" default=""/>
 		<setting id="api-orion" type="text" label="Orion: " enable="false" default=""/>
 		<setting id="api-placenta" type="text" label="Placenta: " enable="false" default=""/>
@@ -121,7 +121,7 @@
 		<setting id="api-eis" type="text" label="ExtendedInfo Script: " enable="false" default=""/>
 		<setting id="api-metahandler" type="text" label="metahandler: " enable="false" default=""/>
 		<setting id="api-metadatautils" type="text" label="script.module.metadatautils: " enable="false" default=""/>
-		<setting id="keeploginwizard" type="action" label="Login Save Data Menu - DOES NOTHING" action=""/>
+		<setting id="keeploginwizard" type="action" label="Login Info Save Data Menu - DOES NOTHING" action=""/>
 	</category>
 
 	<category label="Misc Settings">

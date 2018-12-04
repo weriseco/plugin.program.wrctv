@@ -437,15 +437,15 @@ if KEEPREAL == 'true':
 		wiz.log("[Debrid Data] Next Auto Save isn't until: %s / TODAY is: %s" % (REALSAVE, str(TODAY)), xbmc.LOGNOTICE)
 else: wiz.log("[Real Debrid Data] Not Enabled", xbmc.LOGNOTICE)
 
-wiz.log("[Login Data] Started", xbmc.LOGNOTICE)
+wiz.log("[Login Info] Started", xbmc.LOGNOTICE)
 if KEEPLOGIN == 'true':
 	if LOGINSAVE <= str(TODAY):
-		wiz.log("[Login Data] Saving all Data", xbmc.LOGNOTICE)
+		wiz.log("[Login Info] Saving all Data", xbmc.LOGNOTICE)
 		loginit.autoUpdate('all')
 		wiz.setS('loginlastsave', str(THREEDAYS))
 	else:
-		wiz.log("[Login Data] Next Auto Save isnt until: %s / TODAY is: %s" % (LOGINSAVE, str(TODAY)), xbmc.LOGNOTICE)
-else: wiz.log("[Login Data] Not Enabled", xbmc.LOGNOTICE)
+		wiz.log("[Login Info] Next Auto Save isn't until: %s / TODAY is: %s" % (LOGINSAVE, str(TODAY)), xbmc.LOGNOTICE)
+else: wiz.log("[Login Info] Not Enabled", xbmc.LOGNOTICE)
 
 wiz.log("[Auto Clean Up] Started", xbmc.LOGNOTICE)
 if AUTOCLEANUP == 'true':
