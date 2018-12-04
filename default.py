@@ -897,11 +897,11 @@ def maintMenu(view=None):
     addFile('Include Video Cache in Clear Cache: %s' % includevid.replace('true',on).replace('false',off), 'togglecache', 'includevideo', icon=ICONMAINT, themeit=THEME3)
     if includevid == 'true':
         addFile('--- Include All Video Addons: %s' % includeall.replace('true',on).replace('false',off), 'togglecache', 'includeall', icon=ICONMAINT, themeit=THEME3)
-        addFile('--- Include Placenta: %s' % includeplacenta.replace('true',on).replace('false',off), 'togglecache', 'includeplacenta', icon=ICONMAINT, themeit=THEME3)
         addFile('--- Include Exodus Redux: %s' % includeexodusredux.replace('true',on).replace('false',off), 'togglecache', 'includeexodusredux', icon=ICONMAINT, themeit=THEME3)
         addFile('--- Include Gaia: %s' % includegaia.replace('true',on).replace('false',off), 'togglecache', 'includegaia', icon=ICONMAINT, themeit=THEME3)
-        addFile('--- Include Seren: %s' % includeseren.replace('true',on).replace('false',off), 'togglecache', 'includeseren', icon=ICONMAINT, themeit=THEME3)
         addFile('--- Include Magicality: %s' % includemagicality.replace('true',on).replace('false',off), 'togglecache', 'includemagicality', icon=ICONMAINT, themeit=THEME3)
+        addFile('--- Include Placenta: %s' % includeplacenta.replace('true',on).replace('false',off), 'togglecache', 'includeplacenta', icon=ICONMAINT, themeit=THEME3)
+        addFile('--- Include Seren: %s' % includeseren.replace('true',on).replace('false',off), 'togglecache', 'includeseren', icon=ICONMAINT, themeit=THEME3)
         addFile('--- Enable All Video Addons', 'togglecache', 'true', icon=ICONMAINT, themeit=THEME3)
         addFile('--- Disable All Video Addons', 'togglecache', 'false', icon=ICONMAINT, themeit=THEME3)
     setView('files', 'viewType')
@@ -1771,7 +1771,7 @@ def createMenu(type, add, name):
 
 def toggleCache(state):
     cachelist = ['includevideo', 'includeall', 'includemagicality', 'includeplacenta', 'includeseren', 'includegaia', 'includeexodusredux']
-    titlelist = ['Include Video Addons', 'Include All Addons', 'Include Magicality', 'Include Placenta', 'Include Seren', 'Include Gaia', 'Include Exodus Redux']
+    titlelist = ['Include Video Addons', 'Include All Addons', 'Include Exodus Redux', 'Include Gaia', 'Include Magicality', 'Include Placenta', 'Include Seren']
     if state in ['true', 'false']:
         for item in cachelist:
             wiz.setS(item, state)

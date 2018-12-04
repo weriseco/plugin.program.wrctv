@@ -415,7 +415,7 @@ if FAILED == False:
 			wiz.setS('lastbuildcheck', str(NEXTCHECK))
 			checkUpdate()
 		else:
-			wiz.log("[Build Check] Build Installed: Next check isnt until: %s / TODAY is: %s" % (BUILDCHECK, str(TODAY)), xbmc.LOGNOTICE)
+			wiz.log("[Build Check] Build Installed: Next check isn't until: %s / TODAY is: %s" % (BUILDCHECK, str(TODAY)), xbmc.LOGNOTICE)
 
 wiz.log("[Trakt Data] Started", xbmc.LOGNOTICE)
 if KEEPTRAKT == 'true':
@@ -424,7 +424,7 @@ if KEEPTRAKT == 'true':
 		traktit.autoUpdate('all')
 		wiz.setS('traktlastsave', str(THREEDAYS))
 	else:
-		wiz.log("[Trakt Data] Next Auto Save isnt until: %s / TODAY is: %s" % (TRAKTSAVE, str(TODAY)), xbmc.LOGNOTICE)
+		wiz.log("[Trakt Data] Next Auto Save isn't until: %s / TODAY is: %s" % (TRAKTSAVE, str(TODAY)), xbmc.LOGNOTICE)
 else: wiz.log("[Trakt Data] Not Enabled", xbmc.LOGNOTICE)
 
 wiz.log("[Debrid Data] Started", xbmc.LOGNOTICE)
@@ -434,7 +434,7 @@ if KEEPREAL == 'true':
 		debridit.autoUpdate('all')
 		wiz.setS('debridlastsave', str(THREEDAYS))
 	else:
-		wiz.log("[Debrid Data] Next Auto Save isnt until: %s / TODAY is: %s" % (REALSAVE, str(TODAY)), xbmc.LOGNOTICE)
+		wiz.log("[Debrid Data] Next Auto Save isn't until: %s / TODAY is: %s" % (REALSAVE, str(TODAY)), xbmc.LOGNOTICE)
 else: wiz.log("[Real Debrid Data] Not Enabled", xbmc.LOGNOTICE)
 
 wiz.log("[Login Data] Started", xbmc.LOGNOTICE)
