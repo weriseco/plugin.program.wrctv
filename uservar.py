@@ -8,14 +8,14 @@ ART            = os.path.join(PATH, 'resources', 'art')
 ### User Edit Variables #################################
 #########################################################
 ADDON_ID       = xbmcaddon.Addon().getAddonInfo('id')
-ADDONTITLE     = 'Reaper Wizard'
-BUILDERNAME    = 'Reddit Reaper'
-EXCLUDES       = [ADDON_ID, 'repository.redditreaper', 'plugin.program.reaperwizard']
+ADDONTITLE     = 'WRC TV Wizard'
+BUILDERNAME    = 'weriseco'
+EXCLUDES       = [ADDON_ID, 'repository.weriseco']
 # Enable/Disable the text file caching with 'Yes' or 'No' and age being how often it rechecks in minutes
 CACHETEXT      = 'Yes'
 CACHEAGE       = 30
 # Text File with build info in it.
-BUILDFILE      = 'https://raw.githubusercontent.com/reddit-reaper/Wizard/master/builds.txt'
+BUILDFILE      = 'https://raw.githubusercontent.com/weriseco/Wizard/master/builds.txt'
 # How often you would like it to check for build updates in days
 # 0 being every startup of kodi
 UPDATECHECK    = 0
@@ -38,18 +38,18 @@ ADVANCEDFILE   = 'http://'
 # Example:  ICONMAINT     = os.path.join(ART, 'mainticon.png')
 #           ICONSETTINGS  = 'http://aftermathwizard.net/repo/wizard/settings.png'
 # Leave as http:// for default icon
-ICONBUILDS     = 'http://'
-ICONMAINT      = 'http://'
-ICONSPEED      = 'http://'
-ICONAPK        = 'http://'
-ICONADDONS     = 'http://'
-ICONYOUTUBE    = 'http://'
-ICONSAVE       = 'http://'
-ICONTRAKT      = 'http://'
-ICONREAL       = 'http://'
-ICONLOGIN      = 'http://'
-ICONCONTACT    = 'http://'
-ICONSETTINGS   = 'http://'
+ICONBUILDS     = os.path.join(ART, 'builds.png')
+ICONMAINT      = os.path.join(ART, 'maintenance.png')
+ICONSPEED      = os.path.join(ART, 'speed.png')
+ICONAPK        = os.path.join(ART, 'apkinstaller.png')
+ICONADDONS     = os.path.join(ART, 'addoninstaller.png')
+ICONYOUTUBE    = os.path.join(ART, 'youtube.png')
+ICONSAVE       = os.path.join(ART, 'savedata.png')
+ICONTRAKT      = os.path.join(ART, 'keeptrakt.png')
+ICONREAL       = os.path.join(ART, 'keepdebrid.png')
+ICONLOGIN      = os.path.join(ART, 'keeplogin.png')
+ICONCONTACT    = os.path.join(ART, 'information.png')
+ICONSETTINGS   = os.path.join(ART, 'settings.png')
 # Hide the ====== seperators 'Yes' or 'No'
 HIDESPACERS    = 'No'
 # Character used in seperator
@@ -74,9 +74,9 @@ THEME5         = '[COLOR '+COLOR1+']Current Theme:[/COLOR] [COLOR '+COLOR2+']%s[
 # Enable 'Contact' menu item 'Yes' hide or 'No' dont hide
 HIDECONTACT    = 'No'
 # You can add \n to do line breaks
-CONTACT        = 'Thank you for choosing Reaper Wizard.\n\nContact me on Github at http://www.github.com/reddit-reaper/plugin.program.reaperwizard/'
+CONTACT        = 'Thank you for choosing WRCTV Wizard.'
 #Images used for the contact window.  http:// for default icon and fanart
-CONTACTICON    = 'http://'
+CONTACTICON    = os.path.join(ART, 'qricon.png')
 CONTACTFANART  = 'http://'
 #########################################################
 
@@ -86,7 +86,7 @@ CONTACTFANART  = 'http://'
 # Enable Auto Update 'Yes' or 'No'
 AUTOUPDATE     = 'Yes'
 # Url to wizard version
-WIZARDFILE     = BUILDFILE
+WIZARDFILE     = 'https://raw.githubusercontent.com/weriseco/Wizard/master/autobuilds.txt'
 #########################################################
 
 #########################################################
@@ -95,11 +95,11 @@ WIZARDFILE     = BUILDFILE
 # Enable Auto Install 'Yes' or 'No'
 AUTOINSTALL    = 'Yes'
 # Addon ID for the repository
-REPOID         = 'repository.redditreaeper'
+REPOID         = 'repository.weriseco'
 # Url to Addons.xml file in your repo folder(this is so we can get the latest version)
-REPOADDONXML   = 'https://raw.githubusercontent.com/reddit-reaper/Addons/master/addon.xml'
+REPOADDONXML   = 'https://raw.githubusercontent.com/weriseco/Addons/master/addon.xml'
 # Url to folder zip is located in
-REPOZIPURL     = 'https://github.com/reddit-reaper/Addons/raw/master/repository.redditreaper/'
+REPOZIPURL     = 'https://github.com/weriseco/Addons/raw/master/repository.weriseco/'
 #########################################################
 
 #########################################################
@@ -108,12 +108,12 @@ REPOZIPURL     = 'https://github.com/reddit-reaper/Addons/raw/master/repository.
 # Enable Notification screen Yes or No
 ENABLE         = 'Yes'
 # Url to notification file
-NOTIFICATION   = 'https://raw.githubusercontent.com/reddit-reaper/Wizard/master/notify.txt'
+NOTIFICATION   = 'http://'
 # Use either 'Text' or 'Image'
 HEADERTYPE     = 'Text'
 # Font size of header
 FONTHEADER     = 'Font14'
-HEADERMESSAGE  = 'Reaper Wizard'
+HEADERMESSAGE  = '[B][COLOR dodgerblue]Aftermath[/COLOR][/B] Wizard'
 # url to image if using Image 424x180
 HEADERIMAGE    = 'http://'
 # Font for Notification Window
