@@ -142,7 +142,7 @@ TRAKTID = {
         'path'     : os.path.join(ADDONS, 'plugin.video.zanni'),
         'icon'     : os.path.join(ADDONS, 'plugin.video.zanni', 'icon.jpg'),
         'fanart'   : os.path.join(ADDONS, 'plugin.video.zanni', 'fanart.jpg'),
-        'file'     : os.path.join(LOGINFOLD, 'zanni_trakt'),
+        'file'     : os.path.join(TRAKTFOLD, 'zanni_trakt'),
         'settings' : os.path.join(ADDOND, 'plugin.video.zanni', 'settings.xml'),
         'default'  : 'trakt.user',
         'data'     : ['trakt.user', 'trakt.refresh', 'trakt.token'],
