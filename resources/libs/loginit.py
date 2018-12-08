@@ -48,7 +48,7 @@ KEEPLOGIN      = wiz.getS('keeplogin')
 LOGINSAVE      = wiz.getS('loginlastsave')
 COLOR1         = uservar.COLOR1
 COLOR2         = uservar.COLOR2
-ORDER          = ['api-opensubtitles', 'api-orion', 'api-placenta', 'api-gaia', 'api-magicality', 'api-eis', 'api-metahandler', 'api-metadatautils', 'api-exodusredux']
+ORDER          = ['api-opensubtitles', 'api-orion', 'api-placenta', 'api-gaia', 'api-magicality', 'api-eis', 'api-metahandler', 'api-metadatautils', 'api-exodusredux', 'api-13clowns']
 
 LOGINID = {
 	'api-opensubtitles': {
@@ -168,6 +168,18 @@ LOGINID = {
 		'fanart'   : os.path.join(ADDONS, 'plugin.video.exodusredux', 'fanart.jpg'),
 		'file'     : os.path.join(LOGINFOLD, 'api-exodusredux'),
 		'settings' : os.path.join(ADDOND, 'plugin.video.exodusredux', 'settings.xml'),
+		'default'  : 'tm.user',
+		'data'     : ['fanart.tv.user', 'tm.user', 'imdb.user'],
+		'activate' : ''},
+	'api-13clowns': {
+		'name'     : '13Clowns',
+		'plugin'   : 'plugin.video.13clowns',
+		'saved'    : 'api-13clowns',
+		'path'     : os.path.join(ADDONS, 'plugin.video.13clowns'),
+		'icon'     : os.path.join(ADDONS, 'plugin.video.13clowns', 'icon.jpg'),
+		'fanart'   : os.path.join(ADDONS, 'plugin.video.13clowns', 'fanart.jpg'),
+		'file'     : os.path.join(LOGINFOLD, 'api-13clowns'),
+		'settings' : os.path.join(ADDOND, 'plugin.video.13clowns', 'settings.xml'),
 		'default'  : 'tm.user',
 		'data'     : ['fanart.tv.user', 'tm.user', 'imdb.user'],
 		'activate' : ''}

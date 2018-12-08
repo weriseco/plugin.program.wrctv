@@ -100,6 +100,7 @@ INCLUDEEXODUSREDUX  = ADDON.getSetting('includeexodusredux')
 INCLUDEGAIA   = ADDON.getSetting('includegaia')
 INCLUDESEREN   = ADDON.getSetting('includeseren')
 INCLUDEMAGICALITY = ADDON.getSetting('includemagicality')
+INCLUDE13CLOWNS = ADDON.getSetting('include13clowns')
 SHOWADULT      = ADDON.getSetting('adult')
 WIZDEBUGGING   = ADDON.getSetting('addon_debug')
 DEBUGLEVEL     = ADDON.getSetting('debuglevel')
@@ -486,6 +487,9 @@ def getCacheSize():
 		(os.path.join(ADDOND, 'plugin.video.exodusredux', 'cache.providers.13.db')),
 		(os.path.join(ADDOND, 'plugin.video.gaia', 'cache.db')),
 		(os.path.join(ADDOND, 'plugin.video.gaia', 'meta.db')),
+        (os.path.join(ADDOND, 'plugin.video.13clowns', 'cache.db')),
+		(os.path.join(ADDOND, 'plugin.video.13clowns', 'cache.meta.5.db')),
+		(os.path.join(ADDOND, 'plugin.video.13clowns', 'cache.providers.13.db'))]
         (os.path.join(ADDOND, 'plugin.video.seren', 'cache.db')),
 		(os.path.join(ADDOND, 'plugin.video.seren', 'providers.db')),
         (os.path.join(ADDOND, 'plugin.video.seren', 'torrentScrape.db'))]
@@ -538,6 +542,10 @@ def getCacheSize():
 				files.append(os.path.join(ADDOND, 'plugin.video.seren', 'cache.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.seren', 'providers.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.seren', 'torrentScrape.db'))
+			if INCLUDE13CLOWNS == 'true': 
+				files.append(os.path.join(ADDOND, 'plugin.video.13clowns', 'cache.db'))
+				files.append(os.path.join(ADDOND, 'plugin.video.13clowns', 'meta.5.db'))
+				files.append(os.path.join(ADDOND, 'plugin.video.13clowns', 'providers.13.db'))
 		if len(files) > 0:
 			for item in files:
 				if not os.path.exists(item): continue
@@ -1359,6 +1367,9 @@ def backUpOptions(type, name=""):
 					(os.path.join(ADDOND, 'plugin.video.exodusredux', 'cache.db')),
 					(os.path.join(ADDOND, 'plugin.video.exodusredux', 'cache.meta.5.db')),
 					(os.path.join(ADDOND, 'plugin.video.exodusredux', 'cache.providers.13.db')),
+					(os.path.join(ADDOND, 'plugin.video.13clowns', 'cache.db')),
+					(os.path.join(ADDOND, 'plugin.video.13clowns', 'cache.meta.5.db')),
+					(os.path.join(ADDOND, 'plugin.video.13clowns', 'cache.providers.13.db')),
 					(os.path.join(ADDOND, 'plugin.video.gaia', 'cache.db')),
 					(os.path.join(ADDOND, 'plugin.video.gaia', 'meta.db')),]
 
@@ -2265,7 +2276,10 @@ def clearCache(over=None):
 		(os.path.join(ADDOND, 'plugin.video.exodusredux', 'cache.providers.13.db')),
 		(os.path.join(ADDOND, 'plugin.video.magicality', 'cache.db')),
 		(os.path.join(ADDOND, 'plugin.video.magicality', 'meta.5.db')),
-		(os.path.join(ADDOND, 'plugin.video.magicality', 'cache.providers.13.db'))]
+		(os.path.join(ADDOND, 'plugin.video.magicality', 'cache.providers.13.db'))
+		(os.path.join(ADDOND, 'plugin.video.13clowns', 'cache.db')),
+		(os.path.join(ADDOND, 'plugin.video.13clowns', 'meta.5.db')),
+		(os.path.join(ADDOND, 'plugin.video.13clowns', 'cache.providers.13.db')),]
 
 	cachelist = [
 		(PROFILEADDONDATA),
@@ -2340,6 +2354,10 @@ def clearCache(over=None):
 				files.append(os.path.join(ADDOND, 'plugin.video.seren', 'cache.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.seren', 'torrentScrape.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.seren', 'providers.db'))
+			if INCLUDE13CLOWNS == 'true':
+				files.append(os.path.join(ADDOND, 'plugin.video.13clowns', 'cache.db'))
+				files.append(os.path.join(ADDOND, 'plugin.video.13clowns', 'meta.5.db'))
+				files.append(os.path.join(ADDOND, 'plugin.video.13clowns', 'providers.13.db'))
 		if len(files) > 0:
 			for item in files:
 				if os.path.exists(item):
