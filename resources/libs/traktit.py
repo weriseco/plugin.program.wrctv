@@ -48,11 +48,9 @@ KEEPTRAKT      = wiz.getS('keeptrakt')
 TRAKTSAVE      = wiz.getS('traktlastsave')
 COLOR1         = uservar.COLOR1
 COLOR2         = uservar.COLOR2
-ORDER          = ['placenta', 'gaia', 'magicality', 'seren', 'trakt', 'exodusredux', '13clowns']
-ORDER          = ['exodusredux', 'gaia', 'magicality', 'placenta', 'seren', 'trakt', ]
+ORDER          = ['13clowns', 'exodusredux', 'gaia', 'magicality', 'placenta', 'seren', 'trakt', 'zanni']
 
 TRAKTID = {
-<<<<<<< HEAD
     'placenta': {
         'name'     : 'Placenta',
         'plugin'   : 'plugin.video.placenta',
@@ -149,92 +147,6 @@ TRAKTID = {
         'default'  : 'trakt.user',
         'data'     : ['trakt.user', 'trakt.refresh', 'trakt.token'],
         'activate' : 'RunPlugin(plugin://plugin.video.zanni/?action=authTrakt)'}
-=======
-	'placenta': {
-		'name'     : 'Placenta',
-		'plugin'   : 'plugin.video.placenta',
-		'saved'    : 'placenta',
-		'path'     : os.path.join(ADDONS, 'plugin.video.placenta'),
-		'icon'     : os.path.join(ADDONS, 'plugin.video.placenta', 'icon.png'),
-		'fanart'   : os.path.join(ADDONS, 'plugin.video.placenta', 'fanart.jpg'),
-		'file'     : os.path.join(TRAKTFOLD, 'placenta_trakt'),
-		'settings' : os.path.join(ADDOND, 'plugin.video.placenta', 'settings.xml'),
-		'default'  : 'trakt.user',
-		'data'     : ['trakt.user', 'trakt.refresh', 'trakt.token'],
-		'activate' : 'RunPlugin(plugin://plugin.video.placenta/?action=authTrakt)'},
-	'gaia': {
-		'name'     : 'Gaia',
-		'plugin'   : 'plugin.video.gaia',
-		'saved'    : 'gaia',
-		'path'     : os.path.join(ADDONS, 'plugin.video.gaia'),
-		'icon'     : os.path.join(ADDONS, 'plugin.video.gaia', 'icon.png'),
-		'fanart'   : os.path.join(ADDONS, 'plugin.video.gaia', 'fanart.jpg'),
-		'file'     : os.path.join(TRAKTFOLD, 'gaia_trakt'),
-		'settings' : os.path.join(ADDOND, 'plugin.video.gaia', 'settings.xml'),
-		'default'  : 'accounts.informants.trakt.user',
-		'data'     : ['accounts.informants.trakt.user', 'accounts.informants.trakt.refresh', 'accounts.informants.trakt.token'],
-		'activate' : 'RunPlugin(plugin://plugin.video.gaia/?action=traktAuthorize)'},
-	'magicality': {
-		'name'     : 'Magicality',
-		'plugin'   : 'plugin.video.magicality',
-		'saved'    : 'magicality',
-		'path'     : os.path.join(ADDONS, 'plugin.video.magicality'),
-		'icon'     : os.path.join(ADDONS, 'plugin.video.magicality', 'icon.png'),
-		'fanart'   : os.path.join(ADDONS, 'plugin.video.magicality', 'fanart.jpg'),
-		'file'     : os.path.join(TRAKTFOLD, 'magicality_trakt'),
-		'settings' : os.path.join(ADDOND, 'plugin.video.magicality', 'settings.xml'),
-		'default'  : 'trakt.user',
-		'data'     : ['trakt.refresh', 'trakt.token', 'trakt.user'],
-		'activate' : 'RunPlugin(plugin://plugin.video.magicality/?action=authTrakt)'},
-	'seren': {
-		'name'     : 'Seren',
-		'plugin'   : 'plugin.video.seren',
-		'saved'    : 'seren',
-		'path'     : os.path.join(ADDONS, 'plugin.video.seren'),
-		'icon'     : os.path.join(ADDONS, 'plugin.video.seren', 'temp-icon.png'),
-		'fanart'   : os.path.join(ADDONS, 'plugin.video.seren', 'temp-fanart.jpg'),
-		'file'     : os.path.join(TRAKTFOLD, 'seren_trakt'),
-		'settings' : os.path.join(ADDOND, 'plugin.video.seren', 'settings.xml'),
-		'default'  : 'trakt.username',
-		'data'     : ['trakt.auth', 'trakt.refresh', 'trakt.username'],
-		'activate' : 'RunPlugin(plugin://plugin.video.seren/?action=authTrakt)'},
-	'trakt': {
-		'name'     : 'Trakt',
-		'plugin'   : 'script.trakt',
-		'saved'    : 'trakt',
-		'path'     : os.path.join(ADDONS, 'script.trakt'),
-		'icon'     : os.path.join(ADDONS, 'script.trakt', 'icon.png'),
-		'fanart'   : os.path.join(ADDONS, 'script.trakt', 'fanart.jpg'),
-		'file'     : os.path.join(TRAKTFOLD, 'trakt_trakt'),
-		'settings' : os.path.join(ADDOND, 'script.trakt', 'settings.xml'),
-		'default'  : 'user',
-		'data'     : ['authorization', 'user'],
-		'activate' : 'RunScript(script.trakt, action=auth_info)'},
-	'exodusredux': {
-		'name'     : 'Exodus Redux',
-		'plugin'   : 'plugin.video.exodusredux',
-		'saved'    : 'exodusredux',
-		'path'     : os.path.join(ADDONS, 'plugin.video.exodusredux'),
-		'icon'     : os.path.join(ADDONS, 'plugin.video.exodusredux', 'icon.png'),
-		'fanart'   : os.path.join(ADDONS, 'plugin.video.exodusredux', 'fanart.jpg'),
-		'file'     : os.path.join(TRAKTFOLD, 'exodusredux_trakt'),
-		'settings' : os.path.join(ADDOND, 'plugin.video.exodusredux', 'settings.xml'),
-		'default'  : 'trakt.user',
-		'data'     : ['trakt.user', 'trakt.refresh', 'trakt.token'],
-		'activate' : 'RunPlugin(plugin://plugin.video.exodusredux/?action=authTrakt)'},
-	'13clowns': {
-		'name'     : '13Clowns',
-		'plugin'   : 'plugin.video.13clowns',
-		'saved'    : '13clowns',
-		'path'     : os.path.join(ADDONS, 'plugin.video.13clowns'),
-		'icon'     : os.path.join(ADDONS, 'plugin.video.13clowns', 'icon.png'),
-		'fanart'   : os.path.join(ADDONS, 'plugin.video.13clowns', 'fanart.jpg'),
-		'file'     : os.path.join(TRAKTFOLD, '13clowns_trakt'),
-		'settings' : os.path.join(ADDOND, 'plugin.video.13clowns', 'settings.xml'),
-		'default'  : 'trakt.user',
-		'data'     : ['trakt.user', 'trakt.refresh', 'trakt.token'],
-		'activate' : 'RunPlugin(plugin://plugin.video.13clowns/?action=authTrakt)'}
->>>>>>> parent of 67e717e... added Zanni
 }
 
 def traktUser(who):

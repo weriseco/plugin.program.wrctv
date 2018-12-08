@@ -48,7 +48,7 @@ KEEPLOGIN      = wiz.getS('keeplogin')
 LOGINSAVE      = wiz.getS('loginlastsave')
 COLOR1         = uservar.COLOR1
 COLOR2         = uservar.COLOR2
-ORDER          = ['api-opensubtitles', 'api-orion', 'api-placenta', 'api-gaia', 'api-magicality', 'api-eis', 'api-metahandler', 'api-metadatautils', 'api-exodusredux', 'api-13clowns']
+ORDER          = ['api-opensubtitles', 'api-orion', 'api-placenta', 'api-gaia', 'api-magicality', 'api-eis', 'api-metahandler', 'api-metadatautils', 'api-exodusredux', 'api-13clowns', 'api-zanni']
 
 LOGINID = {
 	'api-opensubtitles': {
@@ -180,6 +180,18 @@ LOGINID = {
 		'fanart'   : os.path.join(ADDONS, 'plugin.video.13clowns', 'fanart.jpg'),
 		'file'     : os.path.join(LOGINFOLD, 'api-13clowns'),
 		'settings' : os.path.join(ADDOND, 'plugin.video.13clowns', 'settings.xml'),
+		'default'  : 'tm.user',
+		'data'     : ['fanart.tv.user', 'tm.user', 'imdb.user'],
+		'activate' : ''},
+	'api-zanni': {
+		'name'     : 'Zanni',
+		'plugin'   : 'plugin.video.zanni',
+		'saved'    : 'api-zanni',
+		'path'     : os.path.join(ADDONS, 'plugin.video.zanni'),
+		'icon'     : os.path.join(ADDONS, 'plugin.video.zanni', 'icon.jpg'),
+		'fanart'   : os.path.join(ADDONS, 'plugin.video.zanni', 'fanart.jpg'),
+		'file'     : os.path.join(LOGINFOLD, 'api-zanni'),
+		'settings' : os.path.join(ADDOND, 'plugin.video.zanni', 'settings.xml'),
 		'default'  : 'tm.user',
 		'data'     : ['fanart.tv.user', 'tm.user', 'imdb.user'],
 		'activate' : ''}

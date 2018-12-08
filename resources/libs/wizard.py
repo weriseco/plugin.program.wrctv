@@ -101,6 +101,7 @@ INCLUDEGAIA   = ADDON.getSetting('includegaia')
 INCLUDESEREN   = ADDON.getSetting('includeseren')
 INCLUDEMAGICALITY = ADDON.getSetting('includemagicality')
 INCLUDE13CLOWNS = ADDON.getSetting('include13clowns')
+INCLUDEZANNI = ADDON.getSetting('includezanni')
 SHOWADULT      = ADDON.getSetting('adult')
 WIZDEBUGGING   = ADDON.getSetting('addon_debug')
 DEBUGLEVEL     = ADDON.getSetting('debuglevel')
@@ -487,12 +488,15 @@ def getCacheSize():
 		(os.path.join(ADDOND, 'plugin.video.exodusredux', 'cache.providers.13.db')),
 		(os.path.join(ADDOND, 'plugin.video.gaia', 'cache.db')),
 		(os.path.join(ADDOND, 'plugin.video.gaia', 'meta.db')),
-        (os.path.join(ADDOND, 'plugin.video.13clowns', 'cache.db')),
+		(os.path.join(ADDOND, 'plugin.video.13clowns', 'cache.db')),
 		(os.path.join(ADDOND, 'plugin.video.13clowns', 'cache.meta.5.db')),
-		(os.path.join(ADDOND, 'plugin.video.13clowns', 'cache.providers.13.db'))]
-        (os.path.join(ADDOND, 'plugin.video.seren', 'cache.db')),
+		(os.path.join(ADDOND, 'plugin.video.13clowns', 'cache.providers.13.db')),
+		(os.path.join(ADDOND, 'plugin.video.zanni', 'cache.db')),
+		(os.path.join(ADDOND, 'plugin.video.zanni', 'cache.meta.5.db')),
+		(os.path.join(ADDOND, 'plugin.video.zanni', 'cache.providers.13.db')),
+		(os.path.join(ADDOND, 'plugin.video.seren', 'cache.db')),
 		(os.path.join(ADDOND, 'plugin.video.seren', 'providers.db')),
-        (os.path.join(ADDOND, 'plugin.video.seren', 'torrentScrape.db'))]
+		(os.path.join(ADDOND, 'plugin.video.seren', 'torrentScrape.db'))]
 	cachelist = [
 		(ADDOND),
 		(os.path.join(HOME,'cache')),
@@ -546,6 +550,10 @@ def getCacheSize():
 				files.append(os.path.join(ADDOND, 'plugin.video.13clowns', 'cache.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.13clowns', 'meta.5.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.13clowns', 'providers.13.db'))
+			if INCLUDEZANNI == 'true': 
+				files.append(os.path.join(ADDOND, 'plugin.video.zanni', 'cache.db'))
+				files.append(os.path.join(ADDOND, 'plugin.video.zanni', 'meta.5.db'))
+				files.append(os.path.join(ADDOND, 'plugin.video.zanni', 'providers.13.db'))
 		if len(files) > 0:
 			for item in files:
 				if not os.path.exists(item): continue
@@ -812,7 +820,7 @@ def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
 def generateQR(url, filename):
 	if not os.path.exists(QRCODES): os.makedirs(QRCODES)
 	imagefile = os.path.join(QRCODES,'%s.png' % filename)
- 	qrIMG     = pyqrcode.create(url)
+	qrIMG     = pyqrcode.create(url)
 	qrIMG.png(imagefile, scale=10)
 	return imagefile
 
@@ -1370,8 +1378,14 @@ def backUpOptions(type, name=""):
 					(os.path.join(ADDOND, 'plugin.video.13clowns', 'cache.db')),
 					(os.path.join(ADDOND, 'plugin.video.13clowns', 'cache.meta.5.db')),
 					(os.path.join(ADDOND, 'plugin.video.13clowns', 'cache.providers.13.db')),
+					(os.path.join(ADDOND, 'plugin.video.zanni', 'cache.db')),
+					(os.path.join(ADDOND, 'plugin.video.zanni', 'cache.meta.5.db')),
+					(os.path.join(ADDOND, 'plugin.video.zanni', 'cache.providers.13.db')),
 					(os.path.join(ADDOND, 'plugin.video.gaia', 'cache.db')),
-					(os.path.join(ADDOND, 'plugin.video.gaia', 'meta.db')),]
+					(os.path.join(ADDOND, 'plugin.video.gaia', 'meta.db')),
+					(os.path.join(ADDOND, 'plugin.video.seren', 'cache.db')),
+					(os.path.join(ADDOND, 'plugin.video.seren', 'providers.db')),
+					(os.path.join(ADDOND, 'plugin.video.seren', 'torrentScrape.db'))]
 
 	backup   = xbmc.translatePath(BACKUPLOCATION)
 	mybuilds = xbmc.translatePath(MYBUILDS)
@@ -2276,10 +2290,16 @@ def clearCache(over=None):
 		(os.path.join(ADDOND, 'plugin.video.exodusredux', 'cache.providers.13.db')),
 		(os.path.join(ADDOND, 'plugin.video.magicality', 'cache.db')),
 		(os.path.join(ADDOND, 'plugin.video.magicality', 'meta.5.db')),
-		(os.path.join(ADDOND, 'plugin.video.magicality', 'cache.providers.13.db'))
+		(os.path.join(ADDOND, 'plugin.video.magicality', 'cache.providers.13.db')),
 		(os.path.join(ADDOND, 'plugin.video.13clowns', 'cache.db')),
 		(os.path.join(ADDOND, 'plugin.video.13clowns', 'meta.5.db')),
-		(os.path.join(ADDOND, 'plugin.video.13clowns', 'cache.providers.13.db')),]
+		(os.path.join(ADDOND, 'plugin.video.13clowns', 'cache.providers.13.db')),
+		(os.path.join(ADDOND, 'plugin.video.zanni', 'cache.db')),
+		(os.path.join(ADDOND, 'plugin.video.zanni', 'meta.5.db')),
+		(os.path.join(ADDOND, 'plugin.video.zanni', 'cache.providers.13.db')),
+		(os.path.join(ADDOND, 'plugin.video.seren', 'cache.db')),
+		(os.path.join(ADDOND, 'plugin.video.seren', 'providers.db')),
+		(os.path.join(ADDOND, 'plugin.video.seren', 'torrentScrape.db'))]
 
 	cachelist = [
 		(PROFILEADDONDATA),
@@ -2358,6 +2378,10 @@ def clearCache(over=None):
 				files.append(os.path.join(ADDOND, 'plugin.video.13clowns', 'cache.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.13clowns', 'meta.5.db'))
 				files.append(os.path.join(ADDOND, 'plugin.video.13clowns', 'providers.13.db'))
+			if INCLUDEZANNI == 'true':
+				files.append(os.path.join(ADDOND, 'plugin.video.zanni', 'cache.db'))
+				files.append(os.path.join(ADDOND, 'plugin.video.zanni', 'meta.5.db'))
+				files.append(os.path.join(ADDOND, 'plugin.video.zanni', 'providers.13.db'))
 		if len(files) > 0:
 			for item in files:
 				if os.path.exists(item):
@@ -2722,114 +2746,114 @@ def oldThumbs():
 	else: LogNotify("[COLOR %s]%s[/COLOR]" % (COLOR1, ADDONTITLE), '[COLOR %s]Clear Thumbs: None Found![/COLOR]' % COLOR2)
 
 def parseDOM(html, name=u"", attrs={}, ret=False):
-    # Copyright (C) 2010-2011 Tobias Ussing And Henrik Mosgaard Jensen
+	# Copyright (C) 2010-2011 Tobias Ussing And Henrik Mosgaard Jensen
 
-    if isinstance(html, str):
-        try:
-            html = [html.decode("utf-8")]
-        except:
-            html = [html]
-    elif isinstance(html, unicode):
-        html = [html]
-    elif not isinstance(html, list):
-        return u""
+	if isinstance(html, str):
+		try:
+			html = [html.decode("utf-8")]
+		except:
+			html = [html]
+	elif isinstance(html, unicode):
+		html = [html]
+	elif not isinstance(html, list):
+		return u""
 
-    if not name.strip():
-        return u""
+	if not name.strip():
+		return u""
 
-    ret_lst = []
-    for item in html:
-        temp_item = re.compile('(<[^>]*?\n[^>]*?>)').findall(item)
-        for match in temp_item:
-            item = item.replace(match, match.replace("\n", " "))
+	ret_lst = []
+	for item in html:
+		temp_item = re.compile('(<[^>]*?\n[^>]*?>)').findall(item)
+		for match in temp_item:
+			item = item.replace(match, match.replace("\n", " "))
 
-        lst = []
-        for key in attrs:
-            lst2 = re.compile('(<' + name + '[^>]*?(?:' + key + '=[\'"]' + attrs[key] + '[\'"].*?>))', re.M | re.S).findall(item)
-            if len(lst2) == 0 and attrs[key].find(" ") == -1:
-                lst2 = re.compile('(<' + name + '[^>]*?(?:' + key + '=' + attrs[key] + '.*?>))', re.M | re.S).findall(item)
+		lst = []
+		for key in attrs:
+			lst2 = re.compile('(<' + name + '[^>]*?(?:' + key + '=[\'"]' + attrs[key] + '[\'"].*?>))', re.M | re.S).findall(item)
+			if len(lst2) == 0 and attrs[key].find(" ") == -1:
+				lst2 = re.compile('(<' + name + '[^>]*?(?:' + key + '=' + attrs[key] + '.*?>))', re.M | re.S).findall(item)
 
-            if len(lst) == 0:
-                lst = lst2
-                lst2 = []
-            else:
-                test = range(len(lst))
-                test.reverse()
-                for i in test:
-                    if not lst[i] in lst2:
-                        del(lst[i])
+			if len(lst) == 0:
+				lst = lst2
+				lst2 = []
+			else:
+				test = range(len(lst))
+				test.reverse()
+				for i in test:
+					if not lst[i] in lst2:
+						del(lst[i])
 
-        if len(lst) == 0 and attrs == {}:
-            lst = re.compile('(<' + name + '>)', re.M | re.S).findall(item)
-            if len(lst) == 0:
-                lst = re.compile('(<' + name + ' .*?>)', re.M | re.S).findall(item)
+		if len(lst) == 0 and attrs == {}:
+			lst = re.compile('(<' + name + '>)', re.M | re.S).findall(item)
+			if len(lst) == 0:
+				lst = re.compile('(<' + name + ' .*?>)', re.M | re.S).findall(item)
 
-        if isinstance(ret, str):
-            lst2 = []
-            for match in lst:
-                attr_lst = re.compile('<' + name + '.*?' + ret + '=([\'"].[^>]*?[\'"])>', re.M | re.S).findall(match)
-                if len(attr_lst) == 0:
-                    attr_lst = re.compile('<' + name + '.*?' + ret + '=(.[^>]*?)>', re.M | re.S).findall(match)
-                for tmp in attr_lst:
-                    cont_char = tmp[0]
-                    if cont_char in "'\"":
-                        if tmp.find('=' + cont_char, tmp.find(cont_char, 1)) > -1:
-                            tmp = tmp[:tmp.find('=' + cont_char, tmp.find(cont_char, 1))]
+		if isinstance(ret, str):
+			lst2 = []
+			for match in lst:
+				attr_lst = re.compile('<' + name + '.*?' + ret + '=([\'"].[^>]*?[\'"])>', re.M | re.S).findall(match)
+				if len(attr_lst) == 0:
+					attr_lst = re.compile('<' + name + '.*?' + ret + '=(.[^>]*?)>', re.M | re.S).findall(match)
+				for tmp in attr_lst:
+					cont_char = tmp[0]
+					if cont_char in "'\"":
+						if tmp.find('=' + cont_char, tmp.find(cont_char, 1)) > -1:
+							tmp = tmp[:tmp.find('=' + cont_char, tmp.find(cont_char, 1))]
 
-                        if tmp.rfind(cont_char, 1) > -1:
-                            tmp = tmp[1:tmp.rfind(cont_char)]
-                    else:
-                        if tmp.find(" ") > 0:
-                            tmp = tmp[:tmp.find(" ")]
-                        elif tmp.find("/") > 0:
-                            tmp = tmp[:tmp.find("/")]
-                        elif tmp.find(">") > 0:
-                            tmp = tmp[:tmp.find(">")]
+						if tmp.rfind(cont_char, 1) > -1:
+							tmp = tmp[1:tmp.rfind(cont_char)]
+					else:
+						if tmp.find(" ") > 0:
+							tmp = tmp[:tmp.find(" ")]
+						elif tmp.find("/") > 0:
+							tmp = tmp[:tmp.find("/")]
+						elif tmp.find(">") > 0:
+							tmp = tmp[:tmp.find(">")]
 
-                    lst2.append(tmp.strip())
-            lst = lst2
-        else:
-            lst2 = []
-            for match in lst:
-                endstr = u"</" + name
+					lst2.append(tmp.strip())
+			lst = lst2
+		else:
+			lst2 = []
+			for match in lst:
+				endstr = u"</" + name
 
-                start = item.find(match)
-                end = item.find(endstr, start)
-                pos = item.find("<" + name, start + 1 )
+				start = item.find(match)
+				end = item.find(endstr, start)
+				pos = item.find("<" + name, start + 1 )
 
-                while pos < end and pos != -1:
-                    tend = item.find(endstr, end + len(endstr))
-                    if tend != -1:
-                        end = tend
-                    pos = item.find("<" + name, pos + 1)
+				while pos < end and pos != -1:
+					tend = item.find(endstr, end + len(endstr))
+					if tend != -1:
+						end = tend
+					pos = item.find("<" + name, pos + 1)
 
-                if start == -1 and end == -1:
-                    temp = u""
-                elif start > -1 and end > -1:
-                    temp = item[start + len(match):end]
-                elif end > -1:
-                    temp = item[:end]
-                elif start > -1:
-                    temp = item[start + len(match):]
+				if start == -1 and end == -1:
+					temp = u""
+				elif start > -1 and end > -1:
+					temp = item[start + len(match):end]
+				elif end > -1:
+					temp = item[:end]
+				elif start > -1:
+					temp = item[start + len(match):]
 
-                if ret:
-                    endstr = item[end:item.find(">", item.find(endstr)) + 1]
-                    temp = match + temp + endstr
+				if ret:
+					endstr = item[end:item.find(">", item.find(endstr)) + 1]
+					temp = match + temp + endstr
 
-                item = item[item.find(temp, item.find(match)) + len(temp):]
-                lst2.append(temp)
-            lst = lst2
-        ret_lst += lst
+				item = item[item.find(temp, item.find(match)) + len(temp):]
+				lst2.append(temp)
+			lst = lst2
+		ret_lst += lst
 
-    return ret_lst
+	return ret_lst
 
 
 def replaceHTMLCodes(txt):
-    txt = re.sub("(&#[0-9]+)([^;^0-9]+)", "\\1;\\2", txt)
-    txt = HTMLParser.HTMLParser().unescape(txt)
-    txt = txt.replace("&quot;", "\"")
-    txt = txt.replace("&amp;", "&")
-    return txt
+	txt = re.sub("(&#[0-9]+)([^;^0-9]+)", "\\1;\\2", txt)
+	txt = HTMLParser.HTMLParser().unescape(txt)
+	txt = txt.replace("&quot;", "\"")
+	txt = txt.replace("&amp;", "&")
+	return txt
 
 import os
 from shutil import *
