@@ -59,6 +59,7 @@
         <setting id="includegaia" type="bool" label="Include Gaia Cache DB: " default="true" enable="!eq(-9,false)" visible="!eq(-9,false)"/>
         <setting id="includemagicality" type="bool" label="Include Magicality Cache DB: " default="true" enable="!eq(-10,false)" visible="!eq(-10,false)"/>
 		<setting id="includeplacenta" type="bool" label="Include Placenta DB: " default="true" enable="!eq(-6,false)" visible="!eq(-6,false)"/>
+		<setting id="include13clowns" type="bool" label="Include 13Clowns DB: " default="true" enable="!eq(-7,false)" visible="!eq(-7,false)"/>
         <setting id="includeseren" type="bool" label="Include Seren Cache DB: " default="true" enable="!eq(-9,false)" visible="!eq(-9,false)"/>
 	</category>
 
@@ -84,12 +85,14 @@
 	<category label="Trakt Settings">
 		<setting type="lsep" label="Save Trakt Data:"/>
 		<setting id="keeptrakt" type="bool" label="Keep My Trakt Data" default="false"/>
+        <setting id="13clowns" type="text" label="13Clowns:" enable="false" default=""/>
         <setting id="exodusredux" type="text" label="Exodus Redux: " enable="false" default=""/>
         <setting id="gaia" type="text" label="Gaia: " enable="false" default=""/>
 		<setting id="placenta" type="text" label="Placenta: " enable="false" default=""/>
 		<setting id="magicality" type="text" label="Magicality: " enable="false" default=""/>
         <setting id="seren" type="text" label="Seren: " enable="false" default=""/>
         <setting id="trakt" type="text" label="Trakt: " enable="false" default=""/>
+        <setting id="zanni" type="text" label="Zanni:" enable="false" default=""/>
 		<setting id="traktlastsave" type="text" label="Last Time Trakt Saved: " enable="false" default=""/>
 		<setting id="keeptraktwizard" type="action" label="Trakt Save Data Menu - DOES NOTHING" action=""/>
 	</category>
@@ -117,6 +120,8 @@
 		<setting id="api-placenta" type="text" label="Placenta: " enable="false" default=""/>
 		<setting id="api-gaia" type="text" label="Gaia: " enable="false" default=""/>
 		<setting id="api-exodusredux" type="text" label="Exodus Redux: " enable="false" default=""/>
+		<setting id="api-13clowns" type="text" label="13Clowns:" enable="false" default=""/>
+        <setting id="api-zanni" type="text" label="Zanni:" enable="false" default=""/>
 		<setting id="api-magicality" type="text" label="Magicality: " enable="false" default=""/>
 		<setting id="api-eis" type="text" label="ExtendedInfo Script: " enable="false" default=""/>
 		<setting id="api-metahandler" type="text" label="metahandler: " enable="false" default=""/>
