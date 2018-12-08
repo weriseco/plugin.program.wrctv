@@ -6,12 +6,14 @@ Aftermath Wizard was created to help the Kodi community out and help get rid of 
 Currently, this version of the wizard supports:
 
 Trakt Saving:
- - Gaia
- - Placenta
- - Magicality
+ - 13Clowns
  - Exodus Redux
- - Trakt
+ - Gaia
+ - Magicality
+ - Placenta
  - Seren
+ - Trakt
+ - Zanni
  
 RD/PM Saving:
  - Gaia
@@ -21,6 +23,8 @@ RD/PM Saving:
  
 API Key Saving:
  - OpenSubtitles
+ - 13Clowns
+ - Zanni
  - Orion
  - Placenta
  - Gaia
