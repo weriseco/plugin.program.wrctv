@@ -88,7 +88,7 @@ LOGINID = {
 		'data'     : ['account.key', 'account.valid'],
 		'activate' : 'RunPlugin(plugin://script.module.orion/?action=settingsAccountLogin)'},
 	'tmdb-seren': {
-		'name'     : 'TMDB - Seren',
+		'name'     : 'TMDb - Seren',
 		'plugin'   : 'plugin.video.seren',
 		'saved'    : 'tmdb-seren',
 		'path'     : os.path.join(ADDONS, 'plugin.video.seren'),
@@ -136,7 +136,7 @@ LOGINID = {
 		'data'     : ['fanart.tv.user'],
 		'activate' : ''},
     'tmdb-placenta': {
-		'name'     : 'TMDB - Placenta',
+		'name'     : 'TMDb - Placenta',
 		'plugin'   : 'plugin.video.placenta',
 		'saved'    : 'tmdb-placenta',
 		'path'     : os.path.join(ADDONS, 'plugin.video.placenta'),
@@ -184,7 +184,7 @@ LOGINID = {
 		'data'     : ['accounts.informants.imdb.enabled', 'accounts.informants.imdb.user'],
 		'activate' : 'RunPlugin(plugin://plugin.video.gaia/?action=accountSettings)'},
 	'tmdb-gaia': {
-		'name'     : 'TMDB - Gaia',
+		'name'     : 'TMDb - Gaia',
 		'plugin'   : 'plugin.video.gaia',
 		'saved'    : 'tmdb-gaia',
 		'path'     : os.path.join(ADDONS, 'plugin.video.gaia'),
@@ -208,7 +208,7 @@ LOGINID = {
 		'data'     : ['fanart.tv.user'],
 		'activate' : ''},
 	'tmdb-magicality': {
-		'name'     : 'TMDB - Magicality',
+		'name'     : 'TMDb - Magicality',
 		'plugin'   : 'plugin.video.magicality',
 		'saved'    : 'tmdb-magicality',
 		'path'     : os.path.join(ADDONS, 'plugin.video.magicality'),
@@ -232,7 +232,7 @@ LOGINID = {
 		'data'     : ['imdb.user'],
 		'activate' : ''},
 	'login-eis': {
-		'name'     : 'TMDB Login - ExtendedInfo Script',
+		'name'     : 'TMDb Login - ExtendedInfo Script',
 		'plugin'   : 'script.extendedinfo',
 		'saved'    : 'login-eis',
 		'path'     : os.path.join(ADDONS, 'script.extendedinfo'),
@@ -244,7 +244,7 @@ LOGINID = {
 		'data'     : ['tmdb_username', 'tmdb_password'],
 		'activate' : ''},
 	'tmdb-eis': {
-		'name'     : 'TMDB - ExtendedInfo Script',
+		'name'     : 'TMDb - ExtendedInfo Script',
 		'plugin'   : 'script.extendedinfo',
 		'saved'    : 'tmdb-eis',
 		'path'     : os.path.join(ADDONS, 'script.extendedinfo'),
@@ -256,7 +256,7 @@ LOGINID = {
 		'data'     : ['tmdb_api'],
 		'activate' : ''},
 	'tmdb-metahandler': {
-		'name'     : 'TMDB - metahandler',
+		'name'     : 'TMDb - metahandler',
 		'plugin'   : 'script.module.metahandler',
 		'saved'    : 'tmdb-metahandler',
 		'path'     : os.path.join(ADDONS, 'script.module.metahandler'),
@@ -268,7 +268,7 @@ LOGINID = {
 		'data'     : ['tmdb_api_key', 'omdb_api_key', 'tvdb_api_key'],
 		'activate' : ''},
 	'omdb-metahandler': {
-		'name'     : 'OMDB - metahandler',
+		'name'     : 'OMDb - metahandler',
 		'plugin'   : 'script.module.metahandler',
 		'saved'    : 'omdb-metahandler',
 		'path'     : os.path.join(ADDONS, 'script.module.metahandler'),
@@ -304,7 +304,7 @@ LOGINID = {
 		'data'     : ['fanarttv_apikey', 'omdbapi_apikey', 'tmdb_apikey'],
 		'activate' : ''},
 	'omdb-metadatautils': {
-		'name'     : 'OMDB - script.module.metadatautils',
+		'name'     : 'OMDb - script.module.metadatautils',
 		'plugin'   : 'script.module.metadatautils',
 		'saved'    : 'omdb-metadatautils',
 		'path'     : os.path.join(ADDONS, 'script.module.metadatautils'),
@@ -316,7 +316,7 @@ LOGINID = {
 		'data'     : ['omdbapi_apikey'],
 		'activate' : ''},
 	'tmdb-metadatautils': {
-		'name'     : 'TMDB - script.module.metadatautils',
+		'name'     : 'TMDb - script.module.metadatautils',
 		'plugin'   : 'script.module.metadatautils',
 		'saved'    : 'tmdb-metadatautils',
 		'path'     : os.path.join(ADDONS, 'script.module.metadatautils'),
@@ -340,7 +340,7 @@ LOGINID = {
 		'data'     : ['fanart.tv.user'],
 		'activate' : ''},
 	'tmdb-exodusredux': {
-		'name'     : 'TMDB - Exodus Redux',
+		'name'     : 'TMDb - Exodus Redux',
 		'plugin'   : 'plugin.video.exodusredux',
 		'saved'    : 'tmdb-exodusredux',
 		'path'     : os.path.join(ADDONS, 'plugin.video.exodusredux'),
@@ -376,7 +376,7 @@ LOGINID = {
 		'data'     : ['fanart.tv.user'],
 		'activate' : ''},
 	'tmdb-13clowns': {
-		'name'     : 'TMDB - 13Clowns',
+		'name'     : 'TMDb - 13Clowns',
 		'plugin'   : 'plugin.video.13clowns',
 		'saved'    : 'tmdb-13clowns',
 		'path'     : os.path.join(ADDONS, 'plugin.video.13clowns'),
@@ -412,7 +412,7 @@ LOGINID = {
 		'data'     : ['fanart.tv.user', 'tm.user', 'imdb.user'],
 		'activate' : ''},
 	'tmdb-zanni': {
-		'name'     : 'TMDB - Zanni',
+		'name'     : 'TMDb - Zanni',
 		'plugin'   : 'plugin.video.zanni',
 		'saved'    : 'tmdb-zanni',
 		'path'     : os.path.join(ADDONS, 'plugin.video.zanni'),
@@ -448,7 +448,7 @@ LOGINID = {
 		'data'     : ['trakt_api_client_id', 'trakt_api_client_secret'],
 		'activate' : ''},
 	'tmdb-openmeta': {
-		'name'     : 'TMDB - OpenMeta',
+		'name'     : 'TMDb - OpenMeta',
 		'plugin'   : 'plugin.video.openmeta',
 		'saved'    : 'tmdb-openmeta',
 		'path'     : os.path.join(ADDONS, 'plugin.video.openmeta'),
