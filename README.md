@@ -5,7 +5,7 @@ Aftermath Wizard was created to help the Kodi community out and help get rid of 
 
 Currently, this version of the wizard supports:
 
-|  Add-on                            | Cache Clearing | Trakt | Real-Debrid | Premiumize | Trakt API | TMDB | TVDB | OMDB | IMDb | Fanart.tv | Location | Username/Password/Login |
+|  Add-on                            | Cache Clearing | Trakt | Real-Debrid | Premiumize | Trakt API | TMDb | TVDB | OMDb | IMDb | Fanart.tv | Location | Username/Password/Login |
 |------------------------------------|----------------|-------|-------------|------------|-----------|------|------|------|------|-----------|----------|-------------------------|
 | 13Clowns                           | [x]            | [x]   |             |            |           | [x]  |      |      | [x]  | [x]       |          |                         |
 | Exodus Redux                       | [x]            | [x]   |             |            |           | [x]  |      |      | [x]  | [x]       |          |                         |
