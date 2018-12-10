@@ -48,7 +48,7 @@ KEEPLOGIN      = wiz.getS('keeplogin')
 LOGINSAVE      = wiz.getS('loginlastsave')
 COLOR1         = uservar.COLOR1
 COLOR2         = uservar.COLOR2
-ORDER          = ['fanart-13clowns', 'fanart-exodusredux', 'fanart-gaia', 'fanart-magicality', 'fanart-metadatautils', 'fanart-placenta', 'fanart-zanni', 'imdb-13clowns', 'imdb-exodusredux', 'imdb-gaia', 'imdb-magicality', 'imdb-placenta', 'imdb-zanni', 'omdb-metadatautils', 'omdb-metahandler', 'login-opensubtitles', 'login-orion', 'tmdb-13clowns', 'tmdb-exodusredux', 'tmdb-eis', 'tmdb-gaia', 'tmdb-gaia', 'tmdb-magicality' ,'tmdb-metadatautils', 'tmdb-metahandler', 'tmdb-openmeta', 'tmdb-placenta', 'tmdb-seren', 'tmdb-seren', 'trakt-openmeta', 'trakt-seren', 'tvdb-metahandler', 'tvdb-openmeta', 'tvdb-seren']
+ORDER          = ['fanart-13clowns', 'fanart-exodusredux', 'fanart-gaia', 'fanart-magicality', 'fanart-metadatautils', 'fanart-placenta', 'fanart-zanni', 'imdb-13clowns', 'imdb-exodusredux', 'imdb-gaia', 'imdb-magicality', 'imdb-placenta', 'imdb-zanni', 'login-netflix', 'omdb-metadatautils', 'omdb-metahandler', 'login-opensubtitles', 'login-orion', 'tmdb-13clowns', 'tmdb-exodusredux', 'tmdb-eis', 'login-eis', 'tmdb-gaia', 'tmdb-gaia', 'tmdb-magicality' ,'tmdb-metadatautils', 'tmdb-metahandler', 'tmdb-openmeta', 'tmdb-placenta', 'tmdb-seren', 'tmdb-seren', 'trakt-openmeta', 'trakt-seren', 'tvdb-metahandler', 'tvdb-openmeta', 'tvdb-seren']
 
 LOGINID = {
 	'login-opensubtitles': {
@@ -220,7 +220,7 @@ LOGINID = {
 		'data'     : ['imdb.user'],
 		'activate' : ''},
 	'login-eis': {
-		'name'     : 'TMDB - ExtendedInfo Script',
+		'name'     : 'TMDB Login - ExtendedInfo Script',
 		'plugin'   : 'script.extendedinfo',
 		'saved'    : 'login-eis',
 		'path'     : os.path.join(ADDONS, 'script.extendedinfo'),
@@ -458,6 +458,18 @@ LOGINID = {
 		'settings' : os.path.join(ADDOND, 'plugin.video.openmeta', 'settings.xml'),
 		'default'  : 'tvdb_api',
 		'data'     : ['tvdb_api'],
+		'activate' : ''},
+	'login-netflix': {
+		'name'     : 'Netflix',
+		'plugin'   : 'plugin.video.netflix',
+		'saved'    : 'login-netflix',
+		'path'     : os.path.join(ADDONS, 'plugin.video.netflix'),
+		'icon'     : os.path.join(ADDONS, 'plugin.video.netflix', 'icon.jpg'),
+		'fanart'   : os.path.join(ADDONS, 'plugin.video.netflix', 'fanart.jpg'),
+		'file'     : os.path.join(LOGINFOLD, 'netflix_login'),
+		'settings' : os.path.join(ADDOND, 'plugin.video.netflix', 'settings.xml'),
+		'default'  : 'email',
+		'data'     : ['email', 'password'],
 		'activate' : ''}
 }
 
