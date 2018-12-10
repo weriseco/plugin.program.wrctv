@@ -48,7 +48,7 @@ KEEPLOGIN      = wiz.getS('keeplogin')
 LOGINSAVE      = wiz.getS('loginlastsave')
 COLOR1         = uservar.COLOR1
 COLOR2         = uservar.COLOR2
-ORDER          = ['fanart-13clowns', 'fanart-exodusredux', 'fanart-gaia', 'fanart-magicality', 'fanart-metadatautils', 'fanart-placenta', 'fanart-zanni', 'imdb-13clowns', 'imdb-exodusredux', 'imdb-gaia', 'imdb-magicality', 'imdb-placenta', 'imdb-zanni', 'login-netflix', 'omdb-metadatautils', 'omdb-metahandler', 'login-opensubtitles', 'login-opensubsbyopensubs', 'login-orion', 'tmdb-13clowns', 'tmdb-exodusredux', 'tmdb-eis', 'login-eis', 'tmdb-gaia', 'tmdb-gaia', 'tmdb-magicality' ,'tmdb-metadatautils', 'tmdb-metahandler', 'tmdb-openmeta', 'tmdb-placenta', 'tmdb-seren', 'tmdb-seren', 'trakt-openmeta', 'trakt-seren', 'tvdb-metahandler', 'tvdb-openmeta', 'tvdb-seren']
+ORDER          = ['fanart-13clowns', 'fanart-exodusredux', 'fanart-gaia', 'fanart-magicality', 'fanart-metadatautils', 'fanart-placenta', 'fanart-zanni', 'imdb-13clowns', 'imdb-exodusredux', 'imdb-gaia', 'imdb-magicality', 'imdb-placenta', 'imdb-zanni', 'login-netflix', 'omdb-metadatautils', 'omdb-metahandler', 'login-opensubtitles', 'login-opensubsbyopensubs', 'login-orion', 'tmdb-13clowns', 'tmdb-exodusredux', 'tmdb-eis', 'login-eis', 'tmdb-gaia', 'tmdb-gaia', 'tmdb-magicality' ,'tmdb-metadatautils', 'tmdb-metahandler', 'tmdb-openmeta', 'tmdb-placenta', 'tmdb-seren', 'tmdb-seren', 'trakt-openmeta', 'trakt-seren', 'tvdb-metahandler', 'tvdb-openmeta', 'tvdb-seren', 'location-yahoo']
 
 LOGINID = {
 	'login-opensubtitles': {
@@ -482,6 +482,18 @@ LOGINID = {
 		'settings' : os.path.join(ADDOND, 'plugin.video.netflix', 'settings.xml'),
 		'default'  : 'email',
 		'data'     : ['email', 'password'],
+		'activate' : ''},
+	'location-yahoo': {
+		'name'     : 'Yahoo! Weather',
+		'plugin'   : 'weather.yahoo',
+		'saved'    : 'location-yahoo',
+		'path'     : os.path.join(ADDONS, 'weather.yahoo'),
+		'icon'     : os.path.join(ADDONS, 'weather.yahoo', 'icon.png'),
+		'fanart'   : os.path.join(ADDONS, 'weather.yahoo', 'fanart.jpg'),
+		'file'     : os.path.join(LOGINFOLD, 'yahoo_location'),
+		'settings' : os.path.join(ADDOND, 'weather.yahoo', 'settings.xml'),
+		'default'  : 'Location1',
+		'data'     : ['Location1', 'Location1id', 'Location2', 'Location2id', 'Location3', 'Location3id', 'Location4', 'Location4id', 'Location5', 'Location5id'],
 		'activate' : ''}
 }
 
