@@ -21,7 +21,6 @@ import xbmc, xbmcaddon, xbmcgui, xbmcplugin, os, sys, xbmcvfs, glob
 import shutil
 import urllib2,urllib
 import re
-import zipfile
 import uservar
 import fnmatch
 try:    from sqlite3 import dbapi2 as database
@@ -85,6 +84,8 @@ INCLUDEVIDEO     = wiz.getS('includevideo')
 INCLUDEALL       = wiz.getS('includeall')
 INCLUDEPLACENTA    = wiz.getS('includeplacenta')
 INCLUDEEXODUSREDUX    = wiz.getS('includeexodusredux')
+INCLUDE13CLOWNS = wiz.getS('include13clowns')
+INCLUDEZANNI = wiz.getS('includezanni')
 INCLUDEGAIA     = wiz.getS('includegaia')
 INCLUDESEREN     = wiz.getS('includeseren')
 INCLUDEMAGICALITY   = wiz.getS('includemagicality')
@@ -120,7 +121,13 @@ AUTOFEQ          = int(float(AUTOFEQ)) if AUTOFEQ.isdigit() else 0
 TODAY            = date.today()
 TOMORROW         = TODAY + timedelta(days=1)
 THREEDAYS        = TODAY + timedelta(days=3)
+
 KODIV            = float(xbmc.getInfoLabel("System.BuildVersion")[:4])
+if KODIV > 17:
+	from resources.libs import zfile as zipfile
+else:
+	import zipfile
+
 MCNAME           = wiz.mediaCenter()
 EXCLUDES         = uservar.EXCLUDES
 CACHETEXT        = uservar.CACHETEXT
@@ -799,11 +806,15 @@ def maintMenu(view=None):
         includemagicality = 'true'
         includeexodusredux = 'true'
         includeseren = 'true'
+        include13clowns = 'true'
+        includezanni = 'true'
     else:
         includeexodusredux = 'true' if INCLUDEEXODUSREDUX     == 'true' else 'false'
         includeplacenta = 'true' if INCLUDEPLACENTA == 'true' else 'false'
         includegaia = 'true' if INCLUDEGAIA   == 'true' else 'false'
         includeseren = 'true' if INCLUDESEREN   == 'true' else 'false'
+        include13clowns = 'true' if INCLUDE13CLOWNS == 'true' else 'false'
+        includezanni = 'true' if INCLUDEZANNI == 'true' else 'false'
         includemagicality = 'true' if INCLUDEMAGICALITY == 'true' else 'false'
     sizepack   = wiz.getSize(PACKAGES)
     sizethumb  = wiz.getSize(THUMBS)
@@ -897,11 +908,13 @@ def maintMenu(view=None):
     addFile('Include Video Cache in Clear Cache: %s' % includevid.replace('true',on).replace('false',off), 'togglecache', 'includevideo', icon=ICONMAINT, themeit=THEME3)
     if includevid == 'true':
         addFile('--- Include All Video Addons: %s' % includeall.replace('true',on).replace('false',off), 'togglecache', 'includeall', icon=ICONMAINT, themeit=THEME3)
-        addFile('--- Include Placenta: %s' % includeplacenta.replace('true',on).replace('false',off), 'togglecache', 'includeplacenta', icon=ICONMAINT, themeit=THEME3)
+        addFile('--- Include 13Clowns: %s' % include13clowns.replace('true',on).replace('false',off), 'togglecache', 'include13clowns', icon=ICONMAINT, themeit=THEME3)
         addFile('--- Include Exodus Redux: %s' % includeexodusredux.replace('true',on).replace('false',off), 'togglecache', 'includeexodusredux', icon=ICONMAINT, themeit=THEME3)
         addFile('--- Include Gaia: %s' % includegaia.replace('true',on).replace('false',off), 'togglecache', 'includegaia', icon=ICONMAINT, themeit=THEME3)
-        addFile('--- Include Seren: %s' % includeseren.replace('true',on).replace('false',off), 'togglecache', 'includeseren', icon=ICONMAINT, themeit=THEME3)
         addFile('--- Include Magicality: %s' % includemagicality.replace('true',on).replace('false',off), 'togglecache', 'includemagicality', icon=ICONMAINT, themeit=THEME3)
+        addFile('--- Include Placenta: %s' % includeplacenta.replace('true',on).replace('false',off), 'togglecache', 'includeplacenta', icon=ICONMAINT, themeit=THEME3)
+        addFile('--- Include Seren: %s' % includeseren.replace('true',on).replace('false',off), 'togglecache', 'includeseren', icon=ICONMAINT, themeit=THEME3)
+        addFile('--- Include Zanni: %s' % includezanni.replace('true',on).replace('false',off), 'togglecache', 'includezanni', icon=ICONMAINT, themeit=THEME3)
         addFile('--- Enable All Video Addons', 'togglecache', 'true', icon=ICONMAINT, themeit=THEME3)
         addFile('--- Disable All Video Addons', 'togglecache', 'false', icon=ICONMAINT, themeit=THEME3)
     setView('files', 'viewType')
@@ -1137,14 +1150,14 @@ def saveMenu():
     whitelist  = 'true' if KEEPWHITELIST == 'true' else 'false'
 
     addDir ('Keep Trakt Data',               'trakt',                icon=ICONTRAKT, themeit=THEME1)
-    addDir ('Keep Real Debrid',              'realdebrid',           icon=ICONREAL,  themeit=THEME1)
-    addDir ('Keep API Keys',               'login',                icon=ICONLOGIN, themeit=THEME1)
+    addDir ('Keep Debrid',              'realdebrid',           icon=ICONREAL,  themeit=THEME1)
+    addDir ('Keep Login Info',               'login',                icon=ICONLOGIN, themeit=THEME1)
     addFile('Import Save Data',              'managedata', 'import', icon=ICONSAVE,  themeit=THEME1)
     addFile('Export Save Data',              'managedata', 'export', icon=ICONSAVE,  themeit=THEME1)
     addFile('- Click to toggle settings -', '', themeit=THEME3)
     addFile('Save Trakt: %s' % trakt.replace('true',on).replace('false',off)                       ,'togglesetting', 'keeptrakt',      icon=ICONTRAKT, themeit=THEME1)
-    addFile('Save Real Debrid: %s' % real.replace('true',on).replace('false',off)                  ,'togglesetting', 'keepdebrid',     icon=ICONREAL,  themeit=THEME1)
-    addFile('Save API Keys: %s' % login.replace('true',on).replace('false',off)                  ,'togglesetting', 'keeplogin',      icon=ICONLOGIN, themeit=THEME1)
+    addFile('Save Debrid: %s' % real.replace('true',on).replace('false',off)                  ,'togglesetting', 'keepdebrid',     icon=ICONREAL,  themeit=THEME1)
+    addFile('Save Login Info: %s' % login.replace('true',on).replace('false',off)                  ,'togglesetting', 'keeplogin',      icon=ICONLOGIN, themeit=THEME1)
     addFile('Keep \'Sources.xml\': %s' % sources.replace('true',on).replace('false',off)           ,'togglesetting', 'keepsources',    icon=ICONSAVE,  themeit=THEME1)
     addFile('Keep \'Profiles.xml\': %s' % profiles.replace('true',on).replace('false',off)         ,'togglesetting', 'keepprofiles',   icon=ICONSAVE,  themeit=THEME1)
     addFile('Keep \'Advancedsettings.xml\': %s' % advanced.replace('true',on).replace('false',off) ,'togglesetting', 'keepadvanced',   icon=ICONSAVE,  themeit=THEME1)
@@ -1231,11 +1244,11 @@ def realMenu():
             else:                        addFile('[COLOR springgreen]Saved Data: %s[/COLOR]' % user, '', icon=icon, fanart=fanart, menu=menu2)
 
     if HIDESPACERS == 'No': addFile(wiz.sep(), '', themeit=THEME3)
-    addFile('Save All Real Debrid Data',          'savedebrid',    'all', icon=ICONREAL,  themeit=THEME3)
-    addFile('Recover All Saved Real Debrid Data', 'restoredebrid', 'all', icon=ICONREAL,  themeit=THEME3)
-    addFile('Import Real Debrid Data',            'importdebrid',  'all', icon=ICONREAL,  themeit=THEME3)
-    addFile('Clear All Addon Real Debrid Data',               'addondebrid',   'all', icon=ICONREAL,  themeit=THEME3)
-    addFile('Clear All Saved Real Debrid Data',   'cleardebrid',   'all', icon=ICONREAL,  themeit=THEME3)
+    addFile('Save All Debrid Data',          'savedebrid',    'all', icon=ICONREAL,  themeit=THEME3)
+    addFile('Recover All Saved Debrid Data', 'restoredebrid', 'all', icon=ICONREAL,  themeit=THEME3)
+    addFile('Import Debrid Data',            'importdebrid',  'all', icon=ICONREAL,  themeit=THEME3)
+    addFile('Clear All Addon Debrid Data',               'addondebrid',   'all', icon=ICONREAL,  themeit=THEME3)
+    addFile('Clear All Saved Debrid Data',   'cleardebrid',   'all', icon=ICONREAL,  themeit=THEME3)
     setView('files', 'viewType')
 
 def loginMenu():
@@ -1270,11 +1283,11 @@ def loginMenu():
             else:                        addFile('[COLOR springgreen]Saved Data: %s[/COLOR]' % user, '', icon=icon, fanart=fanart, menu=menu2)
 
     if HIDESPACERS == 'No': addFile(wiz.sep(), '', themeit=THEME3)
-    addFile('Save All API Keys',          'savelogin',    'all', icon=ICONLOGIN,  themeit=THEME3)
-    addFile('Recover All Saved API Keys', 'restorelogin', 'all', icon=ICONLOGIN,  themeit=THEME3)
-    addFile('Import API Keys',            'importlogin',  'all', icon=ICONLOGIN,  themeit=THEME3)
-    addFile('Clear All Addon API Keys',         'addonlogin',   'all', icon=ICONLOGIN,  themeit=THEME3)
-    addFile('Clear All Saved API Keys',   'clearlogin',   'all', icon=ICONLOGIN,  themeit=THEME3)
+    addFile('Save All Login Info',          'savelogin',    'all', icon=ICONLOGIN,  themeit=THEME3)
+    addFile('Recover All Saved Login Info', 'restorelogin', 'all', icon=ICONLOGIN,  themeit=THEME3)
+    addFile('Import Login Info',            'importlogin',  'all', icon=ICONLOGIN,  themeit=THEME3)
+    addFile('Clear All Addon Login Info',         'addonlogin',   'all', icon=ICONLOGIN,  themeit=THEME3)
+    addFile('Clear All Saved Login Info',   'clearlogin',   'all', icon=ICONLOGIN,  themeit=THEME3)
     setView('files', 'viewType')
 
 def fixUpdate():
@@ -1770,8 +1783,8 @@ def createMenu(type, add, name):
     return menu_items
 
 def toggleCache(state):
-    cachelist = ['includevideo', 'includeall', 'includemagicality', 'includeplacenta', 'includeseren', 'includegaia', 'includeexodusredux']
-    titlelist = ['Include Video Addons', 'Include All Addons', 'Include Magicality', 'Include Placenta', 'Include Seren', 'Include Gaia', 'Include Exodus Redux']
+    cachelist = ['includevideo', 'includeall', 'include13clowns', 'includeexodusredux', 'includegaia', 'includemagicality', 'includeplacenta', 'includeseren', 'includezanni' ]
+    titlelist = ['Include Video Addons', 'Include All Addons', 'Include 13Clowns', 'Include Exodus Redux', 'Include Gaia', 'Include Magicality', 'Include Placenta', 'Include Seren', 'Include Zanni']
     if state in ['true', 'false']:
         for item in cachelist:
             wiz.setS(item, state)
