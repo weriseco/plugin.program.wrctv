@@ -48,7 +48,7 @@ KEEPTRAKT      = wiz.getS('keeptrakt')
 TRAKTSAVE      = wiz.getS('traktlastsave')
 COLOR1         = uservar.COLOR1
 COLOR2         = uservar.COLOR2
-ORDER          = ['13clowns', 'exodusredux', 'gaia', 'magicality', 'placenta', 'seren', 'trakt', 'zanni']
+ORDER          = ['13clowns', 'exodusredux', 'gaia', 'magicality', 'openmeta', 'placenta', 'seren', 'trakt', 'zanni']
 
 TRAKTID = {
     'placenta': {
@@ -146,7 +146,19 @@ TRAKTID = {
         'settings' : os.path.join(ADDOND, 'plugin.video.zanni', 'settings.xml'),
         'default'  : 'trakt.user',
         'data'     : ['trakt.user', 'trakt.refresh', 'trakt.token'],
-        'activate' : 'RunPlugin(plugin://plugin.video.zanni/?action=authTrakt)'}
+        'activate' : 'RunPlugin(plugin://plugin.video.zanni/?action=authTrakt)'},
+    'openmeta': {
+        'name'     : 'OpenMeta',
+        'plugin'   : 'plugin.video.openmeta',
+        'saved'    : 'openmeta',
+        'path'     : os.path.join(ADDONS, 'plugin.video.openmeta'),
+        'icon'     : os.path.join(ADDONS, 'plugin.video.openmeta', 'icon.jpg'),
+        'fanart'   : os.path.join(ADDONS, 'plugin.video.openmeta', 'fanart.jpg'),
+        'file'     : os.path.join(TRAKTFOLD, 'openmeta_trakt'),
+        'settings' : os.path.join(ADDOND, 'plugin.video.openmeta', 'settings.xml'),
+        'default'  : 'trakt_access_token',
+        'data'     : ['trakt_access_token', 'trakt_refresh_token', 'trakt_expires_at    '],
+        'activate' : 'RunPlugin(plugin://plugin.video.openmeta/authenticate_trakt)'}
 }
 
 def traktUser(who):
