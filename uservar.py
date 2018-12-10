@@ -8,14 +8,14 @@ ART            = os.path.join(PATH, 'resources', 'art')
 ### User Edit Variables #################################
 #########################################################
 ADDON_ID       = xbmcaddon.Addon().getAddonInfo('id')
-ADDONTITLE     = '[B][COLOR dodgerblue]Aftermath[/COLOR][/B] Wizard'
-BUILDERNAME    = 'Aftermath'
-EXCLUDES       = [ADDON_ID, 'repository.aftermath']
+ADDONTITLE     = 'WRC TV Wizard'
+BUILDERNAME    = 'weriseco'
+EXCLUDES       = [ADDON_ID, 'repository.weriseco']
 # Enable/Disable the text file caching with 'Yes' or 'No' and age being how often it rechecks in minutes
 CACHETEXT      = 'Yes'
 CACHEAGE       = 30
 # Text File with build info in it.
-BUILDFILE      = 'http://'
+BUILDFILE      = 'https://raw.githubusercontent.com/weriseco/Wizard/master/builds.txt'
 # How often you would like it to check for build updates in days
 # 0 being every startup of kodi
 UPDATECHECK    = 0
@@ -74,7 +74,7 @@ THEME5         = '[COLOR '+COLOR1+']Current Theme:[/COLOR] [COLOR '+COLOR2+']%s[
 # Enable 'Contact' menu item 'Yes' hide or 'No' dont hide
 HIDECONTACT    = 'No'
 # You can add \n to do line breaks
-CONTACT        = 'Thank you for choosing Aftermath Wizard.\n\nContact us on Github at http://www.github.com/drinfernoo/plugin.program.aftermath/'
+CONTACT        = 'Thank you for choosing WRCTV Wizard.'
 #Images used for the contact window.  http:// for default icon and fanart
 CONTACTICON    = os.path.join(ART, 'qricon.png')
 CONTACTFANART  = 'http://'
@@ -86,7 +86,7 @@ CONTACTFANART  = 'http://'
 # Enable Auto Update 'Yes' or 'No'
 AUTOUPDATE     = 'Yes'
 # Url to wizard version
-WIZARDFILE     = BUILDFILE
+WIZARDFILE     = 'https://raw.githubusercontent.com/weriseco/Wizard/master/autobuilds.txt'
 #########################################################
 
 #########################################################
@@ -95,11 +95,11 @@ WIZARDFILE     = BUILDFILE
 # Enable Auto Install 'Yes' or 'No'
 AUTOINSTALL    = 'Yes'
 # Addon ID for the repository
-REPOID         = 'repository.aftermath'
+REPOID         = 'repository.weriseco'
 # Url to Addons.xml file in your repo folder(this is so we can get the latest version)
-REPOADDONXML   = 'https://raw.githubusercontent.com/drinfernoo/drinfernoo.github.io/master/zips/addons.xml'
+REPOADDONXML   = 'https://raw.githubusercontent.com/weriseco/Addons/master/addon.xml'
 # Url to folder zip is located in
-REPOZIPURL     = 'https://raw.githubusercontent.com/drinfernoo/drinfernoo.github.io/master/zips/repository.aftermath/'
+REPOZIPURL     = 'https://github.com/weriseco/Addons/raw/master/repository.weriseco/'
 #########################################################
 
 #########################################################
