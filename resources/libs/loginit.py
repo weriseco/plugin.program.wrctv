@@ -48,18 +48,30 @@ KEEPLOGIN      = wiz.getS('keeplogin')
 LOGINSAVE      = wiz.getS('loginlastsave')
 COLOR1         = uservar.COLOR1
 COLOR2         = uservar.COLOR2
-ORDER          = ['fanart-13clowns', 'fanart-exodusredux', 'fanart-gaia', 'fanart-magicality', 'fanart-metadatautils', 'fanart-placenta', 'fanart-zanni', 'imdb-13clowns', 'imdb-exodusredux', 'imdb-gaia', 'imdb-magicality', 'imdb-placenta', 'imdb-zanni', 'login-netflix', 'omdb-metadatautils', 'omdb-metahandler', 'login-opensubtitles', 'login-orion', 'tmdb-13clowns', 'tmdb-exodusredux', 'tmdb-eis', 'login-eis', 'tmdb-gaia', 'tmdb-gaia', 'tmdb-magicality' ,'tmdb-metadatautils', 'tmdb-metahandler', 'tmdb-openmeta', 'tmdb-placenta', 'tmdb-seren', 'tmdb-seren', 'trakt-openmeta', 'trakt-seren', 'tvdb-metahandler', 'tvdb-openmeta', 'tvdb-seren']
+ORDER          = ['fanart-13clowns', 'fanart-exodusredux', 'fanart-gaia', 'fanart-magicality', 'fanart-metadatautils', 'fanart-placenta', 'fanart-zanni', 'imdb-13clowns', 'imdb-exodusredux', 'imdb-gaia', 'imdb-magicality', 'imdb-placenta', 'imdb-zanni', 'login-netflix', 'omdb-metadatautils', 'omdb-metahandler', 'login-opensubtitles', 'login-opensubsbyopensubs', 'login-orion', 'tmdb-13clowns', 'tmdb-exodusredux', 'tmdb-eis', 'login-eis', 'tmdb-gaia', 'tmdb-gaia', 'tmdb-magicality' ,'tmdb-metadatautils', 'tmdb-metahandler', 'tmdb-openmeta', 'tmdb-placenta', 'tmdb-seren', 'tmdb-seren', 'trakt-openmeta', 'trakt-seren', 'tvdb-metahandler', 'tvdb-openmeta', 'tvdb-seren']
 
 LOGINID = {
 	'login-opensubtitles': {
-		'name'     : 'OpenSubtitles',
+		'name'     : 'OpenSubtitles.org',
 		'plugin'   : 'service.subtitles.opensubtitles',
 		'saved'    : 'login-opensubtitles',
 		'path'     : os.path.join(ADDONS, 'service.subtitles.opensubtitles'),
-		'icon'     : os.path.join(ADDONS, 'service.subtitles.opensubtitles', 'icon.png'),
-		'fanart'   : os.path.join(ADDONS, 'service.subtitles.opensubtitles', 'fanart.jpg'),
+		'icon'     : os.path.join(ADDONS, 'service.subtitles.opensubtitles', 'resources/media/os_logo_512x512.png'),
+		'fanart'   : os.path.join(ADDONS, 'service.subtitles.opensubtitles', 'resources/media/os_fanart.jpg'),
 		'file'     : os.path.join(LOGINFOLD, 'opensub_login'),
 		'settings' : os.path.join(ADDOND, 'service.subtitles.opensubtitles', 'settings.xml'),
+		'default'  : 'OSuser',
+		'data'     : ['OSuser', 'OSpass'],
+		'activate' : ''},
+    'login-opensubsbyopensubs': {
+		'name'     : 'OpenSubtitles.org by OpenSubtitles',
+		'plugin'   : 'service.subtitles.opensubtitles_by_opensubtitles',
+		'saved'    : 'login-opensubtitles',
+		'path'     : os.path.join(ADDONS, 'service.subtitles.opensubtitles_by_opensubtitles'),
+		'icon'     : os.path.join(ADDONS, 'service.subtitles.opensubtitles_by_opensubtitles', 'resources/media/os_logo_512x512.png'),
+		'fanart'   : os.path.join(ADDONS, 'service.subtitles.opensubtitles_by_opensubtitles', 'resources/media/os_fanart.jpg'),
+		'file'     : os.path.join(LOGINFOLD, 'opensubsbyopensubs_login'),
+		'settings' : os.path.join(ADDOND, 'service.subtitles.opensubtitles_by_opensubtitles', 'settings.xml'),
 		'default'  : 'OSuser',
 		'data'     : ['OSuser', 'OSpass'],
 		'activate' : ''},
